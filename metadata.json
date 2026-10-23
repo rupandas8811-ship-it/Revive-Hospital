@@ -1,0 +1,6 @@
+{
+  "name": "Revive Healthcare Hospital - Surgical Care",
+  "description": "Dedicated surgical and medical treatment pages for Appendix, Piles, Fissure, Fistula, Gallstones, Hernia, Varicose Veins, and Diabetic Foot at Revive Healthcare Hospital, Bengaluru.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
