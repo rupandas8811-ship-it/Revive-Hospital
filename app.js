@@ -15,56 +15,131 @@
   const mobileInput = document.getElementById("mobile-number");
   const dateInput = document.getElementById("preferred-date");
 
-  document.getElementById("year").textContent = String(new Date().getFullYear());
+  const yearEl = document.getElementById("year");
+  if (yearEl) yearEl.textContent = String(new Date().getFullYear());
   if (dateInput) dateInput.min = localDateString(new Date());
 
-  const menuToggles = document.querySelectorAll(".menu-toggle, [data-open-drawer]");
-  const sideDrawer = document.getElementById("side-drawer");
-  const sideBackdrop = document.getElementById("side-drawer-backdrop");
-  const sideCloseBtn = document.getElementById("side-drawer-close");
+  function getDrawerElements() {
+    return {
+      sideDrawer: document.getElementById("side-drawer"),
+      sideBackdrop: document.getElementById("side-drawer-backdrop"),
+      menuToggles: document.querySelectorAll(".menu-toggle, [data-open-drawer]"),
+      sideCloseBtn: document.getElementById("side-drawer-close")
+    };
+  }
 
   function openDrawer() {
-    if (sideDrawer) sideDrawer.classList.add("is-open");
-    if (sideBackdrop) sideBackdrop.classList.add("is-open");
+    const els = getDrawerElements();
+    if (els.sideDrawer) {
+      els.sideDrawer.classList.add("is-open");
+      els.sideDrawer.setAttribute("aria-hidden", "false");
+    }
+    if (els.sideBackdrop) {
+      els.sideBackdrop.classList.add("is-open");
+      els.sideBackdrop.setAttribute("aria-hidden", "false");
+    }
     document.body.classList.add("drawer-open");
-    menuToggles.forEach(btn => btn.setAttribute("aria-expanded", "true"));
+    els.menuToggles.forEach(function (btn) {
+      btn.setAttribute("aria-expanded", "true");
+    });
+    if (els.sideCloseBtn) {
+      setTimeout(function () {
+        try { els.sideCloseBtn.focus(); } catch (e) {}
+      }, 60);
+    }
   }
 
   function closeDrawer() {
-    if (sideDrawer) sideDrawer.classList.remove("is-open");
-    if (sideBackdrop) sideBackdrop.classList.remove("is-open");
+    const els = getDrawerElements();
+    if (els.sideDrawer) {
+      els.sideDrawer.classList.remove("is-open");
+      els.sideDrawer.setAttribute("aria-hidden", "true");
+    }
+    if (els.sideBackdrop) {
+      els.sideBackdrop.classList.remove("is-open");
+      els.sideBackdrop.setAttribute("aria-hidden", "true");
+    }
     document.body.classList.remove("drawer-open");
-    menuToggles.forEach(btn => btn.setAttribute("aria-expanded", "false"));
+    els.menuToggles.forEach(function (btn) {
+      btn.setAttribute("aria-expanded", "false");
+    });
   }
 
-  menuToggles.forEach(function (btn) {
-    btn.addEventListener("click", function (e) {
+  function toggleDrawer() {
+    const sideDrawer = document.getElementById("side-drawer");
+    const isOpen = sideDrawer && sideDrawer.classList.contains("is-open");
+    if (isOpen) closeDrawer();
+    else openDrawer();
+  }
+
+  // Reliable Event Delegation for All Drawer Interactions across Desktop, Tablet & Mobile
+  document.addEventListener("click", function (e) {
+    const toggleBtn = e.target.closest(".menu-toggle, [data-open-drawer]");
+    if (toggleBtn) {
       e.preventDefault();
-      const isOpen = sideDrawer && sideDrawer.classList.contains("is-open");
-      if (isOpen) closeDrawer();
-      else openDrawer();
-    });
+      e.stopPropagation();
+      toggleDrawer();
+      return;
+    }
+
+    const closeBtn = e.target.closest(".side-drawer-close, [data-close-drawer]");
+    if (closeBtn) {
+      e.preventDefault();
+      e.stopPropagation();
+      closeDrawer();
+      return;
+    }
+
+    if (e.target.matches("#side-drawer-backdrop, .side-drawer-backdrop")) {
+      e.preventDefault();
+      e.stopPropagation();
+      closeDrawer();
+      return;
+    }
+
+    const drawerLink = e.target.closest(".side-drawer a, #side-drawer a");
+    if (drawerLink) {
+      const href = drawerLink.getAttribute("href");
+      if (href && href.startsWith("#")) {
+        e.preventDefault();
+        const targetId = href.slice(1);
+        const targetElement = document.getElementById(targetId) ||
+          (targetId === "why-revive" ? document.getElementById("care-options") : null) ||
+          (targetId === "care-options" ? document.getElementById("why-revive") : null) ||
+          (targetId === "specialist" ? document.getElementById("why-revive") : null);
+
+        closeDrawer();
+
+        if (targetElement) {
+          setTimeout(function () {
+            targetElement.scrollIntoView({ behavior: "smooth", block: "start" });
+            try {
+              history.pushState(null, "", href);
+            } catch (err) {
+              location.hash = href;
+            }
+          }, 80);
+        } else {
+          try {
+            history.pushState(null, "", href);
+          } catch (err) {
+            location.hash = href;
+          }
+        }
+        return;
+      }
+
+      // Close mobile/desktop drawer on external link or page transition
+      closeDrawer();
+    }
   });
 
-  if (sideCloseBtn) {
-    sideCloseBtn.addEventListener("click", closeDrawer);
-  }
-
-  if (sideBackdrop) {
-    sideBackdrop.addEventListener("click", closeDrawer);
-  }
-
-  if (sideDrawer) {
-    sideDrawer.querySelectorAll("a").forEach(function (link) {
-      link.addEventListener("click", function () {
-        closeDrawer();
-      });
-    });
-  }
-
   window.addEventListener("keydown", function (e) {
-    if (e.key === "Escape" && sideDrawer && sideDrawer.classList.contains("is-open")) {
-      closeDrawer();
+    if (e.key === "Escape") {
+      const sideDrawer = document.getElementById("side-drawer");
+      if (sideDrawer && sideDrawer.classList.contains("is-open")) {
+        closeDrawer();
+      }
     }
   });
 
@@ -94,19 +169,27 @@
     });
   });
 
-  if (consentChoice === "granted") enableOptionalMeasurement();
-  else if (!consentChoice) consentBanner.hidden = false;
+  if (consentBanner) {
+    if (consentChoice === "granted") enableOptionalMeasurement();
+    else if (!consentChoice) consentBanner.hidden = false;
+  }
 
-  document.getElementById("consent-allow").addEventListener("click", function () {
-    saveConsent("granted");
-    consentBanner.hidden = true;
-    enableOptionalMeasurement();
-  });
+  const consentAllowBtn = document.getElementById("consent-allow");
+  if (consentAllowBtn) {
+    consentAllowBtn.addEventListener("click", function () {
+      saveConsent("granted");
+      if (consentBanner) consentBanner.hidden = true;
+      enableOptionalMeasurement();
+    });
+  }
 
-  document.getElementById("consent-deny").addEventListener("click", function () {
-    saveConsent("denied");
-    consentBanner.hidden = true;
-  });
+  const consentDenyBtn = document.getElementById("consent-deny");
+  if (consentDenyBtn) {
+    consentDenyBtn.addEventListener("click", function () {
+      saveConsent("denied");
+      if (consentBanner) consentBanner.hidden = true;
+    });
+  }
 
   function readConsent() {
     try { return window.localStorage.getItem(consentKey); }
@@ -254,13 +337,14 @@
     return { name: cleanName, mobile: mobile };
   }
 
-  [nameInput, mobileInput, conditionSelect, document.getElementById("contact-consent")].forEach(function (field) {
+  const formFields = [nameInput, mobileInput, conditionSelect, document.getElementById("contact-consent")].filter(Boolean);
+  formFields.forEach(function (field) {
     field.addEventListener("input", function () {
       if (field === nameInput || field === mobileInput) validateField(field);
-      if (statusBox.classList.contains("is-error")) clearStatus();
+      if (statusBox && statusBox.classList.contains("is-error")) clearStatus();
     });
     field.addEventListener("change", function () {
-      if (statusBox.classList.contains("is-error")) clearStatus();
+      if (statusBox && statusBox.classList.contains("is-error")) clearStatus();
       if (field === conditionSelect) conditionSelect.setAttribute("aria-invalid", String(!conditionSelect.validity.valid));
     });
   });
@@ -269,16 +353,19 @@
     if (field === nameInput) {
       field.setCustomValidity(field.value.trim().length >= 2 ? "" : "Please enter your name.");
       field.setAttribute("aria-invalid", String(!field.validity.valid));
-      document.getElementById("name-error").textContent = field.validity.valid ? "" : "Please enter your name.";
+      const errEl = document.getElementById("name-error");
+      if (errEl) errEl.textContent = field.validity.valid ? "" : "Please enter your name.";
     }
     if (field === mobileInput) {
       field.setCustomValidity(normalizeMobile(field.value) ? "" : "Enter a valid 10-digit Indian mobile number, with or without +91.");
       field.setAttribute("aria-invalid", String(!field.validity.valid));
-      document.getElementById("mobile-error").textContent = field.validity.valid ? "" : "Enter a valid 10-digit Indian mobile number, with or without +91.";
+      const errEl = document.getElementById("mobile-error");
+      if (errEl) errEl.textContent = field.validity.valid ? "" : "Enter a valid 10-digit Indian mobile number, with or without +91.";
     }
   }
 
-  form.addEventListener("submit", async function (event) {
+  if (form) {
+    form.addEventListener("submit", async function (event) {
     event.preventDefault();
     clearStatus();
     const validated = validateForm();
@@ -414,6 +501,7 @@
       submitButton.innerHTML = "Request an Appointment <span aria-hidden=\"true\">→</span>";
     }
   });
+  }
 
   function createSubmissionId() {
     if (window.crypto && typeof window.crypto.randomUUID === "function") return window.crypto.randomUUID();

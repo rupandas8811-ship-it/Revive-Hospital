@@ -5,6 +5,6 @@ window.REVIVE_LANDING_CONFIG = {
 
   // Google identifiers are optional and remain inactive until a visitor opts in.
   googleAnalyticsMeasurementId: "",
-  googleAdsConversionId: "",
+  googleAdsConversionId: "AW-18532399329",
   googleAdsLeadConversionLabel: ""
 };
