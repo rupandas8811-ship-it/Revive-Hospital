@@ -269,147 +269,210 @@
           </div>
           <div class="hero-note"><span class="lock-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="4.5" y="10" width="15" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg></span><span>Early clinical evaluation helps prevent sudden complications like obstruction or strangulation.</span></div>
           
-          <!-- 2D Medical Anatomy Illustration for Hernia -->
-          <div class="medical-illustration-stage" aria-label="Clinical illustration of abdominal fascial defect and laparoscopic tension-free mesh reconstruction">
-            <div class="medical-illustration-badge">
-              <span class="medical-illustration-badge-dot"></span>
-              <span>2D Abdominal Wall · Tension-Free Mesh Hernioplasty</span>
+          <!-- Authentic Clinical Anatomical Illustration for Hernia -->
+          <div class="medical-illustration-stage" aria-label="Clinical anatomical illustration of abdominal wall strata, fascial defect, and tension-free retro-muscular mesh hernioplasty">
+            <div class="medical-figure-header">
+              <div class="medical-figure-badge">
+                <span class="medical-figure-badge-dot"></span>
+                <span>Figure 1 · Anatomical Reference</span>
+              </div>
+              <p class="medical-figure-title">Abdominal Wall Musculofascial Layers · Hernial Defect &amp; Sublay Mesh Repair</p>
             </div>
+            
             <div class="medical-illustration-wrap">
-              <svg viewBox="0 0 540 320" role="img" aria-label="Detailed 2D cross-section showing muscular abdominal wall, fascial defect, reduced hernia sac, and wide-overlap prosthetic mesh repair">
+              <svg viewBox="0 0 680 430" role="img" aria-label="Medically accurate transverse cross-section of abdominal wall showing skin, subcutaneous fat, anterior rectus sheath, rectus muscle, transversalis fascia, hernial defect, and wide-overlap prosthetic mesh">
                 <defs>
-                  <linearGradient id="herniaBg" x1="0" y1="0" x2="1" y2="1">
-                    <stop offset="0%" stop-color="#f8fafc"/>
-                    <stop offset="100%" stop-color="#eff6ff"/>
+                  <!-- Anatomical Gradients -->
+                  <linearGradient id="herniaSkinGrad" x1="0" y1="0" x2="1" y2="0">
+                    <stop offset="0%" stop-color="#f2cfc7"/>
+                    <stop offset="100%" stop-color="#e2b4ab"/>
                   </linearGradient>
-                  <linearGradient id="rectusMuscle" x1="0" y1="0" x2="1" y2="0">
-                    <stop offset="0%" stop-color="#fca5a5"/>
-                    <stop offset="50%" stop-color="#ef4444"/>
-                    <stop offset="100%" stop-color="#dc2626"/>
+                  <linearGradient id="herniaFatGrad" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#fef9c3"/>
+                    <stop offset="100%" stop-color="#fef08a"/>
                   </linearGradient>
-                  <linearGradient id="fatLayer" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="0%" stop-color="#fef08a"/>
-                    <stop offset="100%" stop-color="#fde047"/>
+                  <linearGradient id="herniaMuscleGrad" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#d6685c"/>
+                    <stop offset="50%" stop-color="#c14b3f"/>
+                    <stop offset="100%" stop-color="#aa362b"/>
                   </linearGradient>
-                  <linearGradient id="meshGrad" x1="0" y1="0" x2="1" y2="1">
-                    <stop offset="0%" stop-color="#38bdf8"/>
-                    <stop offset="100%" stop-color="#0284c7"/>
-                  </linearGradient>
-                  <pattern id="meshWeave" width="8" height="8" patternUnits="userSpaceOnUse">
-                    <path d="M 0 0 L 8 8 M 8 0 L 0 8" fill="none" stroke="#0284c7" stroke-width="1.2" opacity="0.6"/>
-                    <rect width="8" height="8" fill="none" stroke="#38bdf8" stroke-width="0.5" opacity="0.3"/>
+                  <pattern id="herniaMuscleFibers" width="6" height="4" patternUnits="userSpaceOnUse">
+                    <line x1="0" y1="2" x2="6" y2="2" stroke="#ffffff" stroke-width="0.8" opacity="0.35"/>
                   </pattern>
-                  <filter id="meshGlow" x="-20%" y="-20%" width="140%" height="140%">
-                    <feGaussianBlur stdDeviation="3" result="blur"/>
-                    <feComposite in="SourceGraphic" in2="blur" operator="over"/>
-                  </filter>
+                  <pattern id="surgicalMeshPattern" width="7" height="7" patternUnits="userSpaceOnUse">
+                    <line x1="0" y1="0" x2="7" y2="7" stroke="#0284c7" stroke-width="1.2" opacity="0.7"/>
+                    <line x1="7" y1="0" x2="0" y2="7" stroke="#0284c7" stroke-width="1.2" opacity="0.7"/>
+                    <rect width="7" height="7" fill="none" stroke="#38bdf8" stroke-width="0.5" opacity="0.35"/>
+                  </pattern>
                 </defs>
-                <rect width="540" height="320" rx="16" fill="url(#herniaBg)"/>
 
-                <!-- Subtle surgical calibration grid -->
-                <g stroke="#cbd5e1" stroke-width="0.5" stroke-opacity="0.35" stroke-dasharray="4 6">
-                  <line x1="40" y1="60" x2="500" y2="60"/>
-                  <line x1="40" y1="130" x2="500" y2="130"/>
-                  <line x1="40" y1="200" x2="500" y2="200"/>
-                  <line x1="40" y1="270" x2="500" y2="270"/>
-                  <line x1="160" y1="20" x2="160" y2="300"/>
-                  <line x1="380" y1="20" x2="380" y2="300"/>
+                <!-- Clean Canvas Background -->
+                <rect width="680" height="430" fill="#ffffff" rx="8"/>
+
+                <!-- Layer 1: Skin (Epidermis & Dermis - Superficial layer) -->
+                <path d="M40 38 L640 38 L640 46 L40 46 Z" fill="url(#herniaSkinGrad)" stroke="#c9958b" stroke-width="0.8"/>
+                
+                <!-- Layer 2: Subcutaneous Adipose Tissue (Camper's & Scarpa's Fat) -->
+                <path d="M40 46 L640 46 L640 88 L40 88 Z" fill="url(#herniaFatGrad)" opacity="0.8" stroke="#fde047" stroke-width="0.5"/>
+                <!-- Adipose lobule circles -->
+                <g fill="none" stroke="#facc15" stroke-width="0.7" opacity="0.6">
+                  <ellipse cx="90" cy="67" rx="14" ry="10"/>
+                  <ellipse cx="140" cy="65" rx="16" ry="11"/>
+                  <ellipse cx="200" cy="68" rx="15" ry="10"/>
+                  <ellipse cx="250" cy="66" rx="14" ry="9"/>
+                  <ellipse cx="430" cy="66" rx="15" ry="9"/>
+                  <ellipse cx="480" cy="68" rx="16" ry="10"/>
+                  <ellipse cx="540" cy="65" rx="15" ry="11"/>
+                  <ellipse cx="590" cy="67" rx="14" ry="10"/>
                 </g>
 
-                <!-- Layer 1: Skin & Subcutaneous Fat (Top) -->
-                <!-- Skin line -->
-                <path d="M40 45 L500 45" stroke="#94a3b8" stroke-width="3" stroke-linecap="round"/>
-                <text x="440" y="38" font-size="10" fill="#64748b" font-family="system-ui, sans-serif">Skin Surface</text>
-                <!-- Subcutaneous adipose layer -->
-                <rect x="40" y="48" width="460" height="36" fill="url(#fatLayer)" opacity="0.4" rx="4"/>
+                <!-- Layer 3: Anterior Rectus Sheath (Tough pearlescent fibrous aponeurosis) -->
+                <!-- Left anterior sheath -->
+                <path d="M40 88 L230 88" stroke="#94a3b8" stroke-width="3" stroke-linecap="round"/>
+                <!-- Right anterior sheath -->
+                <path d="M450 88 L640 88" stroke="#94a3b8" stroke-width="3" stroke-linecap="round"/>
 
-                <!-- Layer 2: Anterior Rectus Sheath Fascia -->
-                <path d="M40 88 L500 88" stroke="#cbd5e1" stroke-width="3"/>
+                <!-- Layer 4: Rectus Abdominis Musculature (Flanking the central defect) -->
+                <!-- Left Rectus Muscle belly -->
+                <path d="M40 92 L230 92 L230 185 L40 185 Z" fill="url(#herniaMuscleGrad)" stroke="#8e2b22" stroke-width="1.2"/>
+                <path d="M40 92 L230 92 L230 185 L40 185 Z" fill="url(#herniaMuscleFibers)"/>
+                <!-- Right Rectus Muscle belly -->
+                <path d="M450 92 L640 92 L640 185 L450 185 Z" fill="url(#herniaMuscleGrad)" stroke="#8e2b22" stroke-width="1.2"/>
+                <path d="M450 92 L640 92 L640 185 L450 185 Z" fill="url(#herniaMuscleFibers)"/>
 
-                <!-- Layer 3: Abdominal Muscular Layer with Hernial Ring Gap in center -->
-                <!-- Left muscle block -->
-                <path d="M40 92 L200 92 L200 170 L40 170 Z" fill="url(#rectusMuscle)" opacity="0.8" stroke="#b91c1c" stroke-width="1.5"/>
-                <!-- Muscle fiber striations left -->
-                <g stroke="#ffffff" stroke-width="1" opacity="0.3">
-                  <line x1="60" y1="100" x2="180" y2="100"/>
-                  <line x1="60" y1="120" x2="190" y2="120"/>
-                  <line x1="60" y1="140" x2="180" y2="140"/>
-                  <line x1="60" y1="160" x2="190" y2="160"/>
+                <!-- Layer 5: Posterior Rectus Sheath & Transversalis Fascia -->
+                <!-- Left posterior sheath -->
+                <path d="M40 185 L230 185" stroke="#94a3b8" stroke-width="2.5" stroke-linecap="round"/>
+                <!-- Right posterior sheath -->
+                <path d="M450 185 L640 185" stroke="#94a3b8" stroke-width="2.5" stroke-linecap="round"/>
+
+                <!-- Layer 6: Preperitoneal Fat Space -->
+                <rect x="40" y="188" width="600" height="20" fill="url(#herniaFatGrad)" opacity="0.45"/>
+
+                <!-- Layer 7: Parietal Peritoneum (Deepest lining facing peritoneal cavity) -->
+                <path d="M40 208 L220 208 C226 208 232 206 235 200 C242 185 248 160 255 135 C265 95 285 70 340 70 C395 70 415 95 425 135 C432 160 438 185 445 200 C448 206 454 208 460 208 L640 208" fill="none" stroke="#e11d48" stroke-width="2.5"/>
+
+                <!-- ==================== HERNIAL SAC PATHOLOGY ==================== -->
+                <!-- Hernia Defect (Ring opening in the fascial line, width = 220px: 230 to 450) -->
+                <!-- Protruding Peritoneal Sac (Dotted outline showing original bulging hernia) -->
+                <path d="M230 88 C238 60 270 48 340 48 C410 48 442 60 450 88" fill="none" stroke="#f43f5e" stroke-width="1.8" stroke-dasharray="3 3"/>
+                <text x="310" y="62" font-size="9.5" fill="#be123c" font-weight="600" font-family="system-ui, sans-serif">Hernia Sac Bulge</text>
+
+                <!-- Hernial Ring Margins (Firm aponeurotic borders of the defect) -->
+                <circle cx="230" cy="88" r="4" fill="#be123c"/>
+                <circle cx="450" cy="88" r="4" fill="#be123c"/>
+                <!-- Arrow showing anatomical width of the fascial gap -->
+                <line x1="235" y1="98" x2="445" y2="98" stroke="#dc2626" stroke-width="1.2"/>
+                <text x="290" y="112" font-size="10" font-weight="700" fill="#dc2626" font-family="system-ui, sans-serif">Fascial Ring Defect</text>
+
+                <!-- Reposited Intra-abdominal Contents (Omentum / small bowel reduced into abdomen) -->
+                <g fill="#fecdd3" stroke="#f43f5e" stroke-width="1" opacity="0.6">
+                  <path d="M260 230 C275 215 305 215 320 230 C335 245 365 245 380 230 C395 215 415 220 420 235 C410 260 380 270 340 270 C300 270 270 260 260 230 Z"/>
                 </g>
-                <text x="70" y="136" font-size="12" font-weight="700" fill="#ffffff" font-family="system-ui, sans-serif">Rectus Muscle</text>
+                <text x="282" y="248" font-size="9.5" fill="#9f1239" font-family="system-ui, sans-serif">Reposited Visceral Contents</text>
 
-                <!-- Right muscle block -->
-                <path d="M340 92 L500 92 L500 170 L340 170 Z" fill="url(#rectusMuscle)" opacity="0.8" stroke="#b91c1c" stroke-width="1.5"/>
-                <!-- Muscle fiber striations right -->
-                <g stroke="#ffffff" stroke-width="1" opacity="0.3">
-                  <line x1="360" y1="100" x2="480" y2="100"/>
-                  <line x1="350" y1="120" x2="480" y2="120"/>
-                  <line x1="360" y1="140" x2="480" y2="140"/>
-                  <line x1="350" y1="160" x2="480" y2="160"/>
-                </g>
-                <text x="375" y="136" font-size="12" font-weight="700" fill="#ffffff" font-family="system-ui, sans-serif">Rectus Muscle</text>
-
-                <!-- Center: Fascial Defect / Hernia Ring Opening -->
-                <g id="herniaDefectGap">
-                  <path d="M200 92 C210 115 220 135 270 135 C320 135 330 115 340 92" fill="none" stroke="#ef4444" stroke-width="2.5" stroke-dasharray="3 3"/>
-                  <!-- Reduced Peritoneal Sac indication (safely reposited) -->
-                  <path d="M215 170 C225 185 245 200 270 200 C295 200 315 185 325 170" fill="#fecdd3" opacity="0.6" stroke="#fb7185" stroke-width="1.5"/>
-                  <text x="232" y="190" font-size="9.5" font-weight="600" fill="#be123c" font-family="system-ui, sans-serif">Reduced Peritoneum</text>
-                </g>
-
-                <!-- Layer 4: Prosthetic Mesh Reconstruction (Underlay / Retro-muscular plane) -->
-                <!-- Spanning across defect with wide 5cm lateral margins -->
-                <g id="meshRepair" filter="url(#meshGlow)">
-                  <rect x="150" y="174" width="240" height="34" rx="8" fill="url(#meshGrad)" opacity="0.25" stroke="#0284c7" stroke-width="2"/>
-                  <rect x="150" y="174" width="240" height="34" rx="8" fill="url(#meshWeave)"/>
-                  <!-- Fixation anchors / Laparoscopic Tacks -->
-                  <circle cx="165" cy="191" r="5" fill="#0f172a" stroke="#38bdf8" stroke-width="1.5"/>
-                  <circle cx="210" cy="191" r="5" fill="#0f172a" stroke="#38bdf8" stroke-width="1.5"/>
-                  <circle cx="330" cy="191" r="5" fill="#0f172a" stroke="#38bdf8" stroke-width="1.5"/>
-                  <circle cx="375" cy="191" r="5" fill="#0f172a" stroke="#38bdf8" stroke-width="1.5"/>
-                </g>
-
-                <!-- Intra-abdominal Cavity (Bottom) -->
-                <text x="215" y="240" font-size="11" fill="#64748b" font-weight="500" font-family="system-ui, sans-serif">Pre-peritoneal / Retromuscular Plane</text>
-
-                <!-- Medical Callout Badges -->
-                <!-- Fascial Defect Marker -->
-                <g transform="translate(195, 55)">
-                  <rect width="150" height="32" rx="6" fill="#ffffff" stroke="#e2e8f0" filter="drop-shadow(0 2px 4px rgba(0,0,0,0.06))"/>
-                  <circle cx="14" cy="16" r="4" fill="#ef4444"/>
-                  <text x="26" y="14" font-size="10" font-weight="700" fill="#0f172a" font-family="system-ui, sans-serif">Fascial Ring Defect</text>
-                  <text x="26" y="26" font-size="8.5" fill="#dc2626" font-family="system-ui, sans-serif">Closed without tension</text>
+                <!-- ==================== TENSION-FREE PROSTHETIC MESH REPAIR ==================== -->
+                <!-- Wide-Overlap Sublay Prosthetic Mesh (Spanning retro-muscular / preperitoneal space) -->
+                <!-- Mesh width: 140 to 540 (400px wide, providing wide overlap >5cm past both 230 and 450 defect margins) -->
+                <g id="prostheticMesh">
+                  <rect x="140" y="178" width="400" height="24" rx="4" fill="#0284c7" opacity="0.15" stroke="#0284c7" stroke-width="1.8"/>
+                  <rect x="140" y="178" width="400" height="24" rx="4" fill="url(#surgicalMeshPattern)"/>
+                  
+                  <!-- Laparoscopic / Open Fixation Anchors (Tacks / Suture knots) -->
+                  <circle cx="160" cy="190" r="4" fill="#0f172a" stroke="#38bdf8" stroke-width="1.2"/>
+                  <circle cx="210" cy="190" r="4" fill="#0f172a" stroke="#38bdf8" stroke-width="1.2"/>
+                  <circle cx="470" cy="190" r="4" fill="#0f172a" stroke="#38bdf8" stroke-width="1.2"/>
+                  <circle cx="520" cy="190" r="4" fill="#0f172a" stroke="#38bdf8" stroke-width="1.2"/>
                 </g>
 
-                <!-- Composite Mesh Callout -->
-                <g transform="translate(140, 260)">
-                  <rect width="260" height="36" rx="6" fill="#ffffff" stroke="#e2e8f0" filter="drop-shadow(0 2px 4px rgba(0,0,0,0.06))"/>
-                  <circle cx="16" cy="18" r="4" fill="#0284c7"/>
-                  <text x="28" y="16" font-size="10.5" font-weight="700" fill="#0f172a" font-family="system-ui, sans-serif">Tension-Free 3D Composite Mesh</text>
-                  <text x="28" y="28" font-size="9" fill="#0284c7" font-weight="600" font-family="system-ui, sans-serif">Wide 5cm overlap prevents recurrence</text>
+                <!-- Wide Overlap Markers (>= 3-5 cm on each side) -->
+                <line x1="140" y1="210" x2="230" y2="210" stroke="#0284c7" stroke-width="1.5" stroke-dasharray="2 2"/>
+                <text x="145" y="224" font-size="9" font-weight="700" fill="#0284c7" font-family="system-ui, sans-serif">≥5cm Overlap Margin</text>
+                
+                <line x1="450" y1="210" x2="540" y2="210" stroke="#0284c7" stroke-width="1.5" stroke-dasharray="2 2"/>
+                <text x="455" y="224" font-size="9" font-weight="700" fill="#0284c7" font-family="system-ui, sans-serif">≥5cm Overlap Margin</text>
+
+                <!-- Peritoneal Cavity (Deep interior) -->
+                <text x="270" y="300" font-size="11" font-weight="600" fill="#64748b" font-family="system-ui, sans-serif">Intra-Abdominal Peritoneal Cavity</text>
+
+                <!-- ==================== PROFESSIONAL CLINICAL ANNOTATIONS ==================== -->
+                <!-- LEFT SIDE LABELS -->
+                <!-- Skin & Fat Callout -->
+                <line x1="120" y1="42" x2="80" y2="20" stroke="#475569" stroke-width="1.2"/>
+                <circle cx="120" cy="42" r="2.5" fill="#0f172a"/>
+                <g transform="translate(15, 10)">
+                  <rect width="160" height="34" rx="5" fill="#ffffff" stroke="#cbd5e1" stroke-width="1" filter="drop-shadow(0 2px 4px rgba(0,0,0,0.06))"/>
+                  <text x="8" y="15" font-size="10.5" font-weight="700" fill="#0f172a" font-family="system-ui, sans-serif">Skin &amp; Subcutaneous Fat</text>
+                  <text x="8" y="27" font-size="9" fill="#64748b" font-family="system-ui, sans-serif">Camper's &amp; Scarpa's fascia</text>
+                </g>
+
+                <!-- Anterior Rectus Sheath -->
+                <line x1="170" y1="88" x2="90" y2="120" stroke="#475569" stroke-width="1.2"/>
+                <circle cx="170" cy="88" r="2.5" fill="#0f172a"/>
+                <g transform="translate(15, 105)">
+                  <rect width="165" height="42" rx="5" fill="#ffffff" stroke="#cbd5e1" stroke-width="1" filter="drop-shadow(0 2px 4px rgba(0,0,0,0.06))"/>
+                  <text x="8" y="17" font-size="10.5" font-weight="700" fill="#0f172a" font-family="system-ui, sans-serif">Anterior Rectus Sheath</text>
+                  <text x="8" y="32" font-size="9" fill="#64748b" font-family="system-ui, sans-serif">Strong fibrous aponeurosis</text>
+                </g>
+
+                <!-- Rectus Muscle -->
+                <line x1="120" y1="140" x2="90" y2="175" stroke="#475569" stroke-width="1.2"/>
+                <circle cx="120" cy="140" r="2.5" fill="#0f172a"/>
+                <g transform="translate(15, 165)">
+                  <rect width="165" height="42" rx="5" fill="#ffffff" stroke="#cbd5e1" stroke-width="1" filter="drop-shadow(0 2px 4px rgba(0,0,0,0.06))"/>
+                  <text x="8" y="17" font-size="10.5" font-weight="700" fill="#0f172a" font-family="system-ui, sans-serif">Rectus Abdominis Muscle</text>
+                  <text x="8" y="32" font-size="9" fill="#64748b" font-family="system-ui, sans-serif">Primary abdominal wall muscle</text>
+                </g>
+
+                <!-- RIGHT SIDE LABELS -->
+                <!-- Fascial Defect Margin Callout -->
+                <line x1="450" y1="88" x2="520" y2="80" stroke="#dc2626" stroke-width="1.2"/>
+                <circle cx="450" cy="88" r="2.5" fill="#dc2626"/>
+                <g transform="translate(505, 60)">
+                  <rect width="165" height="42" rx="5" fill="#ffffff" stroke="#fca5a5" stroke-width="1.2" filter="drop-shadow(0 2px 4px rgba(0,0,0,0.06))"/>
+                  <text x="8" y="17" font-size="10.5" font-weight="700" fill="#991b1b" font-family="system-ui, sans-serif">Hernial Ring Defect</text>
+                  <text x="8" y="32" font-size="9" fill="#dc2626" font-family="system-ui, sans-serif">Fascial gap causing protrusion</text>
+                </g>
+
+                <!-- Tension-Free Mesh Callout -->
+                <line x1="480" y1="190" x2="520" y2="155" stroke="#0284c7" stroke-width="1.2"/>
+                <circle cx="480" cy="190" r="2.5" fill="#0284c7"/>
+                <g transform="translate(505, 135)">
+                  <rect width="165" height="42" rx="5" fill="#ffffff" stroke="#93c5fd" stroke-width="1.2" filter="drop-shadow(0 2px 4px rgba(0,0,0,0.06))"/>
+                  <text x="8" y="17" font-size="10.5" font-weight="700" fill="#1e3a8a" font-family="system-ui, sans-serif">3D Prosthetic Mesh</text>
+                  <text x="8" y="32" font-size="9" fill="#0284c7" font-family="system-ui, sans-serif">Preperitoneal tension-free sublay</text>
+                </g>
+
+                <!-- Parietal Peritoneum Callout -->
+                <line x1="500" y1="208" x2="520" y2="230" stroke="#475569" stroke-width="1.2"/>
+                <circle cx="500" cy="208" r="2.5" fill="#0f172a"/>
+                <g transform="translate(505, 215)">
+                  <rect width="165" height="42" rx="5" fill="#ffffff" stroke="#cbd5e1" stroke-width="1" filter="drop-shadow(0 2px 4px rgba(0,0,0,0.06))"/>
+                  <text x="8" y="17" font-size="10.5" font-weight="700" fill="#0f172a" font-family="system-ui, sans-serif">Parietal Peritoneum</text>
+                  <text x="8" y="32" font-size="9" fill="#64748b" font-family="system-ui, sans-serif">Deep lining intact beneath mesh</text>
                 </g>
               </svg>
             </div>
+            
+            <p class="medical-figure-caption">
+              <strong>Figure 1: Cross-sectional anatomical diagram of abdominal wall strata and tension-free hernia repair.</strong> Displays the sequential layers: skin, subcutaneous adipose tissue, anterior rectus sheath, rectus abdominis muscle, transversalis fascia, and parietal peritoneum. The hernial defect (fascial ring aperture) is reinforced using a biocompatible 3D prosthetic mesh positioned in the retro-muscular / preperitoneal sublay plane. With a generous overlap (≥3–5 cm) beyond the defect margins, intra-abdominal pressure secures the mesh naturally against the posterior abdominal wall without pulling native tissues under tension.
+            </p>
+            
             <div class="medical-illustration-dock">
               <span class="medical-illustration-dock-item">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
-                <span>Modern Hernia Repair Options</span>
+                <span>Tension-Free 3D Mesh Reconstruction</span>
               </span>
               <span class="medical-illustration-dock-item">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-                <span>Patient-Focused Care</span>
+                <span>Wide Overlap Prevents Recurrence</span>
               </span>
               <span class="medical-illustration-dock-item">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-                <span>Guidance on Recovery and Discharge</span>
-              </span>
-              <span class="medical-illustration-dock-item">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4m0-4h.01"/></svg>
-                <span>Clear Treatment Cost Information</span>
+                <span>Laparoscopic &amp; Daycare Recovery</span>
               </span>
             </div>
           </div>
-          <p class="art-caption">Clinical 2D illustration: Anatomical cross-section of the abdominal wall demonstrating tension-free prosthetic mesh reinforcement across the fascial aperture with wide overlap margins.</p>
         </div>
 
         <aside class="form-card" id="appointment" aria-labelledby="form-title">
@@ -625,7 +688,8 @@
 
   <div class="mobile-actions" aria-label="Quick contact actions">
     <a class="mobile-call" href="tel:+918951016007" data-track="call"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 3.8 9 3.3l2 4.5-1.7 1.5a14.8 14.8 0 0 0 5.4 5.4l1.5-1.7 4.5 2-.5 2.4a2.7 2.7 0 0 1-3 2.1A17.7 17.7 0 0 1 4.5 6.8a2.7 2.7 0 0 1 2.1-3Z"/></svg><span>Call</span></a>
-    <a class="mobile-book" href="#appointment">Book Appointment</a>
+    <a class="mobile-whatsapp" href="https://wa.me/919429690479?text=Hello%20Revive%20Healthcare%2C%20I%20would%20like%20to%20enquire%20about%20hernia%20treatment." target="_blank" rel="noopener noreferrer" data-track="whatsapp"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg><span>WhatsApp</span></a>
+    <a class="mobile-book" href="#appointment">Book</a>
   </div>
 
   <section class="consent-banner" id="consent-banner" aria-label="Optional measurement choices" hidden>

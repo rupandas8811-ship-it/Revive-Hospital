@@ -269,127 +269,183 @@
           </div>
           <div class="hero-note"><span class="lock-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="4.5" y="10" width="15" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg></span><span>Specialist evaluations focus on sphincter muscle preservation and long-term resolution.</span></div>
           
-          <!-- 2D Medical Anatomy Illustration for Anal Fistula -->
-          <div class="medical-illustration-stage" aria-label="Clinical illustration of cryptoglandular fistulous tract mapping and FiLaC laser radial closure">
-            <div class="medical-illustration-badge">
-              <span class="medical-illustration-badge-dot"></span>
-              <span>2D Pelvic Floor Anatomy · Sphincter Preservation Mapping</span>
+          <!-- Authentic Clinical Anatomical Illustration for Anal Fistula -->
+          <div class="medical-illustration-stage" aria-label="Clinical anatomical illustration of coronal anal canal showing transsphincteric fistula tract, cryptoglandular origin, and sphincter anatomy">
+            <div class="medical-figure-header">
+              <div class="medical-figure-badge">
+                <span class="medical-figure-badge-dot"></span>
+                <span>Figure 1 · Anatomical Reference</span>
+              </div>
+              <p class="medical-figure-title">Coronal Section of Anal Canal · Fistula Tract &amp; Sphincter Complex</p>
             </div>
+            
             <div class="medical-illustration-wrap">
-              <svg viewBox="0 0 540 320" role="img" aria-label="Detailed 2D cross-section showing anal canal, internal opening, fistulous tract traversing sphincter muscles, and radial laser fiber sealing the tunnel">
+              <svg viewBox="0 0 680 430" role="img" aria-label="Medically accurate coronal anatomical cross-section showing anal canal, internal crypt opening at dentate line, transsphincteric fistula tract, and external cutaneous opening">
                 <defs>
-                  <linearGradient id="fistulaBg" x1="0" y1="0" x2="1" y2="1">
-                    <stop offset="0%" stop-color="#fdf4ff"/>
-                    <stop offset="100%" stop-color="#eff6ff"/>
+                  <linearGradient id="fistulaWallGrad" x1="0" y1="0" x2="1" y2="0">
+                    <stop offset="0%" stop-color="#f5cec7"/>
+                    <stop offset="100%" stop-color="#e38c7f"/>
                   </linearGradient>
-                  <linearGradient id="muscleGrad" x1="0" y1="0" x2="1" y2="0">
-                    <stop offset="0%" stop-color="#fed7aa"/>
-                    <stop offset="100%" stop-color="#fca5a5"/>
+                  <linearGradient id="fistulaIntSph" x1="0" y1="0" x2="1" y2="0">
+                    <stop offset="0%" stop-color="#e8988a"/>
+                    <stop offset="100%" stop-color="#d67b6c"/>
                   </linearGradient>
-                  <linearGradient id="tractGlow" x1="0" y1="0" x2="1" y2="1">
-                    <stop offset="0%" stop-color="#f43f5e"/>
-                    <stop offset="100%" stop-color="#e11d48"/>
+                  <linearGradient id="fistulaExtSph" x1="0" y1="0" x2="1" y2="0">
+                    <stop offset="0%" stop-color="#c9584d"/>
+                    <stop offset="100%" stop-color="#a83c32"/>
                   </linearGradient>
-                  <linearGradient id="radialEnergy" x1="0" y1="0" x2="1" y2="0">
-                    <stop offset="0%" stop-color="#fbbf24"/>
-                    <stop offset="50%" stop-color="#f59e0b"/>
-                    <stop offset="100%" stop-color="#ef4444"/>
+                  <linearGradient id="fatLobules" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stop-color="#fef9c3"/>
+                    <stop offset="100%" stop-color="#fef08a"/>
                   </linearGradient>
-                  <filter id="fistulaFilter" x="-20%" y="-20%" width="140%" height="140%">
-                    <feGaussianBlur stdDeviation="3.5" result="blur"/>
-                    <feComposite in="SourceGraphic" in2="blur" operator="over"/>
-                  </filter>
+                  <pattern id="muscleHatch2" width="6" height="6" patternTransform="rotate(45 0 0)" patternUnits="userSpaceOnUse">
+                    <line x1="0" y1="0" x2="0" y2="6" stroke="#ffffff" stroke-width="0.8" opacity="0.35"/>
+                  </pattern>
                 </defs>
-                <rect width="540" height="320" rx="16" fill="url(#fistulaBg)"/>
 
-                <!-- Subtle surgical calibration grid -->
-                <g stroke="#cbd5e1" stroke-width="0.5" stroke-opacity="0.35" stroke-dasharray="4 6">
-                  <line x1="40" y1="60" x2="500" y2="60"/>
-                  <line x1="40" y1="130" x2="500" y2="130"/>
-                  <line x1="40" y1="200" x2="500" y2="200"/>
-                  <line x1="40" y1="270" x2="500" y2="270"/>
-                  <line x1="160" y1="20" x2="160" y2="300"/>
-                  <line x1="320" y1="20" x2="320" y2="300"/>
+                <!-- Clean Canvas Background -->
+                <rect width="680" height="430" fill="#ffffff" rx="8"/>
+
+                <!-- Ischioanal Fossa Adipose Tissue (Bilateral fat pads) -->
+                <!-- Left fat space -->
+                <path d="M110 180 C130 180 150 210 160 250 C170 300 150 350 110 365 Z" fill="url(#fatLobules)" opacity="0.55" stroke="#fde047" stroke-width="0.8"/>
+                <!-- Right fat space -->
+                <path d="M570 180 C550 180 530 210 520 250 C510 300 530 350 570 365 Z" fill="url(#fatLobules)" opacity="0.55" stroke="#fde047" stroke-width="0.8"/>
+
+                <!-- Levator Ani Muscle Slings (Pelvic diaphragm) -->
+                <path d="M120 75 C160 95 200 125 230 165 L245 155 C215 115 175 85 135 65 Z" fill="#b94e44" opacity="0.75"/>
+                <path d="M560 75 C520 95 480 125 450 165 L435 155 C465 115 505 85 545 65 Z" fill="#b94e44" opacity="0.75"/>
+
+                <!-- Rectal Wall Muscularis -->
+                <path d="M210 25 C215 65 220 115 225 160 C222 225 215 290 200 355 L220 360 C238 295 245 225 248 160 C243 115 238 65 232 25 Z" fill="url(#fistulaWallGrad)" stroke="#c26f63" stroke-width="1"/>
+                <path d="M470 25 C465 65 460 115 455 160 C458 225 465 290 480 355 L460 360 C442 295 435 225 432 160 C437 115 442 65 448 25 Z" fill="url(#fistulaWallGrad)" stroke="#c26f63" stroke-width="1"/>
+
+                <!-- External Anal Sphincter (EAS - Striated Skeletal Muscle) -->
+                <!-- Left EAS -->
+                <path d="M175 170 C185 165 220 180 225 215 C230 255 228 305 215 370 C195 373 180 365 175 350 C170 315 168 255 170 205 C170 185 172 175 175 170 Z" fill="url(#fistulaExtSph)" stroke="#8e2b22" stroke-width="1.2"/>
+                <path d="M175 170 C185 165 220 180 225 215 C230 255 228 305 215 370 C195 373 180 365 175 350 C170 315 168 255 170 205 C170 185 172 175 175 170 Z" fill="url(#muscleHatch2)"/>
+                
+                <!-- Right EAS (Pierced by transsphincteric fistula tract) -->
+                <path d="M505 170 C495 165 460 180 455 215 C450 255 452 305 465 370 C485 373 500 365 505 350 C510 315 512 255 510 205 C510 185 508 175 505 170 Z" fill="url(#fistulaExtSph)" stroke="#8e2b22" stroke-width="1.2"/>
+                <path d="M505 170 C495 165 460 180 455 215 C450 255 452 305 465 370 C485 373 500 365 505 350 C510 315 512 255 510 205 C510 185 508 175 505 170 Z" fill="url(#muscleHatch2)"/>
+
+                <!-- Internal Anal Sphincter (IAS - Involuntary Circular Smooth Muscle) -->
+                <!-- Left IAS -->
+                <path d="M232 175 C240 175 248 195 248 230 C248 270 242 310 235 350 C228 353 222 349 220 343 C226 300 230 260 228 225 C226 200 226 183 232 175 Z" fill="url(#fistulaIntSph)" stroke="#af5445" stroke-width="1"/>
+                <!-- Right IAS (Traversed by primary fistula tract at dentate level) -->
+                <path d="M448 175 C440 175 432 195 432 230 C432 270 438 310 445 350 C452 353 458 349 460 343 C454 300 450 260 452 225 C454 200 454 183 448 175 Z" fill="url(#fistulaIntSph)" stroke="#af5445" stroke-width="1"/>
+
+                <!-- Anal Canal Center Lumen -->
+                <path d="M255 25 Q340 35 425 25 L418 170 C415 200 408 220 406 250 C402 295 408 335 420 370 C380 380 300 380 260 370 C272 335 278 295 274 250 C272 220 265 200 262 170 Z" fill="#fff5f2" opacity="0.4"/>
+
+                <!-- Columns of Morgagni & Crypts -->
+                <path d="M300 105 C302 135 304 165 300 190" stroke="#e09c91" stroke-width="2.2" stroke-linecap="round" fill="none"/>
+                <path d="M340 98 C340 134 340 170 340 193" stroke="#e09c91" stroke-width="2.2" stroke-linecap="round" fill="none"/>
+                <path d="M380 105 C378 135 376 165 380 190" stroke="#e09c91" stroke-width="2.2" stroke-linecap="round" fill="none"/>
+                
+                <!-- DENTATE LINE / PECTINATE LINE -->
+                <path d="M260 195 Q280 188 300 195 T340 195 T380 195 T420 195" fill="none" stroke="#2563eb" stroke-width="2" stroke-dasharray="3 3"/>
+
+                <!-- Perianal Skin Verge Baseline -->
+                <path d="M190 375 C240 380 300 380 380 380 C440 380 500 382 560 395" stroke="#94a3b8" stroke-width="2.5" fill="none"/>
+
+                <!-- ==================== TRANSSPHTINCTERIC ANAL FISTULA TRACT ==================== -->
+                <!-- Inflammatory Granulation Tissue Cuff surrounding tract -->
+                <path d="M412 195 C435 205 450 230 460 265 C470 305 480 345 515 390" fill="none" stroke="#fecaca" stroke-width="14" stroke-linecap="round"/>
+                <!-- Fibrous Fistula Tunnel Wall -->
+                <path d="M412 195 C435 205 450 230 460 265 C470 305 480 345 515 390" fill="none" stroke="#e11d48" stroke-width="4.5" stroke-linecap="round"/>
+                <!-- Lumen of Fistula Tract showing exudate pathway -->
+                <path d="M412 195 C435 205 450 230 460 265 C470 305 480 345 515 390" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-dasharray="4 3"/>
+
+                <!-- Internal Opening (Infected anal crypt at Dentate Line) -->
+                <circle cx="412" cy="195" r="5.5" fill="#be123c"/>
+                <circle cx="412" cy="195" r="2.5" fill="#ffffff"/>
+
+                <!-- Intersphincteric Extension / Glandular Origin -->
+                <ellipse cx="448" cy="225" rx="8" ry="6" fill="#fca5a5" stroke="#b91c1c" stroke-width="1"/>
+
+                <!-- External Opening on Perianal Skin -->
+                <ellipse cx="515" cy="390" rx="7" ry="5" fill="#be123c"/>
+                <ellipse cx="515" cy="390" rx="3.5" ry="2.5" fill="#ffffff"/>
+
+                <!-- ==================== PROFESSIONAL CLINICAL ANNOTATIONS ==================== -->
+                <!-- LEFT SIDE LABELS -->
+                <!-- Normal Left Anal Wall / Mucosa -->
+                <line x1="285" y1="115" x2="160" y2="85" stroke="#475569" stroke-width="1.2"/>
+                <circle cx="285" cy="115" r="2.5" fill="#0f172a"/>
+                <g transform="translate(15, 60)">
+                  <rect width="180" height="42" rx="5" fill="#ffffff" stroke="#cbd5e1" stroke-width="1" filter="drop-shadow(0 2px 4px rgba(0,0,0,0.06))"/>
+                  <text x="10" y="17" font-size="11" font-weight="700" fill="#0f172a" font-family="system-ui, sans-serif">Rectal Mucosa &amp; Crypts</text>
+                  <text x="10" y="32" font-size="9.5" fill="#64748b" font-family="system-ui, sans-serif">Normal columnar lining</text>
                 </g>
 
-                <!-- Rectal & Anal Canal Wall (Anterior / Posterior) -->
-                <path d="M110 30 C125 100 120 180 100 280 C150 285 200 280 220 270 C205 180 200 100 195 30 Z" fill="#e2e8f0" opacity="0.6"/>
-                <!-- Internal Sphincter (IAS) -->
-                <path d="M220 50 C235 110 230 180 215 260 C245 265 270 255 280 240 C285 180 280 110 270 50 Z" fill="url(#muscleGrad)" opacity="0.85" stroke="#f87171" stroke-width="1.2"/>
-                <!-- External Sphincter (EAS) -->
-                <path d="M280 50 C295 110 290 180 275 250 C315 255 350 240 360 220 C365 170 360 100 345 50 Z" fill="url(#muscleGrad)" opacity="0.6" stroke="#fb923c" stroke-width="1.2"/>
-
-                <!-- Perianal skin margin (Lower Right) -->
-                <path d="M220 270 C280 275 360 270 470 290" stroke="#94a3b8" stroke-width="3" stroke-linecap="round"/>
-                <text x="410" y="306" font-size="10" fill="#64748b" font-family="system-ui, sans-serif">Perianal Skin</text>
-
-                <!-- Fistula Tract Anatomy (Curving from internal crypt through muscles to external orifice) -->
-                <!-- Tunnel Path -->
-                <path d="M195 130 C230 140 280 160 380 280" fill="none" stroke="#fca5a5" stroke-width="14" stroke-linecap="round" opacity="0.4"/>
-                <path d="M195 130 C230 140 280 160 380 280" fill="none" stroke="url(#tractGlow)" stroke-width="5" stroke-linecap="round"/>
-
-                <!-- Internal opening in crypt of Morgagni -->
-                <circle cx="195" cy="130" r="7" fill="#dc2626" filter="url(#fistulaFilter)"/>
-                <circle cx="195" cy="130" r="3" fill="#ffffff"/>
-
-                <!-- External opening on skin -->
-                <circle cx="380" cy="280" r="7" fill="#ef4444" filter="url(#fistulaFilter)"/>
-                <circle cx="380" cy="280" r="3" fill="#ffffff"/>
-
-                <!-- FiLaC® Radial Laser Fiber inside tract -->
-                <g id="filacLaser">
-                  <!-- Catheter shaft entering from external opening -->
-                  <path d="M380 280 C340 230 300 185 245 150" fill="none" stroke="#0284c7" stroke-width="4.5" stroke-linecap="round"/>
-                  <path d="M380 280 C340 230 300 185 245 150" fill="none" stroke="#e0f2fe" stroke-width="1.8" stroke-linecap="round"/>
-                  <!-- Radial energy dispersion emission tip -->
-                  <circle cx="245" cy="150" r="10" fill="url(#radialEnergy)" opacity="0.85" filter="url(#fistulaFilter)"/>
-                  <circle cx="245" cy="150" r="4" fill="#ffffff"/>
-                  <!-- Radial emission rings -->
-                  <circle cx="245" cy="150" r="18" fill="none" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="2 3" opacity="0.9"/>
+                <!-- Internal Anal Sphincter -->
+                <line x1="230" y1="260" x2="160" y2="215" stroke="#475569" stroke-width="1.2"/>
+                <circle cx="230" cy="260" r="2.5" fill="#0f172a"/>
+                <g transform="translate(15, 195)">
+                  <rect width="180" height="42" rx="5" fill="#ffffff" stroke="#cbd5e1" stroke-width="1" filter="drop-shadow(0 2px 4px rgba(0,0,0,0.06))"/>
+                  <text x="10" y="17" font-size="11" font-weight="700" fill="#0f172a" font-family="system-ui, sans-serif">Internal Anal Sphincter</text>
+                  <text x="10" y="32" font-size="9.5" fill="#64748b" font-family="system-ui, sans-serif">Involuntary circular smooth muscle</text>
                 </g>
 
-                <!-- Callout Badges -->
+                <!-- External Anal Sphincter -->
+                <line x1="195" y1="290" x2="160" y2="310" stroke="#475569" stroke-width="1.2"/>
+                <circle cx="195" cy="290" r="2.5" fill="#0f172a"/>
+                <g transform="translate(15, 290)">
+                  <rect width="180" height="42" rx="5" fill="#ffffff" stroke="#cbd5e1" stroke-width="1" filter="drop-shadow(0 2px 4px rgba(0,0,0,0.06))"/>
+                  <text x="10" y="17" font-size="11" font-weight="700" fill="#0f172a" font-family="system-ui, sans-serif">External Anal Sphincter</text>
+                  <text x="10" y="32" font-size="9.5" fill="#64748b" font-family="system-ui, sans-serif">Preserved voluntary continence muscle</text>
+                </g>
+
+                <!-- RIGHT SIDE LABELS -->
                 <!-- Internal Crypt Opening -->
-                <g transform="translate(18, 90)">
-                  <rect width="155" height="34" rx="6" fill="#ffffff" stroke="#e2e8f0" filter="drop-shadow(0 2px 4px rgba(0,0,0,0.06))"/>
-                  <circle cx="14" cy="17" r="4" fill="#dc2626"/>
-                  <text x="26" y="15" font-size="10" font-weight="700" fill="#0f172a" font-family="system-ui, sans-serif">Internal Opening</text>
-                  <text x="26" y="27" font-size="9" fill="#64748b" font-family="system-ui, sans-serif">Cryptoglandular origin</text>
+                <line x1="412" y1="195" x2="495" y2="125" stroke="#b91c1c" stroke-width="1.2"/>
+                <circle cx="412" cy="195" r="2.5" fill="#b91c1c"/>
+                <g transform="translate(485, 105)">
+                  <rect width="180" height="42" rx="5" fill="#ffffff" stroke="#fca5a5" stroke-width="1.2" filter="drop-shadow(0 2px 4px rgba(0,0,0,0.06))"/>
+                  <text x="10" y="17" font-size="11" font-weight="700" fill="#991b1b" font-family="system-ui, sans-serif">Internal Opening (Crypt)</text>
+                  <text x="10" y="32" font-size="9.5" fill="#dc2626" font-family="system-ui, sans-serif">Cryptoglandular origin at dentate line</text>
                 </g>
 
-                <!-- Sphincter Preservation Badge -->
-                <g transform="translate(260, 40)">
-                  <rect width="180" height="34" rx="6" fill="#ffffff" stroke="#e2e8f0" filter="drop-shadow(0 2px 4px rgba(0,0,0,0.06))"/>
-                  <circle cx="14" cy="17" r="4" fill="#10b981"/>
-                  <text x="26" y="15" font-size="10.5" font-weight="700" fill="#0f172a" font-family="system-ui, sans-serif">Sphincter Intact</text>
-                  <text x="26" y="27" font-size="9" fill="#059669" font-family="system-ui, sans-serif">Zero muscle cutting (100% continence)</text>
+                <!-- Transsphincteric Fistula Tract Callout -->
+                <line x1="465" y1="280" x2="495" y2="225" stroke="#b91c1c" stroke-width="1.2"/>
+                <circle cx="465" cy="280" r="2.5" fill="#b91c1c"/>
+                <g transform="translate(485, 205)">
+                  <rect width="180" height="42" rx="5" fill="#ffffff" stroke="#fca5a5" stroke-width="1.2" filter="drop-shadow(0 2px 4px rgba(0,0,0,0.06))"/>
+                  <text x="10" y="17" font-size="11" font-weight="700" fill="#991b1b" font-family="system-ui, sans-serif">Transsphincteric Tract</text>
+                  <text x="10" y="32" font-size="9.5" fill="#64748b" font-family="system-ui, sans-serif">Traverses intersphincteric plane &amp; EAS</text>
                 </g>
 
-                <!-- FiLaC Laser Fiber Marker -->
-                <g transform="translate(320, 160)">
-                  <rect width="170" height="34" rx="6" fill="#ffffff" stroke="#e2e8f0" filter="drop-shadow(0 2px 4px rgba(0,0,0,0.06))"/>
-                  <circle cx="14" cy="17" r="4" fill="#0284c7"/>
-                  <text x="26" y="15" font-size="10" font-weight="700" fill="#0f172a" font-family="system-ui, sans-serif">FiLaC® 360° Radial Fiber</text>
-                  <text x="26" y="27" font-size="9" fill="#0284c7" font-weight="600" font-family="system-ui, sans-serif">Thermal tract obliteration</text>
+                <!-- External Opening Callout -->
+                <line x1="515" y1="390" x2="495" y2="335" stroke="#b91c1c" stroke-width="1.2"/>
+                <circle cx="515" cy="390" r="2.5" fill="#b91c1c"/>
+                <g transform="translate(485, 315)">
+                  <rect width="180" height="42" rx="5" fill="#ffffff" stroke="#cbd5e1" stroke-width="1" filter="drop-shadow(0 2px 4px rgba(0,0,0,0.06))"/>
+                  <text x="10" y="17" font-size="11" font-weight="700" fill="#0f172a" font-family="system-ui, sans-serif">External Cutaneous Opening</text>
+                  <text x="10" y="32" font-size="9.5" fill="#64748b" font-family="system-ui, sans-serif">Perianal skin secondary drainage orifice</text>
                 </g>
               </svg>
             </div>
+            
+            <p class="medical-figure-caption">
+              <strong>Figure 1: Coronal clinical section of the anal canal illustrating transsphincteric anal fistula anatomy.</strong> Originating from an infected anal crypt gland along the dentate line (internal opening), the chronic inflammatory tract traverses through the internal anal sphincter, crosses the intersphincteric plane, and pierces the external anal sphincter before draining via an external opening on the perianal skin. Precise tract mapping is vital to guide sphincter-preserving repairs (such as FiLaC laser closure or LIFT) without risking fecal continence.
+            </p>
+            
             <div class="medical-illustration-dock">
               <span class="medical-illustration-dock-item">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
-                <span>Personalised Treatment Guidance</span>
+                <span>Accurate Fistula Tract Mapping</span>
               </span>
               <span class="medical-illustration-dock-item">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-                <span>Modern Surgical Options</span>
+                <span>Complete Sphincter Muscle Preservation</span>
               </span>
               <span class="medical-illustration-dock-item">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-                <span>Support During Recovery</span>
+                <span>FiLaC® &amp; LIFT Minimally Invasive Options</span>
               </span>
             </div>
           </div>
-          <p class="art-caption">Clinical 2D illustration: The FiLaC® 360° radial laser fiber is guided through the fistulous tunnel, delivering precise thermal energy that collapses and seals the tract while keeping the sphincter muscle complex completely intact.</p>
         </div>
 
         <aside class="form-card" id="appointment" aria-labelledby="form-title">
@@ -599,7 +655,8 @@
 
   <div class="mobile-actions" aria-label="Quick contact actions">
     <a class="mobile-call" href="tel:+918951016007" data-track="call"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 3.8 9 3.3l2 4.5-1.7 1.5a14.8 14.8 0 0 0 5.4 5.4l1.5-1.7 4.5 2-.5 2.4a2.7 2.7 0 0 1-3 2.1A17.7 17.7 0 0 1 4.5 6.8a2.7 2.7 0 0 1 2.1-3Z"/></svg><span>Call</span></a>
-    <a class="mobile-book" href="#appointment">Book Appointment</a>
+    <a class="mobile-whatsapp" href="https://wa.me/919429690479?text=Hello%20Revive%20Healthcare%2C%20I%20would%20like%20to%20enquire%20about%20fistula%20treatment." target="_blank" rel="noopener noreferrer" data-track="whatsapp"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg><span>WhatsApp</span></a>
+    <a class="mobile-book" href="#appointment">Book</a>
   </div>
 
   <section class="consent-banner" id="consent-banner" aria-label="Optional measurement choices" hidden>

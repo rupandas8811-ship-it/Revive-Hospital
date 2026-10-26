@@ -23,6 +23,9 @@ function AppContent() {
         else if (condObj.id === 'fistula') navigate('/fistula-treatment/');
         else if (condObj.id === 'gallstones') navigate('/gallstones-treatment/');
         else if (condObj.id === 'hernia') navigate('/hernia-treatment/');
+        else if (condObj.id === 'appendix') navigate('/appendix-treatment/');
+        else if (condObj.id === 'varicose-veins') navigate('/varicose-veins-treatment/');
+        else if (condObj.id === 'diabetic-foot') navigate('/diabetic-foot-treatment/');
         return;
       }
     }
@@ -43,6 +46,9 @@ function AppContent() {
   const fistulaCondition = CONDITIONS.find(c => c.id === 'fistula') || CONDITIONS[2];
   const gallstonesCondition = CONDITIONS.find(c => c.id === 'gallstones') || CONDITIONS[3];
   const herniaCondition = CONDITIONS.find(c => c.id === 'hernia') || CONDITIONS[4];
+  const appendixCondition = CONDITIONS.find(c => c.id === 'appendix') || CONDITIONS[5];
+  const varicoseVeinsCondition = CONDITIONS.find(c => c.id === 'varicose-veins') || CONDITIONS[0];
+  const diabeticFootCondition = CONDITIONS.find(c => c.id === 'diabetic-foot') || CONDITIONS[0];
 
   return (
     <div className="min-h-screen flex flex-col bg-white text-[#202B3C] font-sans">
@@ -56,6 +62,10 @@ function AppContent() {
           <Route path="/fistula-treatment/" element={<ConditionLandingPage condition={fistulaCondition} onOpenBooking={handleOpenBooking} onSuccess={handleBookingSuccess} />} />
           <Route path="/gallstones-treatment/" element={<ConditionLandingPage condition={gallstonesCondition} onOpenBooking={handleOpenBooking} onSuccess={handleBookingSuccess} />} />
           <Route path="/hernia-treatment/" element={<ConditionLandingPage condition={herniaCondition} onOpenBooking={handleOpenBooking} onSuccess={handleBookingSuccess} />} />
+          <Route path="/appendix-treatment/" element={<ConditionLandingPage condition={appendixCondition} onOpenBooking={handleOpenBooking} onSuccess={handleBookingSuccess} />} />
+          <Route path="/appendix-treatment-bangalore/" element={<ConditionLandingPage condition={appendixCondition} onOpenBooking={handleOpenBooking} onSuccess={handleBookingSuccess} />} />
+          <Route path="/varicose-veins-treatment/" element={<ConditionLandingPage condition={varicoseVeinsCondition} onOpenBooking={handleOpenBooking} onSuccess={handleBookingSuccess} />} />
+          <Route path="/diabetic-foot-treatment/" element={<ConditionLandingPage condition={diabeticFootCondition} onOpenBooking={handleOpenBooking} onSuccess={handleBookingSuccess} />} />
         </Routes>
       </main>
 

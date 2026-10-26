@@ -245,131 +245,224 @@
           </div>
           <div class="hero-note"><span class="lock-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="4.5" y="10" width="15" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg></span><span>Private, respectful consultations with experienced doctors in West Bangalore. Ask about same-day discharge options for suitable patients.</span></div>
           
-          <!-- 2D Medical Anatomy Illustration for Piles / Hemorrhoids -->
-          <div class="medical-illustration-stage" aria-label="Clinical illustration of submucosal vascular anatomy and laser hemorrhoidoplasty">
-            <div class="medical-illustration-badge">
-              <span class="medical-illustration-badge-dot"></span>
-              <span>2D Proctology Suite · Submucosal Vascular Anatomy</span>
+          <!-- Authentic Clinical Anatomical Illustration for Piles / Haemorrhoids -->
+          <div class="medical-illustration-stage" aria-label="Clinical anatomical illustration of the human anal canal, dentate line, and hemorrhoidal cushions">
+            <div class="medical-figure-header">
+              <div class="medical-figure-badge">
+                <span class="medical-figure-badge-dot"></span>
+                <span>Figure 1 · Anatomical Reference</span>
+              </div>
+              <p class="medical-figure-title">Coronal Section of Anal Canal · Vascular &amp; Sphincter Anatomy</p>
             </div>
+            
             <div class="medical-illustration-wrap">
-              <svg viewBox="0 0 540 320" role="img" aria-label="Detailed 2D cross-section showing anal canal, submucosal venous plexus, dentate line, and radial laser fiber application">
+              <svg viewBox="0 0 680 430" role="img" aria-label="Medically accurate coronal cross-section of rectum and anal canal showing internal and external hemorrhoids, dentate line, internal and external sphincters">
                 <defs>
-                  <linearGradient id="pilesBg" x1="0" y1="0" x2="1" y2="1">
-                    <stop offset="0%" stop-color="#f8fafc"/>
-                    <stop offset="100%" stop-color="#eff6ff"/>
+                  <!-- Anatomical Tissue Gradients -->
+                  <linearGradient id="rectalWallGrad" x1="0" y1="0" x2="1" y2="0">
+                    <stop offset="0%" stop-color="#f5cec7"/>
+                    <stop offset="50%" stop-color="#eeaba1"/>
+                    <stop offset="100%" stop-color="#e38c7f"/>
                   </linearGradient>
-                  <linearGradient id="sphincterGrad" x1="0" y1="0" x2="1" y2="0">
-                    <stop offset="0%" stop-color="#fecaca"/>
-                    <stop offset="100%" stop-color="#fca5a5"/>
+                  <linearGradient id="intSphincterGrad" x1="0" y1="0" x2="1" y2="0">
+                    <stop offset="0%" stop-color="#e8988a"/>
+                    <stop offset="100%" stop-color="#d67b6c"/>
                   </linearGradient>
-                  <linearGradient id="canalGrad" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="0%" stop-color="#e0e7ff"/>
-                    <stop offset="50%" stop-color="#c7d2fe"/>
-                    <stop offset="100%" stop-color="#e0e7ff"/>
+                  <linearGradient id="extSphincterGrad" x1="0" y1="0" x2="1" y2="0">
+                    <stop offset="0%" stop-color="#c9584d"/>
+                    <stop offset="100%" stop-color="#a83c32"/>
                   </linearGradient>
-                  <linearGradient id="veinPlexus" x1="0" y1="0" x2="1" y2="1">
-                    <stop offset="0%" stop-color="#60a5fa"/>
-                    <stop offset="100%" stop-color="#2563eb"/>
+                  <linearGradient id="submucosaGrad" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#faeee9"/>
+                    <stop offset="100%" stop-color="#f2dad2"/>
                   </linearGradient>
-                  <linearGradient id="laserBeam" x1="0" y1="0" x2="1" y2="0">
-                    <stop offset="0%" stop-color="#f87171"/>
-                    <stop offset="50%" stop-color="#ef4444"/>
-                    <stop offset="100%" stop-color="#dc2626"/>
+                  <linearGradient id="veinGrad" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stop-color="#5b8bb8"/>
+                    <stop offset="100%" stop-color="#315b82"/>
                   </linearGradient>
-                  <filter id="pilesGlow" x="-20%" y="-20%" width="140%" height="140%">
-                    <feGaussianBlur stdDeviation="4" result="blur"/>
-                    <feComposite in="SourceGraphic" in2="blur" operator="over"/>
-                  </filter>
+                  <linearGradient id="arteryGrad" x1="0" y1="0" x2="1" y2="0">
+                    <stop offset="0%" stop-color="#d94b41"/>
+                    <stop offset="100%" stop-color="#a62820"/>
+                  </linearGradient>
+                  <pattern id="muscleHatch" width="6" height="6" patternTransform="rotate(45 0 0)" patternUnits="userSpaceOnUse">
+                    <line x1="0" y1="0" x2="0" y2="6" stroke="#ffffff" stroke-width="0.8" opacity="0.35"/>
+                  </pattern>
                 </defs>
-                <rect width="540" height="320" rx="16" fill="url(#pilesBg)"/>
+
+                <!-- Clean Canvas Background -->
+                <rect width="680" height="430" fill="#ffffff" rx="8"/>
+
+                <!-- Pelvic Floor / Levator Ani Muscle Sloping Bands -->
+                <path d="M120 70 C160 90 200 120 230 160 L245 150 C215 110 175 80 135 60 Z" fill="#b94e44" opacity="0.75"/>
+                <path d="M560 70 C520 90 480 120 450 160 L435 150 C465 110 505 80 545 60 Z" fill="#b94e44" opacity="0.75"/>
+
+                <!-- Rectal Wall Muscularis (Longitudinal & Circular Outer Coat) -->
+                <!-- Left rectal wall -->
+                <path d="M210 20 C215 60 220 110 225 155 C222 220 215 285 200 350 L220 355 C238 290 245 220 248 155 C243 110 238 60 232 20 Z" fill="url(#rectalWallGrad)" stroke="#c26f63" stroke-width="1"/>
+                <!-- Right rectal wall -->
+                <path d="M470 20 C465 60 460 110 455 155 C458 220 465 285 480 350 L460 355 C442 290 435 220 432 155 C437 110 442 60 448 20 Z" fill="url(#rectalWallGrad)" stroke="#c26f63" stroke-width="1"/>
+
+                <!-- External Anal Sphincter (EAS - Striated Skeletal Muscle) -->
+                <!-- Left EAS (Deep, Superficial, Subcutaneous parts) -->
+                <path d="M175 165 C185 160 220 175 225 210 C230 250 228 300 215 365 C195 368 180 360 175 345 C170 310 168 250 170 200 C170 180 172 170 175 165 Z" fill="url(#extSphincterGrad)" stroke="#8e2b22" stroke-width="1.2"/>
+                <path d="M175 165 C185 160 220 175 225 210 C230 250 228 300 215 365 C195 368 180 360 175 345 C170 310 168 250 170 200 C170 180 172 170 175 165 Z" fill="url(#muscleHatch)"/>
                 
-                <!-- Grid background subtle -->
-                <g stroke="#cbd5e1" stroke-width="0.5" stroke-opacity="0.35" stroke-dasharray="4 6">
-                  <line x1="50" y1="40" x2="490" y2="40"/>
-                  <line x1="50" y1="100" x2="490" y2="100"/>
-                  <line x1="50" y1="160" x2="490" y2="160"/>
-                  <line x1="50" y1="220" x2="490" y2="220"/>
-                  <line x1="50" y1="280" x2="490" y2="280"/>
-                  <line x1="130" y1="20" x2="130" y2="300"/>
-                  <line x1="270" y1="20" x2="270" y2="300"/>
-                  <line x1="410" y1="20" x2="410" y2="300"/>
+                <!-- Right EAS -->
+                <path d="M505 165 C495 160 460 175 455 210 C450 250 452 300 465 365 C485 368 500 360 505 345 C510 310 512 250 510 200 C510 180 508 170 505 165 Z" fill="url(#extSphincterGrad)" stroke="#8e2b22" stroke-width="1.2"/>
+                <path d="M505 165 C495 160 460 175 455 210 C450 250 452 300 465 365 C485 368 500 360 505 345 C510 310 512 250 510 200 C510 180 508 170 505 165 Z" fill="url(#muscleHatch)"/>
+
+                <!-- Internal Anal Sphincter (IAS - Thickened Involuntary Circular Smooth Muscle) -->
+                <!-- Left IAS -->
+                <path d="M232 170 C240 170 248 190 248 225 C248 265 242 305 235 345 C228 348 222 344 220 338 C226 295 230 255 228 220 C226 195 226 178 232 170 Z" fill="url(#intSphincterGrad)" stroke="#af5445" stroke-width="1"/>
+                <!-- Right IAS -->
+                <path d="M448 170 C440 170 432 190 432 225 C432 265 438 305 445 345 C452 348 458 344 460 338 C454 295 450 255 452 220 C454 195 454 178 448 170 Z" fill="url(#intSphincterGrad)" stroke="#af5445" stroke-width="1"/>
+
+                <!-- Intersphincteric Space / Groove (Cleavage plane) -->
+                <path d="M224 185 C228 235 226 290 220 340" stroke="#cbd5e1" stroke-width="1" stroke-dasharray="2 2" fill="none"/>
+                <path d="M456 185 C452 235 454 290 460 340" stroke="#cbd5e1" stroke-width="1" stroke-dasharray="2 2" fill="none"/>
+
+                <!-- Submucosa & Rectal Mucosa (Anorectal Lumen Outline) -->
+                <!-- Rectal Ampulla Mucosa (upper zone) -->
+                <path d="M242 20 C248 70 256 120 262 165 C265 190 270 215 272 245 C275 285 270 325 255 365 L275 372 C292 330 295 285 292 245 C288 215 282 190 278 165 C272 120 265 70 258 20 Z" fill="url(#submucosaGrad)" opacity="0.6"/>
+                <path d="M438 20 C432 70 424 120 418 165 C415 190 410 215 408 245 C405 285 410 325 425 365 L405 372 C388 330 385 285 388 245 C392 215 398 190 402 165 C408 120 415 70 422 20 Z" fill="url(#submucosaGrad)" opacity="0.6"/>
+
+                <!-- Anal Canal Center Lumen -->
+                <path d="M255 20 Q340 30 425 20 L418 165 C415 195 408 215 406 245 C402 290 408 330 420 365 C380 375 300 375 260 365 C272 330 278 290 274 245 C272 215 265 195 262 165 Z" fill="#fff5f2" opacity="0.4"/>
+
+                <!-- Vertical Columns of Morgagni (Anal columns in upper anal canal) -->
+                <path d="M295 100 C298 130 300 160 296 185" stroke="#e09c91" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+                <path d="M320 95 C322 130 324 162 322 188" stroke="#e09c91" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+                <path d="M340 92 C340 128 340 165 340 188" stroke="#e09c91" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+                <path d="M360 95 C358 130 356 162 358 188" stroke="#e09c91" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+                <path d="M385 100 C382 130 380 160 384 185" stroke="#e09c91" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+
+                <!-- Anal Valves & Crypts along dentate line -->
+                <path d="M280 188 Q290 196 300 188 Q310 196 320 188 Q330 196 340 188 Q350 196 360 188 Q370 196 380 188 Q390 196 400 188" fill="none" stroke="#d4796b" stroke-width="1.8"/>
+
+                <!-- DENTATE / PECTINATE LINE (Anatomical Transition Marker) -->
+                <path d="M260 192 Q280 185 300 192 T340 192 T380 192 T420 192" fill="none" stroke="#2563eb" stroke-width="2" stroke-dasharray="3 3"/>
+
+                <!-- ==================== PATHOLOGY: HAEMORRHOIDAL CUSHIONS ==================== -->
+                <!-- INTERNAL HAEMORRHOID (Left Submucosal Cushion - ABOVE Dentate Line) -->
+                <!-- Lobulated submucosal vascular mass composed of tortuous venous plexus & feeding arterioles -->
+                <g id="internalHaemorrhoid">
+                  <!-- Mucosal envelope covering internal cushion -->
+                  <path d="M260 125 C248 135 245 155 250 172 C255 188 272 195 292 192 C312 188 318 168 314 150 C310 132 290 120 260 125 Z" fill="#eb988d" stroke="#bd5245" stroke-width="1.4"/>
+                  <!-- Tortuous vascular lake / venous plexus clusters -->
+                  <path d="M262 142 C268 135 278 136 282 144 C286 152 280 160 272 162 C265 164 258 152 262 142 Z" fill="url(#veinGrad)" stroke="#234668" stroke-width="0.8"/>
+                  <path d="M280 148 C286 142 296 144 300 152 C304 160 298 170 288 172 C280 174 274 164 280 148 Z" fill="url(#veinGrad)" stroke="#234668" stroke-width="0.8"/>
+                  <path d="M265 162 C270 156 280 158 284 166 C288 174 282 184 274 186 C266 188 260 178 265 162 Z" fill="url(#veinGrad)" stroke="#234668" stroke-width="0.8"/>
+                  <path d="M290 160 C295 155 304 156 308 164 C312 172 306 182 298 184 C290 186 285 176 290 160 Z" fill="url(#veinGrad)" stroke="#234668" stroke-width="0.8"/>
+                  <!-- Terminal branch of Superior Rectal Artery feeding cushion -->
+                  <path d="M255 105 C260 118 268 128 275 142" stroke="url(#arteryGrad)" stroke-width="2.2" stroke-linecap="round" fill="none"/>
+                  <path d="M275 142 C280 150 285 155 288 162" stroke="url(#arteryGrad)" stroke-width="1.6" stroke-linecap="round" fill="none"/>
                 </g>
 
-                <!-- Outer Sphincter Muscular Walls (Preserved intact) -->
-                <!-- Left wall -->
-                <path d="M120 40 C140 100 135 180 115 270 C135 275 160 260 165 240 C175 180 180 110 170 40 Z" fill="url(#sphincterGrad)" stroke="#f87171" stroke-width="1.5" stroke-opacity="0.7"/>
-                <!-- Right wall -->
-                <path d="M420 40 C400 100 405 180 425 270 C405 275 380 260 375 240 C365 180 360 110 370 40 Z" fill="url(#sphincterGrad)" stroke="#f87171" stroke-width="1.5" stroke-opacity="0.7"/>
-
-                <!-- Rectal / Anal Lumen channel -->
-                <path d="M170 40 C180 110 175 180 165 240 C200 255 340 255 375 240 C365 180 360 110 370 40 Z" fill="url(#canalGrad)" opacity="0.35"/>
-
-                <!-- Dentate line / Pectinate Line Marker -->
-                <path d="M165 170 Q185 165 205 170 T245 170 T285 170 T325 170 T375 170" fill="none" stroke="#6366f1" stroke-width="2" stroke-dasharray="3 3"/>
-                <text x="382" y="174" font-size="11" font-weight="600" fill="#4f46e5" font-family="system-ui, sans-serif">Dentate Line</text>
-
-                <!-- Hemorrhoidal Vascular Cushions (Plexus) -->
-                <!-- Left cushion (Submucosal venous plexus) -->
-                <g filter="url(#pilesGlow)">
-                  <ellipse cx="205" cy="140" rx="30" ry="24" fill="url(#veinPlexus)" opacity="0.85"/>
-                  <circle cx="215" cy="132" r="14" fill="#3b82f6" opacity="0.9"/>
-                  <circle cx="195" cy="148" r="10" fill="#1d4ed8" opacity="0.8"/>
-                </g>
-                <!-- Right cushion (Targeted by Laser Fiber) -->
-                <g filter="url(#pilesGlow)">
-                  <ellipse cx="335" cy="140" rx="28" ry="22" fill="url(#veinPlexus)" opacity="0.75"/>
-                  <circle cx="325" cy="134" r="12" fill="#3b82f6" opacity="0.85"/>
+                <!-- EXTERNAL HAEMORRHOID (Right Perianal Subcutaneous Mass - BELOW Dentate Line) -->
+                <!-- Dilated venous plexus under sensitive squamous anoderm / perianal skin -->
+                <g id="externalHaemorrhoid">
+                  <!-- Perianal skin protrusion -->
+                  <path d="M410 320 C425 315 442 322 448 338 C455 355 445 372 432 376 C418 380 405 368 402 350 C400 335 404 324 410 320 Z" fill="#e89d92" stroke="#b04b3e" stroke-width="1.4"/>
+                  <!-- Distended thrombosed/dilated external venous saccules -->
+                  <ellipse cx="425" cy="342" rx="12" ry="9" fill="url(#veinGrad)" stroke="#234668" stroke-width="0.8"/>
+                  <ellipse cx="434" cy="355" rx="10" ry="8" fill="url(#veinGrad)" stroke="#234668" stroke-width="0.8"/>
+                  <ellipse cx="418" cy="358" rx="9" ry="7" fill="url(#veinGrad)" stroke="#234668" stroke-width="0.8"/>
+                  <!-- Inferior rectal venous tributaries -->
+                  <path d="M448 348 C460 350 472 355 485 360" stroke="#315b82" stroke-width="1.8" stroke-linecap="round" fill="none"/>
                 </g>
 
-                <!-- Radial Laser Diode Fiber 1470nm -->
-                <g id="laserAssembly">
-                  <!-- Catheter / Fiber sheath -->
-                  <path d="M335 290 L335 146" stroke="#0ea5e9" stroke-width="5" stroke-linecap="round"/>
-                  <path d="M335 290 L335 146" stroke="#ffffff" stroke-width="2" stroke-linecap="round"/>
-                  <!-- Radial energy dispersion ring -->
-                  <ellipse cx="335" cy="146" rx="22" ry="12" fill="none" stroke="url(#laserBeam)" stroke-width="2.5" opacity="0.9" stroke-dasharray="2 3"/>
-                  <circle cx="335" cy="146" r="6" fill="#ef4444" filter="url(#pilesGlow)"/>
-                  <circle cx="335" cy="146" r="2.5" fill="#ffffff"/>
+                <!-- Normal Contralateral Cushions for Anatomical Accuracy -->
+                <!-- Right internal cushion (normal physiological size) -->
+                <path d="M400 145 C394 152 390 165 394 175 C398 182 408 185 415 182 C420 178 422 165 418 155 C415 148 406 142 400 145 Z" fill="#eb988d" stroke="#bd5245" stroke-width="1" opacity="0.65"/>
+                <ellipse cx="406" cy="165" rx="6" ry="8" fill="#5b8bb8" opacity="0.5"/>
+
+                <!-- Left perianal verge (normal contour) -->
+                <path d="M260 365 C250 372 238 376 225 375" stroke="#cf7e72" stroke-width="2" fill="none"/>
+
+                <!-- ==================== PROFESSIONAL CLINICAL ANNOTATIONS ==================== -->
+                <!-- LEFT SIDE LABELS -->
+                <!-- Internal Haemorrhoid Callout -->
+                <line x1="285" y1="155" x2="160" y2="105" stroke="#475569" stroke-width="1.2"/>
+                <circle cx="285" cy="155" r="2.5" fill="#0f172a"/>
+                <g transform="translate(15, 80)">
+                  <rect width="180" height="42" rx="5" fill="#ffffff" stroke="#cbd5e1" stroke-width="1" filter="drop-shadow(0 2px 4px rgba(0,0,0,0.06))"/>
+                  <text x="10" y="17" font-size="11" font-weight="700" fill="#0f172a" font-family="system-ui, sans-serif">Internal Haemorrhoid</text>
+                  <text x="10" y="32" font-size="9.5" fill="#64748b" font-family="system-ui, sans-serif">Above dentate line · Visceral mucosa</text>
                 </g>
 
-                <!-- Diagnostic callouts & badges -->
-                <!-- Laser Fiber Label -->
-                <g transform="translate(355, 230)">
-                  <rect width="165" height="34" rx="6" fill="#ffffff" stroke="#e2e8f0" filter="drop-shadow(0 2px 4px rgba(0,0,0,0.06))"/>
-                  <circle cx="14" cy="17" r="4" fill="#ef4444"/>
-                  <text x="26" y="15" font-size="10.5" font-weight="700" fill="#0f172a" font-family="system-ui, sans-serif">1470nm Radial Laser</text>
-                  <text x="26" y="27" font-size="9" fill="#64748b" font-family="system-ui, sans-serif">Direct cushion ablation</text>
+                <!-- Internal Anal Sphincter Callout -->
+                <line x1="230" y1="260" x2="160" y2="225" stroke="#475569" stroke-width="1.2"/>
+                <circle cx="230" cy="260" r="2.5" fill="#0f172a"/>
+                <g transform="translate(15, 205)">
+                  <rect width="180" height="42" rx="5" fill="#ffffff" stroke="#cbd5e1" stroke-width="1" filter="drop-shadow(0 2px 4px rgba(0,0,0,0.06))"/>
+                  <text x="10" y="17" font-size="11" font-weight="700" fill="#0f172a" font-family="system-ui, sans-serif">Internal Anal Sphincter</text>
+                  <text x="10" y="32" font-size="9.5" fill="#64748b" font-family="system-ui, sans-serif">Involuntary circular smooth muscle</text>
                 </g>
 
-                <!-- Sphincter Sparing Safety Marker -->
-                <g transform="translate(18, 120)">
-                  <rect width="135" height="34" rx="6" fill="#ffffff" stroke="#e2e8f0" filter="drop-shadow(0 2px 4px rgba(0,0,0,0.06))"/>
-                  <circle cx="14" cy="17" r="4" fill="#10b981"/>
-                  <text x="26" y="15" font-size="10" font-weight="700" fill="#0f172a" font-family="system-ui, sans-serif">Sphincter Intact</text>
-                  <text x="26" y="27" font-size="9" fill="#059669" font-family="system-ui, sans-serif">Zero muscle excision</text>
+                <!-- External Anal Sphincter Callout -->
+                <line x1="195" y1="285" x2="160" y2="315" stroke="#475569" stroke-width="1.2"/>
+                <circle cx="195" cy="285" r="2.5" fill="#0f172a"/>
+                <g transform="translate(15, 300)">
+                  <rect width="180" height="42" rx="5" fill="#ffffff" stroke="#cbd5e1" stroke-width="1" filter="drop-shadow(0 2px 4px rgba(0,0,0,0.06))"/>
+                  <text x="10" y="17" font-size="11" font-weight="700" fill="#0f172a" font-family="system-ui, sans-serif">External Anal Sphincter</text>
+                  <text x="10" y="32" font-size="9.5" fill="#64748b" font-family="system-ui, sans-serif">Voluntary striated skeletal muscle</text>
                 </g>
 
-                <!-- Submucosal Cushion Marker -->
-                <g transform="translate(18, 50)">
-                  <rect width="145" height="34" rx="6" fill="#ffffff" stroke="#e2e8f0" filter="drop-shadow(0 2px 4px rgba(0,0,0,0.06))"/>
-                  <circle cx="14" cy="17" r="4" fill="#3b82f6"/>
-                  <text x="26" y="15" font-size="10" font-weight="700" fill="#0f172a" font-family="system-ui, sans-serif">Vascular Cushion</text>
-                  <text x="26" y="27" font-size="9" fill="#64748b" font-family="system-ui, sans-serif">Grade I - IV Haemorrhoids</text>
+                <!-- RIGHT SIDE LABELS -->
+                <!-- Rectal Ampulla / Columns of Morgagni -->
+                <line x1="380" y1="110" x2="495" y2="75" stroke="#475569" stroke-width="1.2"/>
+                <circle cx="380" cy="110" r="2.5" fill="#0f172a"/>
+                <g transform="translate(485, 55)">
+                  <rect width="180" height="42" rx="5" fill="#ffffff" stroke="#cbd5e1" stroke-width="1" filter="drop-shadow(0 2px 4px rgba(0,0,0,0.06))"/>
+                  <text x="10" y="17" font-size="11" font-weight="700" fill="#0f172a" font-family="system-ui, sans-serif">Columns of Morgagni</text>
+                  <text x="10" y="32" font-size="9.5" fill="#64748b" font-family="system-ui, sans-serif">Vertical mucosal folds &amp; crypts</text>
+                </g>
+
+                <!-- Dentate / Pectinate Line Marker -->
+                <line x1="415" y1="192" x2="495" y2="180" stroke="#2563eb" stroke-width="1.2"/>
+                <circle cx="415" cy="192" r="2.5" fill="#2563eb"/>
+                <g transform="translate(485, 160)">
+                  <rect width="180" height="42" rx="5" fill="#ffffff" stroke="#93c5fd" stroke-width="1.2" filter="drop-shadow(0 2px 4px rgba(0,0,0,0.06))"/>
+                  <text x="10" y="17" font-size="11" font-weight="700" fill="#1e3a8a" font-family="system-ui, sans-serif">Dentate (Pectinate) Line</text>
+                  <text x="10" y="32" font-size="9.5" fill="#2563eb" font-family="system-ui, sans-serif">Mucocutaneous transition zone</text>
+                </g>
+
+                <!-- External Haemorrhoid Callout -->
+                <line x1="435" y1="345" x2="495" y2="305" stroke="#475569" stroke-width="1.2"/>
+                <circle cx="435" cy="345" r="2.5" fill="#0f172a"/>
+                <g transform="translate(485, 285)">
+                  <rect width="180" height="42" rx="5" fill="#ffffff" stroke="#cbd5e1" stroke-width="1" filter="drop-shadow(0 2px 4px rgba(0,0,0,0.06))"/>
+                  <text x="10" y="17" font-size="11" font-weight="700" fill="#0f172a" font-family="system-ui, sans-serif">External Haemorrhoid</text>
+                  <text x="10" y="32" font-size="9.5" fill="#64748b" font-family="system-ui, sans-serif">Below dentate line · Somatic anoderm</text>
+                </g>
+
+                <!-- Anal Verge / Margin Callout -->
+                <line x1="415" y1="375" x2="495" y2="395" stroke="#475569" stroke-width="1.2"/>
+                <circle cx="415" cy="375" r="2.5" fill="#0f172a"/>
+                <g transform="translate(485, 375)">
+                  <rect width="180" height="34" rx="5" fill="#ffffff" stroke="#cbd5e1" stroke-width="1" filter="drop-shadow(0 2px 4px rgba(0,0,0,0.06))"/>
+                  <text x="10" y="15" font-size="10.5" font-weight="700" fill="#0f172a" font-family="system-ui, sans-serif">Anal Verge</text>
+                  <text x="10" y="27" font-size="9" fill="#64748b" font-family="system-ui, sans-serif">Perianal skin transition</text>
                 </g>
               </svg>
             </div>
+            
+            <p class="medical-figure-caption">
+              <strong>Figure 1: Coronal clinical section of the human anal canal.</strong> Demonstrates the vascular anatomy of haemorrhoidal cushions relative to the dentate (pectinate) line. Internal haemorrhoids arise in the submucosa above the dentate line from the superior rectal plexus (covered by visceral columnar mucosa and typically painless). External haemorrhoids originate below the dentate line from the inferior rectal plexus (covered by sensitive anoderm with somatic pain receptors). The adjacent internal and external anal sphincter complex provides essential continence control.
+            </p>
+            
             <div class="medical-illustration-dock">
               <span class="medical-illustration-dock-item">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
-                <span>Comfortable, Patient-Focused Care</span>
+                <span>Accurate Anatomical Landmarks</span>
               </span>
               <span class="medical-illustration-dock-item">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-                <span>Modern Treatment Options</span>
+                <span>Sphincter Muscle Preservation</span>
               </span>
               <span class="medical-illustration-dock-item">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-                <span>Ask About Same-Day Discharge Options</span>
+                <span>Daycare Laser &amp; Minimally Invasive Care</span>
               </span>
             </div>
           </div>
@@ -589,7 +682,8 @@
 
   <div class="mobile-actions" aria-label="Quick contact actions">
     <a class="mobile-call" href="tel:+918951016007" data-track="call"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 3.8 9 3.3l2 4.5-1.7 1.5a14.8 14.8 0 0 0 5.4 5.4l1.5-1.7 4.5 2-.5 2.4a2.7 2.7 0 0 1-3 2.1A17.7 17.7 0 0 1 4.5 6.8a2.7 2.7 0 0 1 2.1-3Z"/></svg><span>Call</span></a>
-    <a class="mobile-book" href="#appointment">Book Appointment</a>
+    <a class="mobile-whatsapp" href="https://wa.me/919429690479?text=Hello%20Revive%20Healthcare%2C%20I%20would%20like%20to%20enquire%20about%20piles%20treatment." target="_blank" rel="noopener noreferrer" data-track="whatsapp"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg><span>WhatsApp</span></a>
+    <a class="mobile-book" href="#appointment">Book</a>
   </div>
 
   <section class="consent-banner" id="consent-banner" aria-label="Optional measurement choices" hidden>

@@ -269,130 +269,218 @@
           </div>
           <div class="hero-note"><span class="lock-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="4.5" y="10" width="15" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg></span><span>Accurate ultrasound imaging identifies stone size, duct status, and the safest care approach.</span></div>
           
-          <!-- 2D Medical Anatomy Illustration for Gallstones -->
-          <div class="medical-illustration-stage" aria-label="Clinical illustration of gallbladder, biliary ducts, and cholesterol calculus stones">
-            <div class="medical-illustration-badge">
-              <span class="medical-illustration-badge-dot"></span>
-              <span>2D Biliary Anatomy · Gallbladder Lumen &amp; Calculi</span>
+          <!-- Authentic Clinical Anatomical Illustration for Gallstones -->
+          <div class="medical-illustration-stage" aria-label="Clinical anatomical illustration of the human biliary tree, gallbladder, cystic duct with spiral valves, and cholelithiasis calculi">
+            <div class="medical-figure-header">
+              <div class="medical-figure-badge">
+                <span class="medical-figure-badge-dot"></span>
+                <span>Figure 1 · Anatomical Reference</span>
+              </div>
+              <p class="medical-figure-title">Biliary System Anatomy · Gallbladder Calculi (Cholelithiasis) &amp; Calot's Triangle</p>
             </div>
+            
             <div class="medical-illustration-wrap">
-              <svg viewBox="0 0 540 320" role="img" aria-label="Detailed 2D illustration of liver underside, pear-shaped gallbladder, cystic duct, common bile duct, and cholesterol gallstones">
+              <svg viewBox="0 0 680 430" role="img" aria-label="Medically accurate anatomical diagram of the biliary tree showing the liver visceral surface, gallbladder fundus, body, Hartmann's pouch, cystic duct with spiral valves of Heister, common hepatic duct, common bile duct, and cholesterol gallstones">
                 <defs>
-                  <linearGradient id="biliaryBg" x1="0" y1="0" x2="1" y2="1">
-                    <stop offset="0%" stop-color="#f0fdf4"/>
-                    <stop offset="100%" stop-color="#eff6ff"/>
+                  <linearGradient id="liverTissueGrad" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stop-color="#ab5348"/>
+                    <stop offset="60%" stop-color="#8f392f"/>
+                    <stop offset="100%" stop-color="#73261d"/>
                   </linearGradient>
-                  <linearGradient id="liverGrad" x1="0" y1="0" x2="1" y2="0">
-                    <stop offset="0%" stop-color="#fed7aa"/>
-                    <stop offset="100%" stop-color="#fca5a5"/>
+                  <linearGradient id="gbWallGrad" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stop-color="#4d855e"/>
+                    <stop offset="70%" stop-color="#3b6e4b"/>
+                    <stop offset="100%" stop-color="#2a5237"/>
                   </linearGradient>
-                  <linearGradient id="gbGrad" x1="0" y1="0" x2="1" y2="1">
-                    <stop offset="0%" stop-color="#2dd4bf"/>
-                    <stop offset="70%" stop-color="#0d9488"/>
-                    <stop offset="100%" stop-color="#047857"/>
+                  <linearGradient id="gbLumenGrad" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stop-color="#5fa073"/>
+                    <stop offset="100%" stop-color="#407751"/>
                   </linearGradient>
-                  <linearGradient id="stoneGrad" x1="0" y1="0" x2="1" y2="1">
+                  <linearGradient id="ductGrad" x1="0" y1="0" x2="1" y2="0">
+                    <stop offset="0%" stop-color="#559969"/>
+                    <stop offset="100%" stop-color="#3d754e"/>
+                  </linearGradient>
+                  <linearGradient id="stoneFacet1" x1="0" y1="0" x2="1" y2="1">
                     <stop offset="0%" stop-color="#fef08a"/>
-                    <stop offset="70%" stop-color="#eab308"/>
-                    <stop offset="100%" stop-color="#b45309"/>
+                    <stop offset="60%" stop-color="#ca8a04"/>
+                    <stop offset="100%" stop-color="#854d0e"/>
                   </linearGradient>
-                  <filter id="gbGlow" x="-20%" y="-20%" width="140%" height="140%">
-                    <feGaussianBlur stdDeviation="3.5" result="blur"/>
-                    <feComposite in="SourceGraphic" in2="blur" operator="over"/>
-                  </filter>
+                  <linearGradient id="stoneFacet2" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stop-color="#fed7aa"/>
+                    <stop offset="70%" stop-color="#ea580c"/>
+                    <stop offset="100%" stop-color="#9a3412"/>
+                  </linearGradient>
                 </defs>
-                <rect width="540" height="320" rx="16" fill="url(#biliaryBg)"/>
 
-                <!-- Subtle surgical calibration grid -->
-                <g stroke="#cbd5e1" stroke-width="0.5" stroke-opacity="0.35" stroke-dasharray="4 6">
-                  <line x1="40" y1="60" x2="500" y2="60"/>
-                  <line x1="40" y1="140" x2="500" y2="140"/>
-                  <line x1="40" y1="220" x2="500" y2="220"/>
-                  <line x1="160" y1="20" x2="160" y2="300"/>
-                  <line x1="320" y1="20" x2="320" y2="300"/>
+                <!-- Clean Canvas Background -->
+                <rect width="680" height="430" fill="#ffffff" rx="8"/>
+
+                <!-- Liver Inferior Visceral Bed (Right Lobe & Segments IV/V) -->
+                <path d="M50 30 C150 15 360 20 630 65 C580 120 450 115 350 100 C270 90 140 105 50 30 Z" fill="url(#liverTissueGrad)" stroke="#5f1d16" stroke-width="1.2"/>
+                <!-- Hepatic veins & capsular sheen -->
+                <path d="M120 38 Q250 30 420 48" stroke="#ffffff" stroke-width="1" opacity="0.25" fill="none"/>
+
+                <!-- DUCTAL NETWORK: Right & Left Hepatic Ducts converging into Common Hepatic Duct -->
+                <!-- Right Hepatic Duct -->
+                <path d="M375 55 C378 70 385 85 392 98" stroke="url(#ductGrad)" stroke-width="8" stroke-linecap="round" fill="none"/>
+                <!-- Left Hepatic Duct -->
+                <path d="M425 60 C418 72 405 85 392 98" stroke="url(#ductGrad)" stroke-width="7.5" stroke-linecap="round" fill="none"/>
+                <!-- Common Hepatic Duct (CHD) -->
+                <path d="M392 98 L394 150" stroke="url(#ductGrad)" stroke-width="9" stroke-linecap="round" fill="none"/>
+
+                <!-- Cystic Artery (Traversing Calot's Triangle) -->
+                <path d="M392 105 C360 112 335 125 315 140" stroke="#dc2626" stroke-width="2.2" stroke-linecap="round" fill="none"/>
+                <path d="M315 140 C295 155 285 175 280 195" stroke="#dc2626" stroke-width="1.6" stroke-linecap="round" fill="none"/>
+
+                <!-- Cystic Duct with Spiral Valves of Heister (Connecting Hartmann's Pouch to CHD) -->
+                <!-- S-shaped convoluted cystic duct -->
+                <path d="M305 185 C315 160 340 142 394 150" stroke="url(#ductGrad)" stroke-width="7.5" stroke-linecap="round" fill="none"/>
+                <!-- Spiral valves of Heister ridges inside cystic duct -->
+                <path d="M320 172 Q326 166 332 170" stroke="#254d31" stroke-width="1.8" fill="none"/>
+                <path d="M338 162 Q344 156 350 160" stroke="#254d31" stroke-width="1.8" fill="none"/>
+                <path d="M358 155 Q364 149 370 153" stroke="#254d31" stroke-width="1.8" fill="none"/>
+                <path d="M378 150 Q384 144 390 148" stroke="#254d31" stroke-width="1.8" fill="none"/>
+
+                <!-- Common Bile Duct (CBD) leading down to Duodenum -->
+                <path d="M394 150 C398 210 405 280 412 360" stroke="url(#ductGrad)" stroke-width="9.5" stroke-linecap="round" fill="none"/>
+
+                <!-- Duodenum Wall Margin (Background outline) -->
+                <path d="M360 330 C380 340 430 340 460 330 L470 385 C430 400 370 400 350 385 Z" fill="#fed7aa" opacity="0.45" stroke="#f97316" stroke-width="1"/>
+
+                <!-- ==================== GALLBLADDER ANATOMY ==================== -->
+                <!-- Gallbladder Outer Muscular Wall & Adventitia -->
+                <path d="M305 185 C295 195 270 215 250 245 C225 280 205 315 210 350 C215 385 245 400 275 395 C305 390 325 365 330 330 C335 295 330 260 320 220 C316 200 312 190 305 185 Z" fill="url(#gbWallGrad)" stroke="#1a3b23" stroke-width="2"/>
+
+                <!-- Gallbladder Inner Lumen (Filled with concentrated bile) -->
+                <path d="M300 192 C290 202 266 222 248 250 C226 282 214 315 218 345 C222 375 245 388 270 385 C296 382 314 358 318 328 C324 295 320 262 312 225 C308 206 305 196 300 192 Z" fill="url(#gbLumenGrad)" stroke="#234e30" stroke-width="1"/>
+
+                <!-- Hartmann's Pouch (Infundibulum dilatated bulb at neck) -->
+                <ellipse cx="308" cy="205" rx="14" ry="10" fill="none" stroke="#254d31" stroke-width="1" stroke-dasharray="2 2"/>
+
+                <!-- ==================== CHOLELITHIASIS: CALCULI / STONES ==================== -->
+                <!-- Multiple faceted cholesterol & mixed pigment gallstones pooled in fundus and body -->
+                <g id="gallstoneCollection">
+                  <!-- Stone 1 (Primary large faceted cholesterol stone in Fundus) -->
+                  <polygon points="248,340 265,332 278,348 268,365 245,358" fill="url(#stoneFacet1)" stroke="#583101" stroke-width="1.2"/>
+                  <polygon points="248,340 265,332 260,350 245,358" fill="#fef08a" opacity="0.6"/>
+                  
+                  <!-- Stone 2 (Medium faceted stone adjacent) -->
+                  <polygon points="274,352 290,344 300,358 290,372 276,366" fill="url(#stoneFacet2)" stroke="#583101" stroke-width="1.2"/>
+
+                  <!-- Stone 3 (Faceted calculus in mid-body) -->
+                  <polygon points="252,315 268,308 276,322 266,334 250,328" fill="url(#stoneFacet1)" stroke="#583101" stroke-width="1.2"/>
+
+                  <!-- Stone 4 (Secondary stone) -->
+                  <polygon points="278,324 292,318 300,332 292,342 278,336" fill="url(#stoneFacet2)" stroke="#583101" stroke-width="1.2"/>
+
+                  <!-- Stone 5 (Calculus near Infundibulum / Hartmann's pouch) -->
+                  <polygon points="272,275 286,270 294,284 284,295 270,288" fill="url(#stoneFacet1)" stroke="#583101" stroke-width="1.2"/>
+
+                  <!-- Small microcalculus / sludge granules -->
+                  <circle cx="236" cy="355" r="4.5" fill="#ca8a04" stroke="#583101" stroke-width="0.8"/>
+                  <circle cx="288" cy="378" r="4" fill="#a16207" stroke="#583101" stroke-width="0.8"/>
+                  <circle cx="260" cy="372" r="4" fill="#854d0e" stroke="#583101" stroke-width="0.8"/>
                 </g>
 
-                <!-- Liver Inferior Visceral Surface (Bed of gallbladder) -->
-                <path d="M60 40 C140 25 340 30 480 85 C420 120 300 115 140 100 C90 95 65 75 60 40 Z" fill="url(#liverGrad)" opacity="0.45" stroke="#f87171" stroke-width="1.2"/>
-                <text x="75" y="65" font-size="11" font-weight="600" fill="#991b1b" font-family="system-ui, sans-serif">Hepatic Margin (Liver)</text>
+                <!-- Calot's Triangle (Hepatobiliary Triangle) Indicator -->
+                <polygon points="305,185 394,150 350,100" fill="#fef3c7" opacity="0.3" stroke="#d97706" stroke-width="1.5" stroke-dasharray="3 3"/>
 
-                <!-- Common Hepatic & Bile Ducts (Green tube network) -->
-                <!-- Common Hepatic Duct from liver -->
-                <path d="M330 75 L330 130" stroke="#10b981" stroke-width="7" stroke-linecap="round"/>
-                <!-- Common Bile Duct (CBD) down to duodenum -->
-                <path d="M330 130 C335 180 340 240 350 280" fill="none" stroke="#10b981" stroke-width="7" stroke-linecap="round"/>
-                <!-- Cystic Duct (Connecting Gallbladder neck to CBD) -->
-                <path d="M260 120 C280 115 310 120 330 130" fill="none" stroke="#10b981" stroke-width="6" stroke-linecap="round"/>
-
-                <!-- Pear-Shaped Gallbladder Body & Fundus -->
-                <g filter="url(#gbGlow)">
-                  <path d="M260 120 C235 125 180 145 160 190 C145 225 160 265 200 270 C240 275 265 240 265 190 C265 155 270 130 260 120 Z" fill="url(#gbGrad)" opacity="0.88" stroke="#047857" stroke-width="2"/>
+                <!-- ==================== PROFESSIONAL CLINICAL ANNOTATIONS ==================== -->
+                <!-- LEFT SIDE LABELS -->
+                <!-- Liver Bed / Visceral Surface -->
+                <line x1="180" y1="75" x2="110" y2="90" stroke="#475569" stroke-width="1.2"/>
+                <circle cx="180" cy="75" r="2.5" fill="#0f172a"/>
+                <g transform="translate(15, 75)">
+                  <rect width="165" height="42" rx="5" fill="#ffffff" stroke="#cbd5e1" stroke-width="1" filter="drop-shadow(0 2px 4px rgba(0,0,0,0.06))"/>
+                  <text x="8" y="17" font-size="10.5" font-weight="700" fill="#0f172a" font-family="system-ui, sans-serif">Hepatic Surface (Liver Bed)</text>
+                  <text x="8" y="32" font-size="9" fill="#64748b" font-family="system-ui, sans-serif">Visceral liver parenchyma</text>
                 </g>
 
-                <!-- Translucent Gallbladder Fluid & Stones (Calculi) inside -->
-                <!-- Cholesterol calculi stones -->
-                <g id="gallstonesCluster">
-                  <!-- Stone 1 (Primary large) -->
-                  <polygon points="190,225 208,220 216,236 202,248 185,242" fill="url(#stoneGrad)" stroke="#78350f" stroke-width="1"/>
-                  <circle cx="200" cy="232" r="2" fill="#fef9c3"/>
-                  <!-- Stone 2 -->
-                  <polygon points="214,242 226,238 232,250 220,258 210,252" fill="url(#stoneGrad)" stroke="#78350f" stroke-width="1"/>
-                  <!-- Stone 3 -->
-                  <polygon points="178,245 188,242 192,253 182,258 174,252" fill="url(#stoneGrad)" stroke="#78350f" stroke-width="1"/>
-                  <!-- Stone 4 (neck-proximal) -->
-                  <circle cx="218" cy="205" r="7.5" fill="url(#stoneGrad)" stroke="#78350f" stroke-width="1"/>
-                  <!-- Stone 5 (micro-calculus) -->
-                  <circle cx="198" cy="214" r="5" fill="url(#stoneGrad)" stroke="#78350f" stroke-width="1"/>
+                <!-- Gallbladder Body & Lumen -->
+                <line x1="240" y1="265" x2="110" y2="215" stroke="#475569" stroke-width="1.2"/>
+                <circle cx="240" cy="265" r="2.5" fill="#0f172a"/>
+                <g transform="translate(15, 195)">
+                  <rect width="165" height="42" rx="5" fill="#ffffff" stroke="#cbd5e1" stroke-width="1" filter="drop-shadow(0 2px 4px rgba(0,0,0,0.06))"/>
+                  <text x="8" y="17" font-size="10.5" font-weight="700" fill="#0f172a" font-family="system-ui, sans-serif">Gallbladder Body &amp; Lumen</text>
+                  <text x="8" y="32" font-size="9" fill="#64748b" font-family="system-ui, sans-serif">Concentrated bile reservoir</text>
                 </g>
 
-                <!-- Laparoscopic Keyhole Dissection Marker / Clips -->
-                <g id="laparoscopicClip">
-                  <line x1="300" y1="110" x2="310" y2="135" stroke="#f43f5e" stroke-width="3" stroke-linecap="round"/>
-                  <line x1="315" y1="113" x2="325" y2="138" stroke="#f43f5e" stroke-width="3" stroke-linecap="round"/>
+                <!-- Cholelithiasis / Gallstones -->
+                <line x1="265" y1="350" x2="110" y2="330" stroke="#b45309" stroke-width="1.2"/>
+                <circle cx="265" cy="350" r="2.5" fill="#b45309"/>
+                <g transform="translate(15, 310)">
+                  <rect width="165" height="42" rx="5" fill="#ffffff" stroke="#fcd34d" stroke-width="1.2" filter="drop-shadow(0 2px 4px rgba(0,0,0,0.06))"/>
+                  <text x="8" y="17" font-size="10.5" font-weight="700" fill="#92400e" font-family="system-ui, sans-serif">Cholelithiasis (Calculi)</text>
+                  <text x="8" y="32" font-size="9" fill="#b45309" font-family="system-ui, sans-serif">Faceted cholesterol gallstones</text>
                 </g>
 
-                <!-- Medical Callout Badges -->
-                <!-- Gallbladder Fundus & Calculi -->
-                <g transform="translate(20, 190)">
-                  <rect width="135" height="34" rx="6" fill="#ffffff" stroke="#e2e8f0" filter="drop-shadow(0 2px 4px rgba(0,0,0,0.06))"/>
-                  <circle cx="14" cy="17" r="4" fill="#0d9488"/>
-                  <text x="26" y="15" font-size="10" font-weight="700" fill="#0f172a" font-family="system-ui, sans-serif">Gallbladder Lumen</text>
-                  <text x="26" y="27" font-size="9" fill="#0d9488" font-weight="600" font-family="system-ui, sans-serif">Cholesterol Calculi</text>
+                <!-- Gallbladder Fundus -->
+                <line x1="275" y1="395" x2="110" y2="395" stroke="#475569" stroke-width="1.2"/>
+                <circle cx="275" cy="395" r="2.5" fill="#0f172a"/>
+                <g transform="translate(15, 380)">
+                  <rect width="165" height="34" rx="5" fill="#ffffff" stroke="#cbd5e1" stroke-width="1" filter="drop-shadow(0 2px 4px rgba(0,0,0,0.06))"/>
+                  <text x="8" y="15" font-size="10.5" font-weight="700" fill="#0f172a" font-family="system-ui, sans-serif">Gallbladder Fundus</text>
+                  <text x="8" y="27" font-size="9" fill="#64748b" font-family="system-ui, sans-serif">Lowest dependent anatomical zone</text>
                 </g>
 
-                <!-- Calot's Safety Triangle -->
-                <g transform="translate(340, 95)">
-                  <rect width="180" height="34" rx="6" fill="#ffffff" stroke="#e2e8f0" filter="drop-shadow(0 2px 4px rgba(0,0,0,0.06))"/>
-                  <circle cx="14" cy="17" r="4" fill="#10b981"/>
-                  <text x="26" y="15" font-size="10.5" font-weight="700" fill="#0f172a" font-family="system-ui, sans-serif">Calot's Safety Triangle</text>
-                  <text x="26" y="27" font-size="9" fill="#059669" font-family="system-ui, sans-serif">Cystic duct clipped safely</text>
+                <!-- RIGHT SIDE LABELS -->
+                <!-- Calot's Triangle / Critical Safety View -->
+                <line x1="350" y1="140" x2="520" y2="105" stroke="#d97706" stroke-width="1.2"/>
+                <circle cx="350" cy="140" r="2.5" fill="#d97706"/>
+                <g transform="translate(505, 85)">
+                  <rect width="165" height="42" rx="5" fill="#ffffff" stroke="#fde68a" stroke-width="1.2" filter="drop-shadow(0 2px 4px rgba(0,0,0,0.06))"/>
+                  <text x="8" y="17" font-size="10.5" font-weight="700" fill="#b45309" font-family="system-ui, sans-serif">Calot's Safety Triangle</text>
+                  <text x="8" y="32" font-size="9" fill="#d97706" font-family="system-ui, sans-serif">Cystic duct &amp; cystic artery plane</text>
                 </g>
 
-                <!-- Common Bile Duct Free Flow -->
-                <g transform="translate(365, 230)">
-                  <rect width="155" height="34" rx="6" fill="#ffffff" stroke="#e2e8f0" filter="drop-shadow(0 2px 4px rgba(0,0,0,0.06))"/>
-                  <circle cx="14" cy="17" r="4" fill="#10b981"/>
-                  <text x="26" y="15" font-size="10.5" font-weight="700" fill="#0f172a" font-family="system-ui, sans-serif">Common Bile Duct (CBD)</text>
-                  <text x="26" y="27" font-size="9" fill="#64748b" font-family="system-ui, sans-serif">Normal digestive flow</text>
+                <!-- Cystic Duct with Valves of Heister -->
+                <line x1="345" y1="160" x2="520" y2="175" stroke="#475569" stroke-width="1.2"/>
+                <circle cx="345" cy="160" r="2.5" fill="#0f172a"/>
+                <g transform="translate(505, 155)">
+                  <rect width="165" height="42" rx="5" fill="#ffffff" stroke="#cbd5e1" stroke-width="1" filter="drop-shadow(0 2px 4px rgba(0,0,0,0.06))"/>
+                  <text x="8" y="17" font-size="10.5" font-weight="700" fill="#0f172a" font-family="system-ui, sans-serif">Cystic Duct</text>
+                  <text x="8" y="32" font-size="9" fill="#64748b" font-family="system-ui, sans-serif">Spiral valves of Heister mucosa</text>
+                </g>
+
+                <!-- Common Bile Duct (CBD) -->
+                <line x1="405" y1="260" x2="520" y2="245" stroke="#475569" stroke-width="1.2"/>
+                <circle cx="405" cy="260" r="2.5" fill="#0f172a"/>
+                <g transform="translate(505, 225)">
+                  <rect width="165" height="42" rx="5" fill="#ffffff" stroke="#cbd5e1" stroke-width="1" filter="drop-shadow(0 2px 4px rgba(0,0,0,0.06))"/>
+                  <text x="8" y="17" font-size="10.5" font-weight="700" fill="#0f172a" font-family="system-ui, sans-serif">Common Bile Duct (CBD)</text>
+                  <text x="8" y="32" font-size="9" fill="#64748b" font-family="system-ui, sans-serif">Patent main drainage to duodenum</text>
+                </g>
+
+                <!-- Hartmann's Pouch Callout -->
+                <line x1="312" y1="205" x2="520" y2="315" stroke="#475569" stroke-width="1.2"/>
+                <circle cx="312" cy="205" r="2.5" fill="#0f172a"/>
+                <g transform="translate(505, 295)">
+                  <rect width="165" height="42" rx="5" fill="#ffffff" stroke="#cbd5e1" stroke-width="1" filter="drop-shadow(0 2px 4px rgba(0,0,0,0.06))"/>
+                  <text x="8" y="17" font-size="10.5" font-weight="700" fill="#0f172a" font-family="system-ui, sans-serif">Hartmann's Pouch</text>
+                  <text x="8" y="32" font-size="9" fill="#64748b" font-family="system-ui, sans-serif">Infundibulum stone impaction risk</text>
                 </g>
               </svg>
             </div>
+            
+            <p class="medical-figure-caption">
+              <strong>Figure 1: Detailed anatomical illustration of the human biliary tree and gallbladder pathology.</strong> Highlights the anatomical divisions of the gallbladder (fundus, body, infundibulum / Hartmann's pouch, and neck) and its drainage through the cystic duct containing the spiral folds of Heister into the common bile duct. Multiple faceted cholesterol gallstones (cholelithiasis) are shown clustered within the gallbladder lumen. During laparoscopic cholecystectomy, careful dissection within Calot's hepatobiliary triangle ensures safe identification and clipping of the cystic duct and artery while preserving the common bile duct.
+            </p>
+            
             <div class="medical-illustration-dock">
               <span class="medical-illustration-dock-item">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
-                <span>Modern Surgical Options</span>
-              </span>
-              <span class="medical-illustration-dock-item">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-                <span>Recovery and Discharge Guidance</span>
+                <span>Accurate Biliary Tree Landmarks</span>
               </span>
               <span class="medical-illustration-dock-item">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-                <span>Clear Information About Treatment Costs</span>
+                <span>Critical View of Safety Protocol</span>
+              </span>
+              <span class="medical-illustration-dock-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                <span>3-Port Keyhole Laparoscopic Daycare</span>
               </span>
             </div>
           </div>
-          <p class="art-caption">Clinical 2D illustration: Anatomical layout showing the gallbladder, cystic duct within Calot's triangle, and symptomatic cholesterol calculi removed cleanly through keyhole laparoscopic incisions.</p>
         </div>
 
         <aside class="form-card" id="appointment" aria-labelledby="form-title">
@@ -602,7 +690,8 @@
 
   <div class="mobile-actions" aria-label="Quick contact actions">
     <a class="mobile-call" href="tel:+918951016007" data-track="call"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 3.8 9 3.3l2 4.5-1.7 1.5a14.8 14.8 0 0 0 5.4 5.4l1.5-1.7 4.5 2-.5 2.4a2.7 2.7 0 0 1-3 2.1A17.7 17.7 0 0 1 4.5 6.8a2.7 2.7 0 0 1 2.1-3Z"/></svg><span>Call</span></a>
-    <a class="mobile-book" href="#appointment">Book Appointment</a>
+    <a class="mobile-whatsapp" href="https://wa.me/919429690479?text=Hello%20Revive%20Healthcare%2C%20I%20would%20like%20to%20enquire%20about%20gallstones%20treatment." target="_blank" rel="noopener noreferrer" data-track="whatsapp"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg><span>WhatsApp</span></a>
+    <a class="mobile-book" href="#appointment">Book</a>
   </div>
 
   <section class="consent-banner" id="consent-banner" aria-label="Optional measurement choices" hidden>

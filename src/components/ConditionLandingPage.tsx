@@ -1,7 +1,25 @@
 import React, { useState } from 'react';
 import { Condition, AppointmentFormData } from '../types';
-import { HOSPITAL_INFO } from '../data/hospitalData';
-import { Phone, Calendar, CheckCircle2, ShieldCheck, Lock, ArrowRight, Activity, Stethoscope, HelpCircle, ChevronDown, MapPin, Globe, Clock, User, AlertCircle, MessageSquare } from 'lucide-react';
+import { HOSPITAL_INFO, DOCTORS } from '../data/hospitalData';
+import { MedicalAnatomyIllustration } from './MedicalAnatomyIllustration';
+import {
+  Phone,
+  Calendar,
+  CheckCircle2,
+  ShieldCheck,
+  Lock,
+  ArrowRight,
+  Activity,
+  Stethoscope,
+  HelpCircle,
+  ChevronDown,
+  MapPin,
+  Clock,
+  User,
+  AlertCircle,
+  MessageSquare,
+  Award
+} from 'lucide-react';
 
 interface ConditionLandingPageProps {
   condition: Condition;
@@ -21,6 +39,7 @@ export const ConditionLandingPage: React.FC<ConditionLandingPageProps> = ({ cond
 
   const [error, setError] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submissionStatus, setSubmissionStatus] = useState<string>('');
   const [openFaqIdx, setOpenFaqIdx] = useState<number | null>(0);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
@@ -32,50 +51,93 @@ export const ConditionLandingPage: React.FC<ConditionLandingPageProps> = ({ cond
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
-    if (!formData.patientName.trim()) {
-      setError('Please enter your full name.');
+    if (!formData.patientName.trim() || formData.patientName.trim().length < 2) {
+      setError('Please enter your full name (at least 2 characters).');
       return;
     }
 
     const cleanPhone = formData.mobileNumber.replace(/\D/g, '');
     if (!/^[6-9]\d{9}$/.test(cleanPhone)) {
-      setError('Please enter a valid 10-digit Indian mobile number.');
+      setError('Please enter a valid 10-digit Indian mobile number (starting with 6, 7, 8, or 9).');
       return;
     }
 
     setIsSubmitting(true);
+    setSubmissionStatus('Preparing your consultation details...');
+
+    // Genuine delivery handoff to WhatsApp with fully encoded message
+    const messageLines = [
+      `*Consultation Request — ${HOSPITAL_INFO.name}*`,
+      `Patient Name: ${formData.patientName.trim()}`,
+      `Mobile: ${cleanPhone}`,
+      `Condition: ${condition.name}`,
+      `Preferred Contact: ${formData.preferredContactMethod || 'Call'}`,
+    ];
+
+    if (formData.preferredDate) {
+      messageLines.push(`Preferred Date: ${formData.preferredDate}`);
+    }
+
+    messageLines.push('', 'Please connect with me regarding consultation and treatment options.');
+
+    const encodedText = encodeURIComponent(messageLines.join('\n'));
+    const whatsappUrl = `https://wa.me/${HOSPITAL_INFO.whatsappNumber}?text=${encodedText}`;
+
+    // Safely fire analytics if gtag exists with valid configuration
+    if (typeof window !== 'undefined' && (window as any).gtag) {
+      try {
+        (window as any).gtag('event', 'generate_lead', {
+          event_category: 'Consultation',
+          event_label: condition.name
+        });
+      } catch (err) {
+        // Analytics failure should never block patient experience
+      }
+    }
 
     setTimeout(() => {
       setIsSubmitting(false);
-
-      if (typeof window !== 'undefined' && (window as any).gtag) {
-        (window as any).gtag('event', 'conversion', {
-          send_to: `AW-CONVERSION_ID/${condition.id}_enquiry`,
-          value: 1.0,
-          currency: 'INR'
-        });
+      setSubmissionStatus('Redirecting to WhatsApp to complete your enquiry...');
+      
+      try {
+        const win = window.open(whatsappUrl, '_blank');
+        if (!win || win.closed || typeof win.closed === 'undefined') {
+          window.location.href = whatsappUrl;
+        }
+      } catch (err) {
+        window.location.href = whatsappUrl;
       }
-      if (typeof window !== 'undefined' && (window as any).fbq) {
-        (window as any).fbq('track', 'Lead', { content_name: condition.name });
-      }
 
-      onSuccess(formData);
-    }, 800);
+      onSuccess({
+        ...formData,
+        mobileNumber: cleanPhone
+      });
+    }, 400);
   };
 
   const handleCallClick = () => {
     if (typeof window !== 'undefined' && (window as any).gtag) {
-      (window as any).gtag('event', 'click_to_call', { event_category: 'Engagement', event_label: HOSPITAL_INFO.phone });
+      try {
+        (window as any).gtag('event', 'contact_click', {
+          contact_method: 'phone',
+          condition: condition.id
+        });
+      } catch (e) {}
     }
-    window.location.href = `tel:${HOSPITAL_INFO.phone.replace(/\s+/g, '')}`;
+    window.location.href = `tel:${HOSPITAL_INFO.phone}`;
   };
 
   const handleWhatsAppChat = () => {
     if (typeof window !== 'undefined' && (window as any).gtag) {
-      (window as any).gtag('event', 'whatsapp_click', { event_category: 'Engagement' });
+      try {
+        (window as any).gtag('event', 'contact_click', {
+          contact_method: 'whatsapp',
+          condition: condition.id
+        });
+      } catch (e) {}
     }
     const message = encodeURIComponent(
-      `Hello Revive Healthcare Hospital,\nI would like to inquire about consultation and treatment for ${condition.name}.`
+      `Hello Revive Healthcare Hospital, I would like to inquire about consultation and treatment for ${condition.name}.`
     );
     window.open(`https://wa.me/${HOSPITAL_INFO.whatsappNumber}?text=${message}`, '_blank');
   };
@@ -85,135 +147,131 @@ export const ConditionLandingPage: React.FC<ConditionLandingPageProps> = ({ cond
     if (el) el.scrollIntoView({ behavior: 'smooth' });
   };
 
-  // Condition-specific FAQs
   const getConditionFaqs = (id: string) => {
     switch (id) {
       case 'piles':
         return [
-          { q: "What are the common early symptoms of piles?", response: "Piles (haemorrhoids) often present with painless bright red bleeding during bowel movements, itching or irritation in the anal region, and swelling or lumps near the anus." },
-          { q: "Do all piles patients require surgery?", response: "No. Early-stage piles can often be managed effectively with high-fiber diets, hydration, medications, and office-based non-surgical procedures. Surgery is reserved for advanced or symptomatic cases." },
-          { q: "How long is recovery after piles treatment?", response: "Recovery depends on the severity and treatment method chosen. Modern minimally invasive techniques generally offer faster recovery and minimal discomfort." }
+          { q: "What are the common early symptoms of piles?", response: "Piles (haemorrhoids) often present with painless bright red bleeding during bowel movements, perianal irritation, and swelling near the anal verge." },
+          { q: "Do all piles patients require surgery?", response: "No. Early-stage piles are often treated effectively with medical management, high-fiber dietary counseling, and warm sitz baths. Laser and minimally invasive procedures are considered for persistent or advanced grades." },
+          { q: "Is same-day discharge possible after piles laser treatment?", response: "Eligible patients undergoing modern laser haemorrhoidoplasty frequently qualify for same-day daycare discharge after specialist review." }
         ];
       case 'fissure':
         return [
-          { q: "What is an anal fissure?", response: "An anal fissure is a small tear in the lining of the anal canal, typically caused by passing hard or large stools, resulting in sharp pain and bleeding." },
-          { q: "How is an anal fissure evaluated?", response: "Our specialist conducts a gentle physical and clinical examination to determine the severity and recommend appropriate medical or lifestyle management." },
-          { q: "Can fissures heal without surgery?", response: "Yes, many acute fissures heal with conservative care including fiber supplements, sitz baths, and prescribed topical medications." }
+          { q: "What is an anal fissure and what causes it?", response: "An anal fissure is a small tear in the lining of the anal canal, commonly triggered by passing hard stools. The intense pain is caused by internal sphincter spasms that restrict blood flow." },
+          { q: "How is an anal fissure evaluated?", response: "Our specialist conducts a gentle, confidential clinical examination to determine whether the tear is acute or chronic and guide appropriate care." },
+          { q: "Can anal fissures heal without surgery?", response: "Yes. Many acute fissures heal with conservative medical management, prescribed sphincter-relaxing ointments, stool softeners, and adequate hydration." }
         ];
       case 'fistula':
         return [
-          { q: "What causes an anal fistula?", response: "An anal fistula is an abnormal tunnel connecting an infected anal gland to the skin surface, frequently following an unresolved abscess." },
-          { q: "Why is surgical consultation necessary for a fistula?", response: "Fistulas rarely heal on their own. Expert surgical assessment is essential to map the tract and preserve sphincter function." },
-          { q: "What advanced surgical options are available?", response: "Depending on complexity, options range from fistulotomy to sphincter-sparing techniques such as laser ablation and LIFT." }
+          { q: "What causes an anal fistula?", response: "An anal fistula is an abnormal tunnel originating from an infected anal crypt gland traversing outward to the perianal skin, often developing after a perianal abscess." },
+          { q: "Why is surgical consultation necessary for a fistula?", response: "Fistulas do not resolve on their own with medicines alone. Expert surgical assessment is essential to map the tract and preserve sphincter muscle control." },
+          { q: "What sphincter-preserving surgical options are available?", response: "We offer advanced sphincter-sparing procedures including FiLaC (Fistula Laser Closure) and LIFT to seal the tract while protecting continence." }
         ];
       case 'gallstones':
         return [
-          { q: "What triggers gallstone pain?", response: "Gallstones can block bile ducts, triggering sudden upper right abdominal pain (biliary colic), especially after fatty meals." },
-          { q: "Do asymptomatic gallstones need surgery?", response: "Not necessarily. Incidental gallstones without symptoms are often monitored, whereas symptomatic gallstones typically warrant surgical evaluation." },
-          { q: "What is the standard treatment for symptomatic gallstones?", response: "Laparoscopic cholecystectomy (minimally invasive gallbladder removal) is the gold standard for symptomatic gallstones." }
+          { q: "What triggers gallstone pain?", response: "Gallstones can temporarily obstruct the cystic duct, causing intense upper right abdominal discomfort (biliary colic), especially following heavy or fatty meals." },
+          { q: "Do all gallstones require gallbladder surgery?", response: "Asymptomatic gallstones discovered incidentally often only need observation. Symptomatic gallstones or repeated colic episodes usually warrant surgical consultation." },
+          { q: "How is laparoscopic gallbladder surgery performed?", response: "Laparoscopic cholecystectomy is a minimally invasive procedure using 3 to 4 tiny keyhole incisions, allowing safe removal of the gallbladder with minimal post-op discomfort." }
         ];
       case 'hernia':
         return [
-          { q: "What are the warning signs of a hernia?", response: "A visible bulge or lump in the abdomen or groin that aches or becomes more prominent when lifting, coughing, or standing." },
-          { q: "Can a hernia heal on its own?", response: "No, hernias do not heal on their own and require professional clinical evaluation to prevent potential complications like incarceration." },
-          { q: "How is a hernia repaired?", response: "Modern hernia repair involves minimally invasive laparoscopic surgery with mesh reinforcement for durable support and quick recovery." }
+          { q: "Can a hernia heal on its own with exercise or belts?", response: "No. A hernia is a physical gap or weakness in the abdominal wall muscle that cannot heal on its own. Supportive belts may temporarily relieve heaviness but do not repair the defect." },
+          { q: "Why is hernia repair recommended?", response: "Timely hernia repair prevents severe complications such as obstruction or strangulation, where intestinal tissue gets trapped and loses blood supply." },
+          { q: "What is tension-free mesh hernia repair?", response: "Modern repair uses a biocompatible 3D prosthetic mesh that reinforces the muscular defect without pulling native tissues tightly, dramatically reducing recurrence risk." }
         ];
       default:
         return [
-          { q: "When should I consult a specialist?", response: "Consult a specialist whenever you experience persistent symptoms or discomfort affecting your daily quality of life." },
-          { q: "How do I book an appointment?", response: "You can submit our online consultation form, call our helpline, or connect via WhatsApp instantly." }
+          { q: "When should I consult a specialist doctor?", response: "You should schedule a medical consultation if you experience persistent symptoms, localized pain, or discomfort that affects your daily routine." },
+          { q: "How quickly can I consult a doctor at Revive Hospital?", response: "Our consultation desk is accessible every day. You can book online, message via WhatsApp, or call directly on 089510 16007." }
         ];
     }
   };
 
   const conditionFaqs = getConditionFaqs(condition.id);
+  const surgeon = DOCTORS[0];
 
   return (
-    <div className="bg-white text-[#202B3C]">
+    <div className="bg-white text-slate-800">
       
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-[#F1F8FE] py-12 lg:py-20 border-b border-blue-100">
-        <div className="absolute top-0 right-0 -mt-12 -mr-12 w-96 h-96 bg-blue-200/30 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute bottom-0 left-0 -mb-12 -ml-12 w-96 h-96 bg-red-100/20 rounded-full blur-3xl pointer-events-none" />
-
+      <section className="relative overflow-hidden bg-slate-50 py-12 lg:py-16 border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
             
             <div className="lg:col-span-7 space-y-6 text-center lg:text-left">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-100 text-[#123FA8] text-xs sm:text-sm font-bold tracking-wide border border-blue-200">
-                <ShieldCheck className="w-4 h-4 text-[#123FA8]" />
-                <span>Revive Healthcare Hospital • Bengaluru</span>
+              <div className="inline-flex items-center gap-2 text-xs font-bold text-[#123FA8] tracking-wider uppercase">
+                <span>Revive Healthcare Hospital</span>
+                <span aria-hidden="true">·</span>
+                <span>Bengaluru</span>
               </div>
 
               <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#123FA8] tracking-tight leading-tight">
-                Specialised Care & Treatment for <span className="text-[#F20D18]">{condition.name}</span>
+                {condition.name} Treatment &amp; Consultation in <span className="text-[#F20D18]">Bengaluru</span>
               </h1>
 
-              <p className="text-base sm:text-lg text-[#202B3C] leading-relaxed max-w-2xl mx-auto lg:mx-0 font-medium">
+              <p className="text-base sm:text-lg text-slate-600 leading-relaxed max-w-2xl mx-auto lg:mx-0">
                 {condition.fullDescription}
               </p>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2 text-left max-w-xl mx-auto lg:mx-0">
-                <div className="flex items-center gap-2.5 text-sm font-semibold text-[#202B3C]">
-                  <CheckCircle2 className="w-5 h-5 text-[#168FE5] shrink-0" />
-                  <span>Experienced Specialist Doctors</span>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1 text-left max-w-xl mx-auto lg:mx-0">
+                <div className="flex items-center gap-2.5 text-sm font-semibold text-slate-700">
+                  <CheckCircle2 className="w-4 h-4 text-[#168FE5] shrink-0" />
+                  <span>Experienced Surgical Care</span>
                 </div>
-                <div className="flex items-center gap-2.5 text-sm font-semibold text-[#202B3C]">
-                  <CheckCircle2 className="w-5 h-5 text-[#168FE5] shrink-0" />
-                  <span>Advanced Diagnostic Facilities</span>
+                <div className="flex items-center gap-2.5 text-sm font-semibold text-slate-700">
+                  <CheckCircle2 className="w-4 h-4 text-[#168FE5] shrink-0" />
+                  <span>On-Site Diagnostic Facilities</span>
                 </div>
-                <div className="flex items-center gap-2.5 text-sm font-semibold text-[#202B3C]">
-                  <CheckCircle2 className="w-5 h-5 text-[#168FE5] shrink-0" />
+                <div className="flex items-center gap-2.5 text-sm font-semibold text-slate-700">
+                  <CheckCircle2 className="w-4 h-4 text-[#168FE5] shrink-0" />
                   <span>Minimally Invasive Options</span>
                 </div>
-                <div className="flex items-center gap-2.5 text-sm font-semibold text-[#202B3C]">
-                  <CheckCircle2 className="w-5 h-5 text-[#168FE5] shrink-0" />
-                  <span>Transparent & Ethical Care</span>
+                <div className="flex items-center gap-2.5 text-sm font-semibold text-slate-700">
+                  <CheckCircle2 className="w-4 h-4 text-[#168FE5] shrink-0" />
+                  <span>Clear Information About Treatment Costs</span>
                 </div>
               </div>
 
-              <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
+              <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3 pt-3 w-full">
                 <button
                   onClick={scrollToForm}
-                  className="w-full sm:w-auto flex items-center justify-center gap-2 px-8 py-4 rounded-xl bg-[#F20D18] text-white font-bold text-base shadow-lg shadow-[#F20D18]/30 hover:bg-red-700 transition-all"
+                  className="w-full sm:w-auto flex items-center justify-center gap-2 px-7 py-3.5 min-h-[48px] rounded-xl bg-[#F20D18] text-white font-bold text-[14.5px] shadow-sm hover:bg-red-700 transition-colors active:scale-98"
                 >
-                  <Calendar className="w-5 h-5" />
-                  <span>Book Consultation for {condition.name}</span>
+                  <Calendar className="w-4 h-4" />
+                  <span>Book Consultation</span>
                   <ArrowRight className="w-4 h-4 ml-1" />
                 </button>
                 
                 <button
                   onClick={handleCallClick}
-                  className="w-full sm:w-auto flex items-center justify-center gap-2 px-8 py-4 rounded-xl border-2 border-[#123FA8] text-[#123FA8] font-bold text-base bg-white hover:bg-blue-50 transition-all"
+                  className="w-full sm:w-auto flex items-center justify-center gap-2 px-7 py-3.5 min-h-[48px] rounded-xl border border-[#123FA8] text-[#123FA8] font-bold text-[14.5px] bg-white hover:bg-blue-50 transition-colors active:scale-98"
                 >
-                  <Phone className="w-5 h-5 text-[#F20D18]" />
-                  <span>Call Hospital</span>
+                  <Phone className="w-4 h-4 text-[#F20D18]" />
+                  <span>Call: {HOSPITAL_INFO.phoneDisplay}</span>
                 </button>
               </div>
 
-              <div className="flex items-center justify-center lg:justify-start gap-2 text-xs font-semibold text-[#123FA8] pt-2">
-                <Lock className="w-4 h-4 text-[#168FE5]" />
-                <span>Your enquiry is handled confidentially.</span>
+              <div className="flex items-center justify-center lg:justify-start gap-2 text-xs text-slate-500 pt-1">
+                <Lock className="w-3.5 h-3.5 text-emerald-600" />
+                <span>Confidential medical consultation in Sir M. Vishweshwaraiah Layout.</span>
               </div>
             </div>
 
-            {/* Hero Image */}
+            {/* Visual Card - Authentic Anatomical Illustration */}
             <div className="lg:col-span-5">
-              <div className="relative rounded-3xl overflow-hidden shadow-2xl border-2 border-blue-200">
-                <img
-                  src={condition.image}
-                  alt={condition.name}
-                  className="w-full h-80 sm:h-96 object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#123FA8]/80 via-transparent to-transparent flex items-end p-6">
-                  <div className="text-white">
-                    <span className="text-xs font-bold uppercase tracking-wider text-blue-200">
-                      Revive Healthcare Hospital
-                    </span>
-                    <h3 className="text-xl font-extrabold">
-                      {condition.name} Specialist Care
-                    </h3>
+              <div className="relative rounded-2xl overflow-hidden shadow-lg border border-slate-200 bg-white">
+                <MedicalAnatomyIllustration conditionId={condition.id} />
+                <div className="p-4 sm:p-5 bg-white border-t border-slate-100">
+                  <div className="flex items-center justify-between text-xs font-semibold text-slate-500 mb-1">
+                    <span>Revive Healthcare Hospital</span>
+                    <span>Bengaluru Surgical Desk</span>
                   </div>
+                  <h3 className="text-base font-bold text-[#123FA8]">
+                    Clinical Diagnosis &amp; Evaluation for {condition.name}
+                  </h3>
+                  <p className="text-xs text-slate-600 mt-1">
+                    Consult qualified surgeons to discuss clinical diagnosis, daycare eligibility, and treatment planning.
+                  </p>
                 </div>
               </div>
             </div>
@@ -223,67 +281,68 @@ export const ConditionLandingPage: React.FC<ConditionLandingPageProps> = ({ cond
       </section>
 
       {/* Symptoms & Treatment Details */}
-      <section className="py-16 lg:py-24 bg-white">
+      <section className="py-14 lg:py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#F1F8FE] text-[#123FA8] text-xs font-bold uppercase tracking-wider mb-3 border border-blue-200">
-              Clinical Insights
-            </div>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#123FA8] tracking-tight">
-              Understanding {condition.name}
+          <div className="text-center max-w-2xl mx-auto mb-12">
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-[#123FA8] tracking-tight">
+              Understanding {condition.name} Symptoms &amp; Options
             </h2>
-            <p className="mt-4 text-base sm:text-lg text-[#202B3C] font-medium">
-              Recognizing symptoms early ensures timely evaluation and access to appropriate treatment options.
+            <p className="mt-2 text-sm text-slate-600">
+              Accurate symptom identification helps in timely consultation and clinical recovery.
             </p>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
             
             {/* Symptoms Card */}
-            <div className="bg-[#F1F8FE] p-8 sm:p-10 rounded-3xl border border-blue-200 shadow-sm space-y-6">
-              <div className="flex items-center gap-3">
-                <div className="w-12 h-12 rounded-2xl bg-white text-[#F20D18] flex items-center justify-center shadow-xs border border-blue-200">
-                  <Activity className="w-6 h-6" />
+            <div className="bg-slate-50 p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-xs flex flex-col justify-between">
+              <div>
+                <div className="flex items-center gap-3 mb-5">
+                  <div className="w-10 h-10 rounded-xl bg-white text-[#F20D18] flex items-center justify-center shadow-xs border border-slate-200">
+                    <Activity className="w-5 h-5" />
+                  </div>
+                  <h3 className="text-lg font-bold text-[#123FA8]">
+                    Common Symptoms to Watch For
+                  </h3>
                 </div>
-                <h3 className="text-xl font-bold text-[#123FA8]">
-                  Common Symptoms to Watch For
-                </h3>
+                <ul className="space-y-3.5">
+                  {condition.symptoms.map((symptom, idx) => (
+                    <li key={idx} className="flex items-start gap-3 text-sm text-slate-700">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#F20D18] mt-2 shrink-0" />
+                      <span>{symptom}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
-              <ul className="space-y-4">
-                {condition.symptoms.map((symptom, idx) => (
-                  <li key={idx} className="flex items-start gap-3 text-sm sm:text-base text-[#202B3C] font-medium">
-                    <span className="w-2 h-2 rounded-full bg-[#F20D18] mt-2 shrink-0" />
-                    <span>{symptom}</span>
-                  </li>
-                ))}
-              </ul>
-              <div className="pt-4 border-t border-blue-200 text-xs text-[#202B3C]/80 font-medium">
-                * If you experience any of these symptoms persistently, schedule an evaluation with our specialist.
-              </div>
+              <p className="pt-4 mt-6 border-t border-slate-200 text-xs text-slate-500">
+                Do not ignore ongoing symptoms. Prompt assessment prevents worsening conditions.
+              </p>
             </div>
 
             {/* Treatments Card */}
-            <div className="bg-[#F1F8FE] p-8 sm:p-10 rounded-3xl border border-blue-200 shadow-sm space-y-6">
-              <div className="flex items-center gap-3">
-                <div className="w-12 h-12 rounded-2xl bg-white text-[#123FA8] flex items-center justify-center shadow-xs border border-blue-200">
-                  <Stethoscope className="w-6 h-6" />
+            <div className="bg-slate-50 p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-xs flex flex-col justify-between">
+              <div>
+                <div className="flex items-center gap-3 mb-5">
+                  <div className="w-10 h-10 rounded-xl bg-white text-[#123FA8] flex items-center justify-center shadow-xs border border-slate-200">
+                    <Stethoscope className="w-5 h-5" />
+                  </div>
+                  <h3 className="text-lg font-bold text-[#123FA8]">
+                    Available Treatment Approaches
+                  </h3>
                 </div>
-                <h3 className="text-xl font-bold text-[#123FA8]">
-                  Evaluation & Treatment Options
-                </h3>
+                <ul className="space-y-3.5">
+                  {condition.treatments.map((treatment, idx) => (
+                    <li key={idx} className="flex items-start gap-3 text-sm text-slate-700">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#168FE5] mt-2 shrink-0" />
+                      <span>{treatment}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
-              <ul className="space-y-4">
-                {condition.treatments.map((treatment, idx) => (
-                  <li key={idx} className="flex items-start gap-3 text-sm sm:text-base text-[#202B3C] font-medium">
-                    <span className="w-2 h-2 rounded-full bg-[#168FE5] mt-2 shrink-0" />
-                    <span>{treatment}</span>
-                  </li>
-                ))}
-              </ul>
-              <div className="pt-4 border-t border-blue-200 text-xs text-[#202B3C]/80 font-medium">
-                * Treatment recommendations are personalized following thorough clinical assessment.
-              </div>
+              <p className="pt-4 mt-6 border-t border-slate-200 text-xs text-slate-500">
+                Treatment is tailored to each patient following an in-person clinical assessment.
+              </p>
             </div>
 
           </div>
@@ -291,64 +350,57 @@ export const ConditionLandingPage: React.FC<ConditionLandingPageProps> = ({ cond
         </div>
       </section>
 
-      {/* Why Choose Revive */}
-      <section className="py-16 bg-[#F1F8FE] border-t border-blue-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <div className="text-center max-w-3xl mx-auto mb-12">
-            <h2 className="text-3xl font-extrabold text-[#123FA8]">
-              Why Choose Revive Healthcare Hospital for {condition.name}?
-            </h2>
-            <p className="mt-3 text-base text-[#202B3C] font-medium">
-              Located in Bengaluru, our hospital offers expert medical evaluations, advanced diagnostics, and compassionate support.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="bg-white p-6 rounded-2xl border border-blue-200 shadow-xs">
-              <h4 className="font-bold text-[#123FA8] text-base mb-2">Experienced Specialists</h4>
-              <p className="text-sm text-[#202B3C] font-medium">Seasoned general, laparoscopic, and proctology specialists dedicated to accurate diagnosis.</p>
+      {/* Doctor Profile Section */}
+      <section className="py-14 bg-slate-50 border-y border-slate-200">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6">
+          <div className="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-sm flex flex-col sm:flex-row items-center gap-6">
+            <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-full bg-slate-100 flex items-center justify-center shrink-0 border border-slate-200 text-[#123FA8]">
+              <Award className="w-12 h-12 text-[#123FA8]" />
             </div>
-            <div className="bg-white p-6 rounded-2xl border border-blue-200 shadow-xs">
-              <h4 className="font-bold text-[#123FA8] text-base mb-2">Advanced Diagnostics</h4>
-              <p className="text-sm text-[#202B3C] font-medium">Modern imaging, laboratory, and endoscopic diagnostic tools for precise clinical evaluation.</p>
+            <div className="space-y-2 text-center sm:text-left flex-1">
+              <div className="inline-block text-[11px] font-bold text-[#168FE5] uppercase tracking-wider">
+                Consultant Surgeon
+              </div>
+              <h3 className="text-xl font-bold text-slate-900">{surgeon.name}</h3>
+              <p className="text-xs font-semibold text-slate-600">{surgeon.qualifications} · {surgeon.regNumber}</p>
+              <p className="text-xs text-slate-500 leading-relaxed">{surgeon.speciality} · {surgeon.experience}</p>
             </div>
-            <div className="bg-white p-6 rounded-2xl border border-blue-200 shadow-xs">
-              <h4 className="font-bold text-[#123FA8] text-base mb-2">Patient-Focused Care</h4>
-              <p className="text-sm text-[#202B3C] font-medium">Transparent counseling, personalized treatment plans, and supportive post-operative care.</p>
-            </div>
+            <button
+              onClick={scrollToForm}
+              className="px-5 py-2.5 rounded-xl bg-[#123FA8] text-white text-xs font-bold hover:bg-[#0d2f80] transition-colors whitespace-nowrap"
+            >
+              Consult Surgeon
+            </button>
           </div>
         </div>
       </section>
 
       {/* Condition FAQs */}
-      <section className="py-16 lg:py-24 bg-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6">
-          <div className="text-center max-w-2xl mx-auto mb-12">
-            <h2 className="text-3xl font-extrabold text-[#123FA8]">
+      <section className="py-14 lg:py-20 bg-white">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6">
+          <div className="text-center max-w-xl mx-auto mb-10">
+            <h2 className="text-2xl font-extrabold text-[#123FA8]">
               Frequently Asked Questions About {condition.name}
             </h2>
-            <p className="mt-3 text-base text-[#202B3C] font-medium">
-              Clear, medically responsible answers for patients in Bengaluru.
+            <p className="mt-2 text-xs text-slate-500">
+              Clear answers from our clinical team at Revive Healthcare Hospital.
             </p>
           </div>
 
-          <div className="space-y-4">
+          <div className="space-y-3">
             {conditionFaqs.map((faq, idx) => {
               const isOpen = openFaqIdx === idx;
               return (
-                <div key={idx} className="bg-[#F1F8FE] border border-blue-200 rounded-2xl overflow-hidden shadow-xs">
+                <div key={idx} className="border border-slate-200 rounded-xl overflow-hidden bg-white">
                   <button
                     onClick={() => setOpenFaqIdx(isOpen ? null : idx)}
-                    className="w-full p-6 text-left flex items-center justify-between gap-4 font-bold text-[#123FA8] text-base sm:text-lg hover:bg-blue-100/60 transition-colors"
+                    className="w-full p-4 sm:p-5 text-left flex items-center justify-between gap-4 font-bold text-[#123FA8] text-sm hover:bg-slate-50 transition-colors"
                   >
-                    <span className="flex items-center gap-3">
-                      <HelpCircle className="w-5 h-5 text-[#F20D18] shrink-0" />
-                      <span>{faq.q}</span>
-                    </span>
-                    <ChevronDown className={`w-5 h-5 text-[#123FA8] transition-transform duration-300 shrink-0 ${isOpen ? 'rotate-180 text-[#F20D18]' : ''}`} />
+                    <span>{faq.q}</span>
+                    <ChevronDown className={`w-4 h-4 text-slate-500 transition-transform duration-200 shrink-0 ${isOpen ? 'rotate-180 text-[#F20D18]' : ''}`} />
                   </button>
                   {isOpen && (
-                    <div className="px-6 pb-6 pt-2 text-[#202B3C] font-medium text-sm sm:text-base leading-relaxed border-t border-blue-200/60 bg-white">
+                    <div className="px-5 pb-5 pt-1 text-slate-600 text-xs sm:text-sm leading-relaxed border-t border-slate-100 bg-slate-50/50">
                       {faq.response}
                     </div>
                   )}
@@ -360,132 +412,129 @@ export const ConditionLandingPage: React.FC<ConditionLandingPageProps> = ({ cond
       </section>
 
       {/* Appointment Booking Form */}
-      <section id="consultation-form" className="py-16 lg:py-24 bg-[#F1F8FE] border-t border-blue-100">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6">
-          <div className="bg-white rounded-3xl shadow-xl border border-blue-200 overflow-hidden">
-            <div className="bg-[#123FA8] text-white p-8 text-center relative">
-              <h3 className="text-2xl font-extrabold">Book a Consultation for {condition.name}</h3>
-              <p className="text-blue-100 text-sm mt-2 font-medium">Fill in your details to schedule an appointment at Revive Healthcare Hospital.</p>
+      <section id="consultation-form" className="py-14 lg:py-20 bg-slate-50 border-t border-slate-200">
+        <div className="max-w-2xl mx-auto px-4 sm:px-6">
+          <div className="bg-white rounded-2xl shadow-md border border-slate-200 overflow-hidden">
+            <div className="bg-[#123FA8] text-white p-6 text-center">
+              <h3 className="text-xl font-bold">Enquire About {condition.name} Treatment</h3>
+              <p className="text-blue-100 text-xs mt-1">Submit your details to connect directly with our care coordinator.</p>
             </div>
 
-            <form onSubmit={handleSubmit} className="p-6 sm:p-10 space-y-6">
+            <form onSubmit={handleSubmit} className="p-6 sm:p-8 space-y-4">
               {error && (
-                <div className="p-4 rounded-xl bg-red-50 border border-red-200 text-[#F20D18] text-sm font-semibold flex items-center gap-2">
-                  <AlertCircle className="w-5 h-5 shrink-0" />
+                <div className="p-3 rounded-lg bg-red-50 border border-red-200 text-[#F20D18] text-xs font-semibold flex items-center gap-2">
+                  <AlertCircle className="w-4 h-4 shrink-0" />
                   <span>{error}</span>
                 </div>
               )}
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              {submissionStatus && (
+                <div className="p-3 rounded-lg bg-blue-50 border border-blue-200 text-[#123FA8] text-xs font-semibold">
+                  {submissionStatus}
+                </div>
+              )}
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-xs font-bold text-[#123FA8] uppercase tracking-wider mb-2">
-                    Patient Full Name <span className="text-[#F20D18]">*</span>
+                  <label htmlFor="form-patient-name" className="block text-[14px] font-bold text-slate-800 mb-1.5">
+                    Patient Name <span className="text-[#F20D18]">*</span>
                   </label>
-                  <div className="relative">
-                    <span className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
-                      <User className="w-4 h-4" />
-                    </span>
-                    <input
-                      type="text"
-                      name="patientName"
-                      value={formData.patientName}
-                      onChange={handleChange}
-                      placeholder="Enter full name"
-                      required
-                      className="w-full pl-10 pr-4 py-3 rounded-xl border border-blue-200 text-[#202B3C] font-medium bg-[#F1F8FE] focus:outline-hidden focus:ring-2 focus:ring-[#123FA8]"
-                    />
-                  </div>
+                  <input
+                    id="form-patient-name"
+                    type="text"
+                    name="patientName"
+                    value={formData.patientName}
+                    onChange={handleChange}
+                    placeholder="Full name"
+                    required
+                    className="w-full min-h-[48px] px-3.5 py-2.5 rounded-lg border border-slate-300 text-base focus:border-[#123FA8] focus:outline-hidden"
+                  />
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold text-[#123FA8] uppercase tracking-wider mb-2">
-                    Mobile Number (10 Digits) <span className="text-[#F20D18]">*</span>
+                  <label htmlFor="form-mobile-number" className="block text-[14px] font-bold text-slate-800 mb-1.5">
+                    Mobile Number <span className="text-[#F20D18]">*</span>
                   </label>
-                  <div className="relative">
-                    <span className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
-                      <Phone className="w-4 h-4" />
-                    </span>
-                    <input
-                      type="tel"
-                      name="mobileNumber"
-                      value={formData.mobileNumber}
-                      onChange={handleChange}
-                      placeholder="9876543210"
-                      maxLength={10}
-                      required
-                      className="w-full pl-10 pr-4 py-3 rounded-xl border border-blue-200 text-[#202B3C] font-medium bg-[#F1F8FE] focus:outline-hidden focus:ring-2 focus:ring-[#123FA8]"
-                    />
-                  </div>
+                  <input
+                    id="form-mobile-number"
+                    type="tel"
+                    name="mobileNumber"
+                    value={formData.mobileNumber}
+                    onChange={handleChange}
+                    placeholder="10-digit number"
+                    maxLength={10}
+                    required
+                    className="w-full min-h-[48px] px-3.5 py-2.5 rounded-lg border border-slate-300 text-base focus:border-[#123FA8] focus:outline-hidden"
+                  />
                 </div>
               </div>
 
               <div>
-                <label className="block text-xs font-bold text-[#123FA8] uppercase tracking-wider mb-2">
+                <label className="block text-[14px] font-bold text-slate-800 mb-1.5">
                   Selected Condition
                 </label>
                 <input
                   type="text"
                   value={condition.name}
                   disabled
-                  className="w-full px-4 py-3 rounded-xl border border-blue-200 text-[#123FA8] font-bold bg-blue-50 cursor-not-allowed"
+                  className="w-full min-h-[48px] px-3.5 py-2.5 rounded-lg border border-slate-200 text-[#123FA8] font-bold bg-slate-50 cursor-not-allowed text-base"
                 />
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-xs font-bold text-[#123FA8] uppercase tracking-wider mb-2">
+                  <label htmlFor="form-preferred-date" className="block text-[14px] font-bold text-slate-800 mb-1.5">
                     Preferred Date (Optional)
                   </label>
                   <input
+                    id="form-preferred-date"
                     type="date"
                     name="preferredDate"
                     value={formData.preferredDate}
                     onChange={handleChange}
                     min={new Date().toISOString().split('T')[0]}
-                    className="w-full px-4 py-3 rounded-xl border border-blue-200 text-[#202B3C] font-medium bg-[#F1F8FE] focus:outline-hidden focus:ring-2 focus:ring-[#123FA8]"
+                    className="w-full min-h-[48px] px-3.5 py-2.5 rounded-lg border border-slate-300 text-base focus:border-[#123FA8] focus:outline-hidden"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold text-[#123FA8] uppercase tracking-wider mb-2">
+                  <label htmlFor="form-contact-method" className="block text-[14px] font-bold text-slate-800 mb-1.5">
                     Preferred Contact Method
                   </label>
                   <select
+                    id="form-contact-method"
                     name="preferredContactMethod"
                     value={formData.preferredContactMethod}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 rounded-xl border border-blue-200 text-[#202B3C] font-semibold bg-[#F1F8FE]"
+                    className="w-full min-h-[48px] px-3.5 py-2.5 rounded-lg border border-slate-300 text-base bg-white"
                   >
-                    <option value="Call">Call</option>
+                    <option value="Call">Phone Call</option>
                     <option value="WhatsApp">WhatsApp</option>
-                    <option value="SMS">SMS</option>
                   </select>
                 </div>
               </div>
 
-              <div className="flex flex-col sm:flex-row gap-4 pt-2">
+              <div className="flex flex-col sm:flex-row gap-3 pt-2">
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="flex-1 py-4 rounded-xl bg-[#F20D18] text-white font-bold text-base shadow-lg shadow-[#F20D18]/25 hover:bg-red-750 transition-all flex items-center justify-center gap-2"
+                  className="flex-1 min-h-[48px] py-3 px-6 rounded-xl bg-[#F20D18] text-white font-bold text-[15px] shadow-sm hover:bg-red-700 transition-colors flex items-center justify-center gap-2 active:scale-98"
                 >
-                  {isSubmitting ? 'Submitting...' : <>
-                    <CheckCircle2 className="w-5 h-5" />
-                    <span>Request an Appointment</span>
-                  </>}
+                  <Calendar className="w-4 h-4" />
+                  <span>{isSubmitting ? 'Connecting...' : 'Request Consultation'}</span>
                 </button>
                 <button
                   type="button"
                   onClick={handleWhatsAppChat}
-                  className="sm:w-auto px-6 py-4 rounded-xl bg-emerald-600 text-white font-bold text-base shadow-lg shadow-emerald-600/25 hover:bg-emerald-700 transition-all flex items-center justify-center gap-2"
+                  className="sm:w-auto min-h-[48px] py-3 px-5 rounded-xl border border-emerald-600 bg-emerald-50 text-emerald-800 font-bold text-[15px] hover:bg-emerald-100 transition-colors flex items-center justify-center gap-2 active:scale-98"
                 >
-                  <MessageSquare className="w-5 h-5" />
-                  <span>Chat via WhatsApp</span>
+                  <MessageSquare className="w-4 h-4 text-emerald-600" />
+                  <span>Chat on WhatsApp</span>
                 </button>
               </div>
 
-              <p className="text-xs text-[#202B3C]/70 text-center font-medium">
-                By submitting this form, you consent to being contacted by Revive Healthcare Hospital. Data is kept strictly confidential.
+              <p className="text-[11px] text-slate-500 text-center">
+                Your inquiry is strictly confidential. Handled directly by Revive Healthcare Hospital.
               </p>
             </form>
           </div>
@@ -493,16 +542,28 @@ export const ConditionLandingPage: React.FC<ConditionLandingPageProps> = ({ cond
       </section>
 
       {/* Hospital Location Summary */}
-      <section className="py-16 bg-white border-t border-blue-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 text-center space-y-4">
-          <h3 className="text-2xl font-extrabold text-[#123FA8]">Revive Healthcare Hospital, Bengaluru</h3>
-          <p className="text-sm font-semibold text-[#202B3C]">{HOSPITAL_INFO.address}</p>
-          <div className="flex justify-center gap-4 pt-2">
-            <button onClick={handleCallClick} className="px-6 py-3 rounded-xl bg-[#123FA8] text-white font-bold text-sm shadow-md hover:bg-blue-900 transition-all">
+      <section className="py-12 bg-white border-t border-slate-200">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center space-y-3">
+          <div className="flex items-center justify-center gap-2 text-xs font-bold text-[#123FA8]">
+            <MapPin className="w-4 h-4 text-[#F20D18]" />
+            <span>Hospital Location</span>
+          </div>
+          <h3 className="text-xl font-bold text-slate-900">Revive Healthcare Hospital</h3>
+          <p className="text-xs text-slate-600 max-w-lg mx-auto">{HOSPITAL_INFO.address}</p>
+          <div className="flex justify-center gap-3 pt-2">
+            <button
+              onClick={handleCallClick}
+              className="px-5 py-2.5 rounded-lg bg-[#123FA8] text-white text-xs font-bold hover:bg-[#0d2f80] transition-colors"
+            >
               Call: {HOSPITAL_INFO.phoneDisplay}
             </button>
-            <a href={`https://maps.google.com/?q=${encodeURIComponent(HOSPITAL_INFO.address)}`} target="_blank" rel="noopener noreferrer" className="px-6 py-3 rounded-xl bg-[#F1F8FE] text-[#123FA8] font-bold text-sm border border-blue-200 hover:bg-blue-100 transition-all">
-              Open in Google Maps
+            <a
+              href={HOSPITAL_INFO.mapsUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-5 py-2.5 rounded-lg border border-slate-300 text-slate-700 text-xs font-bold hover:bg-slate-50 transition-colors"
+            >
+              Open Google Maps
             </a>
           </div>
         </div>
