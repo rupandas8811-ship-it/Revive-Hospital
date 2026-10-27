@@ -1186,9 +1186,18 @@ body.drawer-open {
 }
 .anim-hand { transform-origin: 320px 210px; animation: waveHand 6s ease-in-out infinite 2s; }
 
-/* Smooth Scroll Reveal styling */
-.reveal-on-scroll { opacity: 0; transform: translateY(18px); transition: opacity .5s cubic-bezier(.2,.8,.3,1), transform .5s cubic-bezier(.2,.8,.3,1); }
-.reveal-on-scroll.is-revealed { opacity: 1; transform: translateY(0); }
+/* Smooth Scroll Reveal styling:
+   Default opacity: 1 and transform: none guarantee all content is immediately visible and accessible,
+   preventing blank screen issues if scripts are blocked, delayed, or executing in iframe/mobile webviews. */
+.reveal-on-scroll {
+  opacity: 1;
+  transform: none;
+  transition: opacity .4s cubic-bezier(.2,.8,.3,1), transform .4s cubic-bezier(.2,.8,.3,1);
+}
+.reveal-on-scroll.is-revealed {
+  opacity: 1;
+  transform: none;
+}
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; }

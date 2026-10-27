@@ -694,6 +694,16 @@
   <section class="consent-banner" id="consent-banner" aria-label="Optional measurement choices" hidden>
     <div class="consent-copy"><strong>Optional measurement</strong><p>Allow basic Google analytics and ad measurement if configured? Your name, number and condition are not shared.</p></div>
     <div class="consent-actions"><button class="consent-deny" id="consent-deny" type="button">Only necessary</button><button class="button button-blue consent-allow" id="consent-allow" type="button">Allow measurement</button></div>
-  </section>
+  <!-- Failsafe visibility: Ensures all sections are immediately visible -->
+  <script>
+    (function(){
+      try {
+        var items = document.querySelectorAll('.reveal-on-scroll');
+        for (var i = 0; i < items.length; i++) {
+          items[i].classList.add('is-revealed');
+        }
+      } catch (e) {}
+    })();
+  </script>
 </body>
 </html>

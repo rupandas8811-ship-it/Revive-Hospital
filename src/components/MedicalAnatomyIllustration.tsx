@@ -208,24 +208,24 @@ export const MedicalAnatomyIllustration: React.FC<MedicalAnatomyIllustrationProp
           <div className="p-2 sm:p-3">
             <svg viewBox="0 0 680 430" className="w-full h-auto max-h-[380px]" role="img" aria-label="Anal fissure pathology diagram showing mucosal tear and sphincter spasm">
               <rect width="680" height="430" fill="#ffffff" rx="8"/>
-              <ellipse cx="340" cy="215" rx="150" ry="170" fill="#fed7aa" stroke="#fdba74" stroke-width="4"/>
-              <ellipse cx="340" cy="215" rx="90" ry="110" fill="#fff7ed" stroke="#cbd5e1" stroke-width="2"/>
-              <path d="M336 215 L334 300 Q340 310 346 300 L344 215 Z" fill="#991b1b" stroke="#ef4444" stroke-width="1.5"/>
-              <circle cx="340" cy="315" r="9" fill="#f87171" stroke="#dc2626" stroke-width="1"/>
-              <ellipse cx="340" cy="205" rx="7" ry="5" fill="#fca5a5" stroke="#dc2626" stroke-width="1"/>
-              <g stroke="#dc2626" stroke-width="2" fill="none">
+              <ellipse cx="340" cy="215" rx="150" ry="170" fill="#fed7aa" stroke="#fdba74" strokeWidth="4"/>
+              <ellipse cx="340" cy="215" rx="90" ry="110" fill="#fff7ed" stroke="#cbd5e1" strokeWidth="2"/>
+              <path d="M336 215 L334 300 Q340 310 346 300 L344 215 Z" fill="#991b1b" stroke="#ef4444" strokeWidth="1.5"/>
+              <circle cx="340" cy="315" r="9" fill="#f87171" stroke="#dc2626" strokeWidth="1"/>
+              <ellipse cx="340" cy="205" rx="7" ry="5" fill="#fca5a5" stroke="#dc2626" strokeWidth="1"/>
+              <g stroke="#dc2626" strokeWidth="2" fill="none">
                 <path d="M260 215 C260 250 280 280 310 290"/>
                 <path d="M420 215 C420 250 400 280 370 290"/>
               </g>
-              <line x1="120" y1="260" x2="334" y2="260" stroke="#dc2626" stroke-width="1.2"/>
+              <line x1="120" y1="260" x2="334" y2="260" stroke="#dc2626" strokeWidth="1.2"/>
               <circle cx="334" cy="260" r="2.5" fill="#dc2626"/>
               <rect x="25" y="246" width="130" height="28" rx="4" fill="#fef2f2" stroke="#fca5a5"/>
-              <text x="90" y="259" font-size="10" font-weight="700" fill="#991b1b" text-anchor="middle">Posterior Midline Tear</text>
-              <text x="90" y="270" font-size="8.5" font-weight="600" fill="#dc2626" text-anchor="middle">Exposed Sphincter Fibers</text>
-              <line x1="560" y1="315" x2="349" y2="315" stroke="#475569" stroke-width="1.2"/>
+              <text x="90" y="259" fontSize="10" fontWeight="700" fill="#991b1b" textAnchor="middle">Posterior Midline Tear</text>
+              <text x="90" y="270" fontSize="8.5" fontWeight="600" fill="#dc2626" textAnchor="middle">Exposed Sphincter Fibers</text>
+              <line x1="560" y1="315" x2="349" y2="315" stroke="#475569" strokeWidth="1.2"/>
               <circle cx="349" cy="315" r="2.5" fill="#475569"/>
               <rect x="525" y="302" width="130" height="26" rx="4" fill="#f8fafc" stroke="#cbd5e1"/>
-              <text x="590" y="318" font-size="10" font-weight="600" fill="#0f172a" text-anchor="middle">Sentinel Skin Tag</text>
+              <text x="590" y="318" fontSize="10" fontWeight="600" fill="#0f172a" textAnchor="middle">Sentinel Skin Tag</text>
             </svg>
           </div>
           <p className="px-4 py-2 bg-slate-50 border-t border-slate-100 text-xs text-slate-600">
@@ -247,20 +247,20 @@ export const MedicalAnatomyIllustration: React.FC<MedicalAnatomyIllustrationProp
           <div className="p-2 sm:p-3">
             <svg viewBox="0 0 680 430" className="w-full h-auto max-h-[380px]" role="img" aria-label="Transsphincteric anal fistula tract traversing sphincter muscles to perianal skin">
               <rect width="680" height="430" fill="#ffffff" rx="8"/>
-              <path d="M220 50 C220 180 230 240 250 380 L430 380 C450 240 460 180 460 50 Z" fill="#fff7ed" stroke="#fdba74" stroke-width="4"/>
-              <rect x="180" y="160" width="30" height="180" rx="6" fill="#fca5a5" stroke="#ef4444" stroke-width="1"/>
-              <rect x="140" y="180" width="30" height="150" rx="6" fill="#f87171" stroke="#dc2626" stroke-width="1"/>
-              <path d="M232 205 C190 220 170 240 130 360" fill="none" stroke="#dc2626" stroke-width="4.5" stroke-linecap="round"/>
+              <path d="M220 50 C220 180 230 240 250 380 L430 380 C450 240 460 180 460 50 Z" fill="#fff7ed" stroke="#fdba74" strokeWidth="4"/>
+              <rect x="180" y="160" width="30" height="180" rx="6" fill="#fca5a5" stroke="#ef4444" strokeWidth="1"/>
+              <rect x="140" y="180" width="30" height="150" rx="6" fill="#f87171" stroke="#dc2626" strokeWidth="1"/>
+              <path d="M232 205 C190 220 170 240 130 360" fill="none" stroke="#dc2626" strokeWidth="4.5" strokeLinecap="round"/>
               <circle cx="232" cy="205" r="5" fill="#991b1b"/>
               <circle cx="130" cy="360" r="5" fill="#991b1b"/>
-              <line x1="85" y1="180" x2="232" y2="205" stroke="#dc2626" stroke-width="1.2"/>
+              <line x1="85" y1="180" x2="232" y2="205" stroke="#dc2626" strokeWidth="1.2"/>
               <rect x="15" y="166" width="128" height="28" rx="4" fill="#fef2f2" stroke="#fca5a5"/>
-              <text x="79" y="179" font-size="10" font-weight="700" fill="#991b1b" text-anchor="middle">Internal Opening</text>
-              <text x="79" y="190" font-size="8.5" font-weight="600" fill="#dc2626" text-anchor="middle">Crypt of Morgagni</text>
-              <line x1="85" y1="360" x2="130" y2="360" stroke="#dc2626" stroke-width="1.2"/>
+              <text x="79" y="179" fontSize="10" fontWeight="700" fill="#991b1b" textAnchor="middle">Internal Opening</text>
+              <text x="79" y="190" fontSize="8.5" fontWeight="600" fill="#dc2626" textAnchor="middle">Crypt of Morgagni</text>
+              <line x1="85" y1="360" x2="130" y2="360" stroke="#dc2626" strokeWidth="1.2"/>
               <rect x="15" y="346" width="128" height="28" rx="4" fill="#fef2f2" stroke="#fca5a5"/>
-              <text x="79" y="359" font-size="10" font-weight="700" fill="#991b1b" text-anchor="middle">External Opening</text>
-              <text x="79" y="370" font-size="8.5" font-weight="600" fill="#dc2626" text-anchor="middle">Perianal Cutaneous</text>
+              <text x="79" y="359" fontSize="10" fontWeight="700" fill="#991b1b" textAnchor="middle">External Opening</text>
+              <text x="79" y="370" fontSize="8.5" fontWeight="600" fill="#dc2626" textAnchor="middle">Perianal Cutaneous</text>
             </svg>
           </div>
           <p className="px-4 py-2 bg-slate-50 border-t border-slate-100 text-xs text-slate-600">
@@ -282,20 +282,20 @@ export const MedicalAnatomyIllustration: React.FC<MedicalAnatomyIllustrationProp
           <div className="p-2 sm:p-3">
             <svg viewBox="0 0 680 430" className="w-full h-auto max-h-[380px]" role="img" aria-label="Biliary tree and gallbladder showing gallstones in lumen and Hartmann pouch">
               <rect width="680" height="430" fill="#ffffff" rx="8"/>
-              <path d="M420 50 L420 160 L420 370" fill="none" stroke="#16a34a" stroke-width="18" stroke-linecap="round"/>
-              <path d="M250 160 C210 200 230 280 290 280 C340 280 380 230 380 180 C380 150 400 150 420 150" fill="#86efac" stroke="#15803d" stroke-width="3"/>
-              <polygon points="270,250 285,245 290,260 275,265" fill="#ca8a04" stroke="#713f12" stroke-width="1"/>
-              <polygon points="295,240 310,235 315,250 300,255" fill="#ca8a04" stroke="#713f12" stroke-width="1"/>
-              <polygon points="345,190 360,185 365,200 350,205" fill="#eab308" stroke="#854d0e" stroke-width="1"/>
-              <line x1="120" y1="260" x2="270" y2="255" stroke="#dc2626" stroke-width="1.2"/>
+              <path d="M420 50 L420 160 L420 370" fill="none" stroke="#16a34a" strokeWidth="18" strokeLinecap="round"/>
+              <path d="M250 160 C210 200 230 280 290 280 C340 280 380 230 380 180 C380 150 400 150 420 150" fill="#86efac" stroke="#15803d" strokeWidth="3"/>
+              <polygon points="270,250 285,245 290,260 275,265" fill="#ca8a04" stroke="#713f12" strokeWidth="1"/>
+              <polygon points="295,240 310,235 315,250 300,255" fill="#ca8a04" stroke="#713f12" strokeWidth="1"/>
+              <polygon points="345,190 360,185 365,200 350,205" fill="#eab308" stroke="#854d0e" strokeWidth="1"/>
+              <line x1="120" y1="260" x2="270" y2="255" stroke="#dc2626" strokeWidth="1.2"/>
               <circle cx="270" cy="255" r="2.5" fill="#dc2626"/>
               <rect x="15" y="246" width="135" height="28" rx="4" fill="#fef2f2" stroke="#fca5a5"/>
-              <text x="82" y="259" font-size="10" font-weight="700" fill="#991b1b" text-anchor="middle">Gallbladder Fundus</text>
-              <text x="82" y="270" font-size="8.5" font-weight="600" fill="#dc2626" text-anchor="middle">Faceted Gallstones</text>
-              <line x1="560" y1="240" x2="430" y2="240" stroke="#475569" stroke-width="1.2"/>
+              <text x="82" y="259" fontSize="10" fontWeight="700" fill="#991b1b" textAnchor="middle">Gallbladder Fundus</text>
+              <text x="82" y="270" fontSize="8.5" fontWeight="600" fill="#dc2626" textAnchor="middle">Faceted Gallstones</text>
+              <line x1="560" y1="240" x2="430" y2="240" stroke="#475569" strokeWidth="1.2"/>
               <circle cx="430" cy="240" r="2.5" fill="#475569"/>
               <rect x="515" y="226" width="145" height="26" rx="4" fill="#f8fafc" stroke="#cbd5e1"/>
-              <text x="587" y="242" font-size="10" font-weight="600" fill="#0f172a" text-anchor="middle">Common Bile Duct (CBD)</text>
+              <text x="587" y="242" fontSize="10" fontWeight="600" fill="#0f172a" textAnchor="middle">Common Bile Duct (CBD)</text>
             </svg>
           </div>
           <p className="px-4 py-2 bg-slate-50 border-t border-slate-100 text-xs text-slate-600">
@@ -317,20 +317,20 @@ export const MedicalAnatomyIllustration: React.FC<MedicalAnatomyIllustrationProp
           <div className="p-2 sm:p-3">
             <svg viewBox="0 0 680 430" className="w-full h-auto max-h-[380px]" role="img" aria-label="Abdominal wall layers with fascial ring defect and tension-free sublay mesh">
               <rect width="680" height="430" fill="#ffffff" rx="8"/>
-              <path d="M120 120 L560 120" stroke="#fbcfe8" stroke-width="22"/>
-              <path d="M120 180 L280 180 M400 180 L560 180" stroke="#f87171" stroke-width="32"/>
-              <path d="M280 180 C280 270 400 270 400 180" fill="#fef3c7" stroke="#f59e0b" stroke-width="2.5"/>
-              <path d="M240 196 L440 196" stroke="#0284c7" stroke-width="7" stroke-dasharray="3 3"/>
-              <line x1="120" y1="230" x2="280" y2="230" stroke="#dc2626" stroke-width="1.2"/>
+              <path d="M120 120 L560 120" stroke="#fbcfe8" strokeWidth="22"/>
+              <path d="M120 180 L280 180 M400 180 L560 180" stroke="#f87171" strokeWidth="32"/>
+              <path d="M280 180 C280 270 400 270 400 180" fill="#fef3c7" stroke="#f59e0b" strokeWidth="2.5"/>
+              <path d="M240 196 L440 196" stroke="#0284c7" strokeWidth="7" strokeDasharray="3 3"/>
+              <line x1="120" y1="230" x2="280" y2="230" stroke="#dc2626" strokeWidth="1.2"/>
               <circle cx="280" cy="230" r="2.5" fill="#dc2626"/>
               <rect x="15" y="216" width="135" height="28" rx="4" fill="#fef2f2" stroke="#fca5a5"/>
-              <text x="82" y="229" font-size="10" font-weight="700" fill="#991b1b" text-anchor="middle">Fascial Ring Defect</text>
-              <text x="82" y="240" font-size="8.5" font-weight="600" fill="#dc2626" text-anchor="middle">Hernia Protrusion</text>
-              <line x1="560" y1="196" x2="440" y2="196" stroke="#0284c7" stroke-width="1.2"/>
+              <text x="82" y="229" fontSize="10" fontWeight="700" fill="#991b1b" textAnchor="middle">Fascial Ring Defect</text>
+              <text x="82" y="240" fontSize="8.5" fontWeight="600" fill="#dc2626" textAnchor="middle">Hernia Protrusion</text>
+              <line x1="560" y1="196" x2="440" y2="196" stroke="#0284c7" strokeWidth="1.2"/>
               <circle cx="440" cy="196" r="2.5" fill="#0284c7"/>
               <rect x="515" y="182" width="145" height="28" rx="4" fill="#f0f9ff" stroke="#bae6fd"/>
-              <text x="587" y="195" font-size="10" font-weight="700" fill="#0369a1" text-anchor="middle">3D Composite Mesh</text>
-              <text x="587" y="206" font-size="8.5" font-weight="600" fill="#0284c7" text-anchor="middle">Tension-Free Sublay</text>
+              <text x="587" y="195" fontSize="10" fontWeight="700" fill="#0369a1" textAnchor="middle">3D Composite Mesh</text>
+              <text x="587" y="206" fontSize="8.5" fontWeight="600" fill="#0284c7" textAnchor="middle">Tension-Free Sublay</text>
             </svg>
           </div>
           <p className="px-4 py-2 bg-slate-50 border-t border-slate-100 text-xs text-slate-600">
@@ -352,17 +352,17 @@ export const MedicalAnatomyIllustration: React.FC<MedicalAnatomyIllustrationProp
           <div className="p-2 sm:p-3">
             <svg viewBox="0 0 680 430" className="w-full h-auto max-h-[380px]" role="img" aria-label="Cecum with converging taenia coli and acutely inflamed vermiform appendix">
               <rect width="680" height="430" fill="#ffffff" rx="8"/>
-              <path d="M260 40 L260 220 C260 280 340 300 400 280 C440 260 450 200 450 40" fill="#fed7aa" stroke="#ea580c" stroke-width="3"/>
-              <path d="M120 180 L260 180" fill="none" stroke="#fbcfe8" stroke-width="32" stroke-linecap="round"/>
-              <path d="M380 290 C390 320 420 340 450 330 C470 320 490 280 480 250" fill="none" stroke="#dc2626" stroke-width="16" stroke-linecap="round"/>
-              <line x1="560" y1="310" x2="455" y2="310" stroke="#dc2626" stroke-width="1.2"/>
+              <path d="M260 40 L260 220 C260 280 340 300 400 280 C440 260 450 200 450 40" fill="#fed7aa" stroke="#ea580c" strokeWidth="3"/>
+              <path d="M120 180 L260 180" fill="none" stroke="#fbcfe8" strokeWidth="32" strokeLinecap="round"/>
+              <path d="M380 290 C390 320 420 340 450 330 C470 320 490 280 480 250" fill="none" stroke="#dc2626" strokeWidth="16" strokeLinecap="round"/>
+              <line x1="560" y1="310" x2="455" y2="310" stroke="#dc2626" strokeWidth="1.2"/>
               <circle cx="455" cy="310" r="2.5" fill="#dc2626"/>
               <rect x="510" y="296" width="150" height="28" rx="4" fill="#fef2f2" stroke="#fca5a5"/>
-              <text x="585" y="309" font-size="10" font-weight="700" fill="#991b1b" text-anchor="middle">Inflamed Appendix</text>
-              <text x="585" y="320" font-size="8.5" font-weight="600" fill="#dc2626" text-anchor="middle">Appendicitis Swelling</text>
-              <line x1="120" y1="180" x2="260" y2="180" stroke="#475569" stroke-width="1.2"/>
+              <text x="585" y="309" fontSize="10" fontWeight="700" fill="#991b1b" textAnchor="middle">Inflamed Appendix</text>
+              <text x="585" y="320" fontSize="8.5" fontWeight="600" fill="#dc2626" textAnchor="middle">Appendicitis Swelling</text>
+              <line x1="120" y1="180" x2="260" y2="180" stroke="#475569" strokeWidth="1.2"/>
               <rect x="15" y="166" width="130" height="26" rx="4" fill="#f8fafc" stroke="#cbd5e1"/>
-              <text x="80" y="182" font-size="10" font-weight="600" fill="#0f172a" text-anchor="middle">Terminal Ileum</text>
+              <text x="80" y="182" fontSize="10" fontWeight="600" fill="#0f172a" textAnchor="middle">Terminal Ileum</text>
             </svg>
           </div>
           <p className="px-4 py-2 bg-slate-50 border-t border-slate-100 text-xs text-slate-600">
@@ -384,15 +384,15 @@ export const MedicalAnatomyIllustration: React.FC<MedicalAnatomyIllustrationProp
           <div className="p-2 sm:p-3">
             <svg viewBox="0 0 680 430" className="w-full h-auto max-h-[380px]" role="img" aria-label="Comparative venous hemodynamics showing competent valve vs incompetent varicose reflux">
               <rect width="680" height="430" fill="#ffffff" rx="8"/>
-              <line x1="340" y1="20" x2="340" y2="400" stroke="#e2e8f0" stroke-width="1.5" stroke-dasharray="4 4"/>
+              <line x1="340" y1="20" x2="340" y2="400" stroke="#e2e8f0" strokeWidth="1.5" strokeDasharray="4 4"/>
               {/* Left: Competent */}
-              <rect x="150" y="60" width="70" height="280" rx="6" fill="#bfdbfe" stroke="#3b82f6" stroke-width="2"/>
-              <path d="M150 200 C175 190 185 170 185 150 M220 200 C195 190 185 170 185 150" stroke="#1d4ed8" stroke-width="3" fill="none"/>
-              <text x="185" y="45" font-size="12" font-weight="700" fill="#1e3a8a" text-anchor="middle">Competent Valve</text>
+              <rect x="150" y="60" width="70" height="280" rx="6" fill="#bfdbfe" stroke="#3b82f6" strokeWidth="2"/>
+              <path d="M150 200 C175 190 185 170 185 150 M220 200 C195 190 185 170 185 150" stroke="#1d4ed8" strokeWidth="3" fill="none"/>
+              <text x="185" y="45" fontSize="12" fontWeight="700" fill="#1e3a8a" textAnchor="middle">Competent Valve</text>
               {/* Right: Incompetent */}
-              <path d="M470 60 C510 130 450 210 510 270 L510 340 L450 340 C420 270 480 200 440 130 Z" fill="#93c5fd" stroke="#dc2626" stroke-width="2.5"/>
-              <path d="M445 195 C458 190 460 178 460 165 M505 195 C492 190 490 178 490 165" stroke="#dc2626" stroke-width="3" fill="none"/>
-              <text x="480" y="45" font-size="12" font-weight="700" fill="#991b1b" text-anchor="middle">Incompetent Reflux</text>
+              <path d="M470 60 C510 130 450 210 510 270 L510 340 L450 340 C420 270 480 200 440 130 Z" fill="#93c5fd" stroke="#dc2626" strokeWidth="2.5"/>
+              <path d="M445 195 C458 190 460 178 460 165 M505 195 C492 190 490 178 490 165" stroke="#dc2626" strokeWidth="3" fill="none"/>
+              <text x="480" y="45" fontSize="12" fontWeight="700" fill="#991b1b" textAnchor="middle">Incompetent Reflux</text>
             </svg>
           </div>
           <p className="px-4 py-2 bg-slate-50 border-t border-slate-100 text-xs text-slate-600">
@@ -414,17 +414,17 @@ export const MedicalAnatomyIllustration: React.FC<MedicalAnatomyIllustrationProp
           <div className="p-2 sm:p-3">
             <svg viewBox="0 0 680 430" className="w-full h-auto max-h-[380px]" role="img" aria-label="Plantar foot anatomy showing plantar aponeurosis, deep plantar arch, metatarsal ulcer risk points">
               <rect width="680" height="430" fill="#ffffff" rx="8"/>
-              <path d="M220 70 C200 110 200 145 205 175 C215 205 225 235 228 265 C232 295 238 325 250 355 C258 375 270 395 290 395 C310 395 322 375 328 355 C334 325 338 290 340 250 C342 215 352 185 356 165 C360 145 356 130 348 120 C332 110 312 105 285 105 C255 105 230 110 220 70 Z" fill="#fff1eb" stroke="#cbd5e1" stroke-width="2"/>
-              <ellipse cx="230" cy="55" rx="14" ry="20" fill="#fff1eb" stroke="#cbd5e1" stroke-width="1.2"/>
-              <circle cx="235" cy="115" r="14" fill="#fee2e2" stroke="#dc2626" stroke-width="1.5"/>
+              <path d="M220 70 C200 110 200 145 205 175 C215 205 225 235 228 265 C232 295 238 325 250 355 C258 375 270 395 290 395 C310 395 322 375 328 355 C334 325 338 290 340 250 C342 215 352 185 356 165 C360 145 356 130 348 120 C332 110 312 105 285 105 C255 105 230 110 220 70 Z" fill="#fff1eb" stroke="#cbd5e1" strokeWidth="2"/>
+              <ellipse cx="230" cy="55" rx="14" ry="20" fill="#fff1eb" stroke="#cbd5e1" strokeWidth="1.2"/>
+              <circle cx="235" cy="115" r="14" fill="#fee2e2" stroke="#dc2626" strokeWidth="1.5"/>
               <circle cx="235" cy="115" r="4" fill="#dc2626"/>
-              <circle cx="290" cy="355" r="18" fill="#fee2e2" stroke="#dc2626" stroke-width="1.5"/>
-              <path d="M285 320 C280 270 260 210 240 150" fill="none" stroke="#dc2626" stroke-width="2"/>
-              <line x1="120" y1="115" x2="220" y2="115" stroke="#dc2626" stroke-width="1.2"/>
+              <circle cx="290" cy="355" r="18" fill="#fee2e2" stroke="#dc2626" strokeWidth="1.5"/>
+              <path d="M285 320 C280 270 260 210 240 150" fill="none" stroke="#dc2626" strokeWidth="2"/>
+              <line x1="120" y1="115" x2="220" y2="115" stroke="#dc2626" strokeWidth="1.2"/>
               <circle cx="220" cy="115" r="2.5" fill="#dc2626"/>
               <rect x="15" y="101" width="135" height="28" rx="4" fill="#fef2f2" stroke="#fca5a5"/>
-              <text x="82" y="114" font-size="10" font-weight="700" fill="#991b1b" text-anchor="middle">1st Metatarsal Head</text>
-              <text x="82" y="125" font-size="8.5" font-weight="600" fill="#dc2626" text-anchor="middle">Peak Ulcer Risk Zone</text>
+              <text x="82" y="114" fontSize="10" fontWeight="700" fill="#991b1b" textAnchor="middle">1st Metatarsal Head</text>
+              <text x="82" y="125" fontSize="8.5" fontWeight="600" fill="#dc2626" textAnchor="middle">Peak Ulcer Risk Zone</text>
             </svg>
           </div>
           <p className="px-4 py-2 bg-slate-50 border-t border-slate-100 text-xs text-slate-600">

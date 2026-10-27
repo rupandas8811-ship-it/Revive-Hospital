@@ -703,6 +703,16 @@
     <span class="floating-whatsapp-tooltip">Chat on WhatsApp: +919429690479</span>
   </a>
 
-  <!-- Standard Hospital Scripts -->
+  <!-- Failsafe visibility: Ensures all treatment, symptoms, FAQs and booking sections are permanently rendered and visible immediately -->
+  <script>
+    (function(){
+      try {
+        var items = document.querySelectorAll('.reveal-on-scroll');
+        for (var i = 0; i < items.length; i++) {
+          items[i].classList.add('is-revealed');
+        }
+      } catch (e) {}
+    })();
+  </script>
 </body>
 </html>

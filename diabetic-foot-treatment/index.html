@@ -787,6 +787,16 @@
     <div class="consent-actions"><button class="consent-deny" id="consent-deny" type="button">Only necessary</button><button class="button button-blue consent-allow" id="consent-allow" type="button">Allow measurement</button></div>
   </section>
 
-  <!-- Standard Hospital Scripts -->
+  <!-- Failsafe visibility: Ensures all sections are immediately visible -->
+  <script>
+    (function(){
+      try {
+        var items = document.querySelectorAll('.reveal-on-scroll');
+        for (var i = 0; i < items.length; i++) {
+          items[i].classList.add('is-revealed');
+        }
+      } catch (e) {}
+    })();
+  </script>
 </body>
 </html>

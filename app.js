@@ -148,7 +148,9 @@
   const query = new URLSearchParams(window.location.search);
   const requestedCondition = (query.get("condition") || "").toLowerCase();
   const allowedConditions = ["piles", "fissure", "fistula", "gallstones", "hernia", "appendix", "varicose", "varicose-veins", "diabetic", "diabetic-foot", "other"];
-  if (allowedConditions.includes(requestedCondition)) conditionSelect.value = requestedCondition;
+  if (conditionSelect && allowedConditions.includes(requestedCondition)) {
+    conditionSelect.value = requestedCondition;
+  }
   if (query.has("condition")) {
     query.delete("condition");
     const cleanSearch = query.toString();
@@ -508,22 +510,37 @@
     return "rv-" + Date.now().toString(36) + "-" + Math.random().toString(36).slice(2, 12);
   }
 
-  // Smooth scroll-reveal trigger
-  if ("IntersectionObserver" in window) {
-    const observer = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("is-revealed");
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.1 });
-    document.querySelectorAll(".reveal-on-scroll").forEach(function (el) {
-      observer.observe(el);
-    });
-  } else {
+  // Smooth scroll-reveal trigger with fail-safe visibility
+  function revealAllElements() {
     document.querySelectorAll(".reveal-on-scroll").forEach(function (el) {
       el.classList.add("is-revealed");
     });
+  }
+
+  // Ensure content is immediately visible in case intersection observer is delayed
+  revealAllElements();
+
+  if ("IntersectionObserver" in window) {
+    try {
+      const observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-revealed");
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.05, rootMargin: "60px" });
+
+      document.querySelectorAll(".reveal-on-scroll").forEach(function (el) {
+        observer.observe(el);
+      });
+
+      // Secondary safety check after full render
+      setTimeout(revealAllElements, 1000);
+    } catch (e) {
+      revealAllElements();
+    }
+  } else {
+    revealAllElements();
   }
 })();
