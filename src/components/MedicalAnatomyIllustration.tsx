@@ -8,69 +8,189 @@ export const MedicalAnatomyIllustration: React.FC<MedicalAnatomyIllustrationProp
   switch (conditionId) {
     case 'piles':
       return (
-        <div className="w-full bg-white rounded-xl overflow-hidden border border-slate-200">
+        <div className="w-full bg-white rounded-xl overflow-hidden border border-slate-200 shadow-sm">
           <div className="px-4 py-2.5 bg-slate-50 border-b border-slate-200 flex items-center justify-between">
             <span className="text-[11px] font-bold uppercase tracking-wider text-[#123FA8] flex items-center gap-1.5">
               <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-              Figure 1 · Coronal Anorectal Anatomy
+              Figure 1 · Coronal Section of Anal Canal · Vascular &amp; Sphincter Anatomy
             </span>
-            <span className="text-[10px] text-slate-500 font-medium">Textbook Reference</span>
+            <span className="text-[10px] text-slate-500 font-medium">Clinical Reference</span>
           </div>
-          <div className="p-2 sm:p-3">
-            <svg viewBox="0 0 680 430" className="w-full h-auto max-h-[380px]" role="img" aria-label="Coronal cross-section of anorectal canal showing internal and external hemorrhoids relative to dentate line">
+          <div className="p-2 sm:p-3 bg-white">
+            <svg viewBox="0 0 690 435" className="w-full h-auto max-h-[420px]" role="img" aria-label="Medically accurate coronal cross-section of rectum and anal canal showing internal and external haemorrhoids, dentate line, anal columns of Morgagni, internal and external sphincters, and anal verge">
               <defs>
-                <linearGradient id="rectumWallGradReact" x1="0" y1="0" x2="1" y2="0">
-                  <stop offset="0%" stop-color="#fed7aa"/>
-                  <stop offset="100%" stop-color="#fdba74"/>
+                <linearGradient id="rectalWallGradPiles" x1="0" y1="0" x2="1" y2="0">
+                  <stop offset="0%" stopColor="#f5cec7"/>
+                  <stop offset="50%" stopColor="#eeaba1"/>
+                  <stop offset="100%" stopColor="#e38c7f"/>
                 </linearGradient>
-                <linearGradient id="sphincterGradReact" x1="0" y1="0" x2="1" y2="0">
-                  <stop offset="0%" stop-color="#fca5a5"/>
-                  <stop offset="100%" stop-color="#f87171"/>
+                <linearGradient id="intSphincterGradPiles" x1="0" y1="0" x2="1" y2="0">
+                  <stop offset="0%" stopColor="#e8988a"/>
+                  <stop offset="100%" stopColor="#d67b6c"/>
                 </linearGradient>
+                <linearGradient id="extSphincterGradPiles" x1="0" y1="0" x2="1" y2="0">
+                  <stop offset="0%" stopColor="#c9584d"/>
+                  <stop offset="100%" stopColor="#a83c32"/>
+                </linearGradient>
+                <linearGradient id="submucosaGradPiles" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stopColor="#faeee9"/>
+                  <stop offset="100%" stopColor="#f2dad2"/>
+                </linearGradient>
+                <linearGradient id="veinGradPiles" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stopColor="#5b8bb8"/>
+                  <stop offset="100%" stopColor="#2a5278"/>
+                </linearGradient>
+                <linearGradient id="arteryGradPiles" x1="0" y1="0" x2="1" y2="0">
+                  <stop offset="0%" stopColor="#d94b41"/>
+                  <stop offset="100%" stopColor="#a62820"/>
+                </linearGradient>
+                <pattern id="muscleHatchPiles" width="6" height="6" patternTransform="rotate(45 0 0)" patternUnits="userSpaceOnUse">
+                  <line x1="0" y1="0" x2="0" y2="6" stroke="#ffffff" strokeWidth="0.8" opacity="0.35"/>
+                </pattern>
               </defs>
-              <rect width="680" height="430" fill="#ffffff" rx="8"/>
-              <path d="M190 30 C190 80 205 120 205 170 C205 210 200 240 215 280 C230 320 245 350 250 395" fill="none" stroke="#cbd5e1" stroke-width="26" opacity="0.4"/>
-              <path d="M490 30 C490 80 475 120 475 170 C475 210 480 240 465 280 C450 320 435 350 430 395" fill="none" stroke="#cbd5e1" stroke-width="26" opacity="0.4"/>
-              <path d="M195 30 C195 90 220 130 220 180 C220 225 215 255 230 295 C242 328 255 355 260 395 L420 395 C425 355 438 328 450 295 C465 255 460 225 460 180 C460 130 485 90 485 30 Z" fill="#fff7ed"/>
-              <path d="M180 30 C180 90 208 135 208 185 C208 230 202 260 218 300 C232 335 245 365 250 400" fill="none" stroke="url(#rectumWallGradReact)" stroke-width="14"/>
-              <path d="M500 30 C500 90 472 135 472 185 C472 230 478 260 462 300 C448 335 435 365 430 400" fill="none" stroke="url(#rectumWallGradReact)" stroke-width="14"/>
-              <path d="M162 195 C162 250 178 310 190 365 L218 360 C206 310 194 250 194 195 Z" fill="url(#sphincterGradReact)" stroke="#ef4444" stroke-width="1"/>
-              <path d="M518 195 C518 250 502 310 490 365 L462 360 C474 310 486 250 486 195 Z" fill="url(#sphincterGradReact)" stroke="#ef4444" stroke-width="1"/>
-              <line x1="225" y1="230" x2="455" y2="230" stroke="#0284c7" stroke-width="2.5" stroke-dasharray="6 4"/>
-              <g transform="translate(242, 178)">
-                <path d="M0 0 C12 -18 35 -14 38 6 C40 24 16 32 0 20 Z" fill="#991b1b" stroke="#7f1d1d" stroke-width="1.5"/>
-                <ellipse cx="18" cy="4" rx="8" ry="4" fill="#ef4444" opacity="0.6"/>
+
+              <rect width="690" height="435" fill="#ffffff" rx="8"/>
+
+              {/* Pelvic Floor / Levator Ani */}
+              <path d="M125 70 C165 90 205 120 235 160 L250 150 C220 110 180 80 140 60 Z" fill="#b94e44" opacity="0.75"/>
+              <path d="M565 70 C525 90 485 120 455 160 L440 150 C470 110 510 80 550 60 Z" fill="#b94e44" opacity="0.75"/>
+
+              {/* Rectal Wall */}
+              <path d="M215 20 C220 60 225 110 230 155 C227 220 220 285 205 350 L225 355 C243 290 250 220 253 155 C248 110 243 60 237 20 Z" fill="url(#rectalWallGradPiles)" stroke="#c26f63" strokeWidth="1"/>
+              <path d="M475 20 C470 60 465 110 460 155 C463 220 470 285 485 350 L465 355 C447 290 440 220 437 155 C442 110 447 60 453 20 Z" fill="url(#rectalWallGradPiles)" stroke="#c26f63" strokeWidth="1"/>
+
+              {/* External Anal Sphincter (EAS) */}
+              <path d="M180 165 C190 160 225 175 230 210 C235 250 233 300 220 365 C200 368 185 360 180 345 C175 310 173 250 175 200 C175 180 177 170 180 165 Z" fill="url(#extSphincterGradPiles)" stroke="#8e2b22" strokeWidth="1.2"/>
+              <path d="M180 165 C190 160 225 175 230 210 C235 250 233 300 220 365 C200 368 185 360 180 345 C175 310 173 250 175 200 C175 180 177 170 180 165 Z" fill="url(#muscleHatchPiles)"/>
+              
+              <path d="M510 165 C500 160 465 175 460 210 C455 250 457 300 470 365 C490 368 505 360 510 345 C515 310 517 250 515 200 C515 180 513 170 510 165 Z" fill="url(#extSphincterGradPiles)" stroke="#8e2b22" strokeWidth="1.2"/>
+              <path d="M510 165 C500 160 465 175 460 210 C455 250 457 300 470 365 C490 368 505 360 510 345 C515 310 517 250 515 200 C515 180 513 170 510 165 Z" fill="url(#muscleHatchPiles)"/>
+
+              {/* Internal Anal Sphincter (IAS) */}
+              <path d="M237 170 C245 170 253 190 253 225 C253 265 247 305 240 345 C233 348 227 344 225 338 C231 295 235 255 233 220 C231 195 231 178 237 170 Z" fill="url(#intSphincterGradPiles)" stroke="#af5445" strokeWidth="1"/>
+              <path d="M453 170 C445 170 437 190 437 225 C437 265 443 305 450 345 C457 348 463 344 465 338 C459 295 455 255 457 220 C459 195 459 178 453 170 Z" fill="url(#intSphincterGradPiles)" stroke="#af5445" strokeWidth="1"/>
+
+              {/* Intersphincteric Space */}
+              <path d="M229 185 C233 235 231 290 225 340" stroke="#cbd5e1" strokeWidth="1" strokeDasharray="2 2" fill="none"/>
+              <path d="M461 185 C457 235 459 290 465 340" stroke="#cbd5e1" strokeWidth="1" strokeDasharray="2 2" fill="none"/>
+
+              {/* Submucosa & Rectal Mucosa */}
+              <path d="M247 20 C253 70 261 120 267 165 C270 190 275 215 277 245 C280 285 275 325 260 365 L280 372 C297 330 300 285 297 245 C293 215 287 190 283 165 C277 120 270 70 263 20 Z" fill="url(#submucosaGradPiles)" opacity="0.6"/>
+              <path d="M443 20 C437 70 429 120 423 165 C420 190 415 215 413 245 C410 285 415 325 430 365 L410 372 C393 330 390 285 393 245 C397 215 403 190 407 165 C413 120 420 70 427 20 Z" fill="url(#submucosaGradPiles)" opacity="0.6"/>
+
+              {/* Anal Canal Center Lumen */}
+              <path d="M260 20 Q345 30 430 20 L423 165 C420 195 413 215 411 245 C407 290 413 330 425 365 C385 375 305 375 265 365 C277 330 283 290 279 245 C277 215 270 195 267 165 Z" fill="#fff5f2" opacity="0.4"/>
+
+              {/* Vertical Anal Columns of Morgagni */}
+              <g id="analColumnsGroupReact">
+                <path d="M300 95 C303 125 305 155 301 185" stroke="#db8f82" strokeWidth="3" strokeLinecap="round" fill="none"/>
+                <path d="M323 90 C325 125 327 158 325 188" stroke="#db8f82" strokeWidth="3" strokeLinecap="round" fill="none"/>
+                <path d="M345 88 C345 125 345 160 345 188" stroke="#db8f82" strokeWidth="3" strokeLinecap="round" fill="none"/>
+                <path d="M367 90 C365 125 363 158 365 188" stroke="#db8f82" strokeWidth="3" strokeLinecap="round" fill="none"/>
+                <path d="M390 95 C387 125 385 155 389 185" stroke="#db8f82" strokeWidth="3" strokeLinecap="round" fill="none"/>
               </g>
-              <g transform="translate(245, 290)">
-                <circle cx="0" cy="0" r="15" fill="#b91c1c" stroke="#7f1d1d" stroke-width="1.5"/>
-                <circle cx="2" cy="-2" r="5" fill="#f87171" opacity="0.7"/>
+
+              {/* Anal Valves & Crypts */}
+              <path d="M285 188 Q295 196 305 188 Q315 196 325 188 Q335 196 345 188 Q355 196 365 188 Q375 196 385 188 Q395 196 405 188" fill="none" stroke="#cf6e5f" strokeWidth="2"/>
+
+              {/* DENTATE / PECTINATE LINE */}
+              <path d="M265 192 Q285 185 305 192 T345 192 T385 192 T425 192" fill="none" stroke="#2563eb" strokeWidth="2.2" strokeDasharray="4 3"/>
+
+              {/* INTERNAL HAEMORRHOID */}
+              <g id="internalHaemorrhoidReact">
+                <path d="M265 122 C252 133 248 153 254 172 C260 188 276 195 296 192 C316 188 323 168 318 148 C314 130 295 118 265 122 Z" fill="#eb988d" stroke="#bd5245" strokeWidth="1.4"/>
+                <path d="M266 140 C272 133 282 134 286 142 C290 150 284 158 276 160 C269 162 262 150 266 140 Z" fill="url(#veinGradPiles)" stroke="#1e3a8a" strokeWidth="0.8"/>
+                <path d="M284 146 C290 140 300 142 304 150 C308 158 302 168 292 170 C284 172 278 162 284 146 Z" fill="url(#veinGradPiles)" stroke="#1e3a8a" strokeWidth="0.8"/>
+                <path d="M269 160 C274 154 284 156 288 164 C292 172 286 182 278 184 C270 186 264 176 269 160 Z" fill="url(#veinGradPiles)" stroke="#1e3a8a" strokeWidth="0.8"/>
+                <path d="M294 158 C299 153 308 154 312 162 C316 170 310 180 302 182 C294 184 289 174 294 158 Z" fill="url(#veinGradPiles)" stroke="#1e3a8a" strokeWidth="0.8"/>
+                <path d="M260 102 C265 116 272 126 279 140" stroke="url(#arteryGradPiles)" strokeWidth="2.2" strokeLinecap="round" fill="none"/>
+                <path d="M279 140 C284 148 289 154 292 161" stroke="url(#arteryGradPiles)" strokeWidth="1.6" strokeLinecap="round" fill="none"/>
               </g>
-              <line x1="85" y1="130" x2="210" y2="130" stroke="#475569" stroke-width="1.2"/>
-              <circle cx="210" cy="130" r="2.5" fill="#475569"/>
-              <rect x="15" y="116" width="100" height="26" rx="4" fill="#f8fafc" stroke="#cbd5e1"/>
-              <text x="65" y="133" font-size="10.5" font-weight="700" fill="#0f172a" text-anchor="middle">Rectal Mucosa</text>
-              <line x1="110" y1="182" x2="242" y2="182" stroke="#dc2626" stroke-width="1.2"/>
-              <circle cx="242" cy="182" r="2.5" fill="#dc2626"/>
-              <rect x="15" y="168" width="128" height="28" rx="4" fill="#fef2f2" stroke="#fca5a5"/>
-              <text x="79" y="181" font-size="10" font-weight="700" fill="#991b1b" text-anchor="middle">Internal Piles</text>
-              <text x="79" y="192" font-size="8.5" font-weight="600" fill="#dc2626" text-anchor="middle">Above Dentate Line</text>
-              <line x1="110" y1="230" x2="225" y2="230" stroke="#0284c7" stroke-width="1.2"/>
-              <circle cx="225" cy="230" r="2.5" fill="#0284c7"/>
-              <rect x="15" y="217" width="128" height="26" rx="4" fill="#f0f9ff" stroke="#bae6fd"/>
-              <text x="79" y="233" font-size="10" font-weight="700" fill="#0369a1" text-anchor="middle">Dentate Line (Pectinate)</text>
-              <line x1="110" y1="290" x2="245" y2="290" stroke="#dc2626" stroke-width="1.2"/>
-              <circle cx="245" cy="290" r="2.5" fill="#dc2626"/>
-              <rect x="15" y="276" width="128" height="28" rx="4" fill="#fef2f2" stroke="#fca5a5"/>
-              <text x="79" y="289" font-size="10" font-weight="700" fill="#991b1b" text-anchor="middle">External Piles</text>
-              <text x="79" y="300" font-size="8.5" font-weight="600" fill="#dc2626" text-anchor="middle">Below Dentate Line</text>
-              <line x1="570" y1="250" x2="495" y2="250" stroke="#475569" stroke-width="1.2"/>
-              <circle cx="495" cy="250" r="2.5" fill="#475569"/>
-              <rect x="535" y="237" width="130" height="26" rx="4" fill="#f8fafc" stroke="#cbd5e1"/>
-              <text x="600" y="253" font-size="10" font-weight="600" fill="#0f172a" text-anchor="middle">Internal Anal Sphincter</text>
+
+              {/* EXTERNAL HAEMORRHOID */}
+              <g id="externalHaemorrhoidReact">
+                <path d="M415 318 C430 313 448 320 454 336 C461 353 451 371 438 376 C423 380 410 368 407 350 C405 334 409 322 415 318 Z" fill="#e89d92" stroke="#b04b3e" strokeWidth="1.4"/>
+                <ellipse cx="430" cy="340" rx="12" ry="9" fill="url(#veinGradPiles)" stroke="#1e3a8a" strokeWidth="0.8"/>
+                <ellipse cx="439" cy="354" rx="10" ry="8" fill="url(#veinGradPiles)" stroke="#1e3a8a" strokeWidth="0.8"/>
+                <ellipse cx="423" cy="357" rx="9" ry="7" fill="url(#veinGradPiles)" stroke="#1e3a8a" strokeWidth="0.8"/>
+                <path d="M453 346 C465 348 477 353 490 358" stroke="#2a5278" strokeWidth="1.8" strokeLinecap="round" fill="none"/>
+              </g>
+
+              {/* Normal Contralateral Cushion */}
+              <path d="M405 145 C399 152 395 165 399 175 C403 182 413 185 420 182 C425 178 427 165 423 155 C420 148 411 142 405 145 Z" fill="#eb988d" stroke="#bd5245" strokeWidth="1" opacity="0.65"/>
+              <ellipse cx="411" cy="165" rx="6" ry="8" fill="#5b8bb8" opacity="0.5"/>
+
+              {/* Normal Left Verge */}
+              <path d="M265 365 C255 372 243 376 230 375" stroke="#cf7e72" strokeWidth="2" fill="none"/>
+
+              {/* LEFT SIDE LABELS */}
+              {/* 1. Anal Columns (Columns of Morgagni) */}
+              <line x1="315" y1="120" x2="202" y2="76" stroke="#475569" strokeWidth="1.2"/>
+              <circle cx="315" cy="120" r="2.8" fill="#0f172a"/>
+              <g transform="translate(14, 55)">
+                <rect width="188" height="42" rx="6" fill="#ffffff" stroke="#cbd5e1" strokeWidth="1"/>
+                <text x="10" y="17" fontSize="10.5" fontWeight="700" fill="#0f172a" fontFamily="system-ui, sans-serif">Anal Columns (Columns of Morgagni)</text>
+                <text x="10" y="32" fontSize="9.5" fill="#64748b" fontFamily="system-ui, sans-serif">Longitudinal mucosal folds</text>
+              </g>
+
+              {/* 2. Internal Haemorrhoid */}
+              <line x1="285" y1="158" x2="202" y2="166" stroke="#475569" strokeWidth="1.2"/>
+              <circle cx="285" cy="158" r="2.8" fill="#0f172a"/>
+              <g transform="translate(14, 145)">
+                <rect width="188" height="42" rx="6" fill="#ffffff" stroke="#cbd5e1" strokeWidth="1"/>
+                <text x="10" y="17" fontSize="11" fontWeight="700" fill="#0f172a" fontFamily="system-ui, sans-serif">Internal Haemorrhoid</text>
+                <text x="10" y="32" fontSize="9" fill="#64748b" fontFamily="system-ui, sans-serif">Above dentate line · Mucosal vascular cushion</text>
+              </g>
+
+              {/* 3. Internal Anal Sphincter */}
+              <line x1="235" y1="260" x2="202" y2="256" stroke="#475569" strokeWidth="1.2"/>
+              <circle cx="235" cy="260" r="2.8" fill="#0f172a"/>
+              <g transform="translate(14, 235)">
+                <rect width="188" height="42" rx="6" fill="#ffffff" stroke="#cbd5e1" strokeWidth="1"/>
+                <text x="10" y="17" fontSize="11" fontWeight="700" fill="#0f172a" fontFamily="system-ui, sans-serif">Internal Anal Sphincter</text>
+                <text x="10" y="32" fontSize="9.5" fill="#64748b" fontFamily="system-ui, sans-serif">Involuntary circular smooth muscle</text>
+              </g>
+
+              {/* 4. External Anal Sphincter */}
+              <line x1="198" y1="310" x2="202" y2="346" stroke="#475569" strokeWidth="1.2"/>
+              <circle cx="198" cy="310" r="2.8" fill="#0f172a"/>
+              <g transform="translate(14, 325)">
+                <rect width="188" height="42" rx="6" fill="#ffffff" stroke="#cbd5e1" strokeWidth="1"/>
+                <text x="10" y="17" fontSize="11" fontWeight="700" fill="#0f172a" fontFamily="system-ui, sans-serif">External Anal Sphincter</text>
+                <text x="10" y="32" fontSize="9.5" fill="#64748b" fontFamily="system-ui, sans-serif">Voluntary striated skeletal muscle</text>
+              </g>
+
+              {/* RIGHT SIDE LABELS */}
+              {/* 5. Dentate / Pectinate Line */}
+              <line x1="420" y1="192" x2="488" y2="186" stroke="#2563eb" strokeWidth="1.4"/>
+              <circle cx="420" cy="192" r="3" fill="#2563eb"/>
+              <g transform="translate(488, 165)">
+                <rect width="188" height="42" rx="6" fill="#ffffff" stroke="#93c5fd" strokeWidth="1.2"/>
+                <text x="10" y="17" fontSize="11" fontWeight="700" fill="#1e3a8a" fontFamily="system-ui, sans-serif">Dentate (Pectinate) Line</text>
+                <text x="10" y="32" fontSize="9.5" fill="#2563eb" fontFamily="system-ui, sans-serif">Mucocutaneous transition junction</text>
+              </g>
+
+              {/* 6. External Haemorrhoid */}
+              <line x1="440" y1="345" x2="488" y2="296" stroke="#475569" strokeWidth="1.2"/>
+              <circle cx="440" cy="345" r="2.8" fill="#0f172a"/>
+              <g transform="translate(488, 275)">
+                <rect width="188" height="42" rx="6" fill="#ffffff" stroke="#cbd5e1" strokeWidth="1"/>
+                <text x="10" y="17" fontSize="11" fontWeight="700" fill="#0f172a" fontFamily="system-ui, sans-serif">External Haemorrhoid</text>
+                <text x="10" y="32" fontSize="9" fill="#64748b" fontFamily="system-ui, sans-serif">Below dentate line · Sensitive anoderm</text>
+              </g>
+
+              {/* 7. Anal Verge */}
+              <line x1="420" y1="375" x2="488" y2="386" stroke="#475569" strokeWidth="1.2"/>
+              <circle cx="420" cy="375" r="2.8" fill="#0f172a"/>
+              <g transform="translate(488, 365)">
+                <rect width="188" height="42" rx="6" fill="#ffffff" stroke="#cbd5e1" strokeWidth="1"/>
+                <text x="10" y="17" fontSize="11" fontWeight="700" fill="#0f172a" fontFamily="system-ui, sans-serif">Anal Verge</text>
+                <text x="10" y="32" fontSize="9.5" fill="#64748b" fontFamily="system-ui, sans-serif">Anal canal to perianal skin junction</text>
+              </g>
             </svg>
           </div>
           <p className="px-4 py-2 bg-slate-50 border-t border-slate-100 text-xs text-slate-600">
-            Coronal section of anorectal canal indicating internal and external hemorrhoids relative to the dentate line.
+            <strong>Figure 1: Coronal clinical section of the human anal canal.</strong> Demonstrates the vascular anatomy of haemorrhoidal cushions relative to the dentate (pectinate) line, anal columns of Morgagni, internal sphincter (involuntary circular smooth muscle), external sphincter (voluntary striated skeletal muscle), and anal verge.
           </p>
         </div>
       );
